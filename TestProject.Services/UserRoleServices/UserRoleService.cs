@@ -5,20 +5,20 @@ using TestProject.DAL.Entities;
 using TestProject.Infrastructure.Infrastructures;
 using TestProject.Repository.GenericRepo;
 
-namespace TestProject.Services.UserServices
+namespace TestProject.Services.UserRoleServices
 {
-    public class UserService : IUserService
+    public class UserRoleService : IUserRoleService
     {
-        private readonly IGenericRepository<User> userRepo;
-        private readonly UserManager userManager;
+        private readonly IGenericRepository<UserRole> userRoleRepo;
+        private readonly UserRoleManager userManager;
         private readonly IUnitOfWork unitOfWork;
-        public UserService(IGenericRepository<User> userRepo, UserManager userManager, UnitOfWork unitOfWork)
+        public UserRoleService(IGenericRepository<UserRole> userRoleRepo, UserRoleManager userManager, UnitOfWork unitOfWork)
         {
-            this.userRepo = userRepo;
+            this.userRoleRepo = userRoleRepo;
             this.userManager = userManager;
             this.unitOfWork = unitOfWork;
         }
-        public bool AddUser(User user)
+        public bool AddUserRole(UserRole user)
         {
             if (user == null)
             {
@@ -26,7 +26,7 @@ namespace TestProject.Services.UserServices
             }
             try
             {
-                userRepo.Insert(user);
+                userRoleRepo.Insert(user);
                 Save();
                 return true;
             }
@@ -35,7 +35,7 @@ namespace TestProject.Services.UserServices
                 throw e;
             }
         }
-        public bool UpdateUser(User user)
+        public bool UpdateUserRole(UserRole user)
         {
             if (user == null)
             {
@@ -44,7 +44,7 @@ namespace TestProject.Services.UserServices
 
             try
             {
-                userRepo.Update(user, x => x.ID, x => x.CREATED_DATE, x => x.CREATED_USER_ID, x => x.CREATED_USER_IP);
+                userRoleRepo.Update(user, x => x.ID, x => x.CREATED_DATE, x => x.CREATED_USER_ID, x => x.CREATED_USER_IP);
                 Save();
                 return true;
             }
@@ -53,22 +53,22 @@ namespace TestProject.Services.UserServices
                 throw e;
             }
         }
-        public List<User> GetAllUsers()
+        public List<UserRole> GetAllUserRoles()
         {
             try
             {
-                return userRepo.GetAll().ToList();
+                return userRoleRepo.GetAll().ToList();
             }
             catch (Exception e)
             {
                 throw e;
             }
         }
-        public User GetUserById(int id)
+        public UserRole GetUserRoleById(int id)
         {
             try
             {
-                return userRepo.Get(a => a.ID == id);
+                return userRoleRepo.Get(a => a.ID == id);
             }
             catch (Exception e)
             {

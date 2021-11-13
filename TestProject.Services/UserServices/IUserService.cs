@@ -7,8 +7,8 @@ namespace TestProject.Services.UserServices
     {
         bool AddUser(User user);
         public bool UpdateUser(User user);
-        public List<User> GetAllActionDetails();
-        public User GetActionDetailById(int id);
+        public List<User> GetAllUsers();
+        public User GetUserById(int id);
         public void Save();
     }
 }
