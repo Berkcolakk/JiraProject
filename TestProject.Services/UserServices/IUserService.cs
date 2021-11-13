@@ -1,0 +1,14 @@
+﻿using System.Collections.Generic;
+using TestProject.DAL.Entities;
+
+namespace TestProject.Services.UserServices
+{
+    public interface IUserService
+    {
+        bool AddUser(User user);
+        public bool UpdateUser(User user);
+        public List<User> GetAllActionDetails();
+        public User GetActionDetailById(int id);
+        public void Save();
+    }
+}

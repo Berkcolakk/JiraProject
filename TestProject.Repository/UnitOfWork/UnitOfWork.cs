@@ -1,8 +1,8 @@
 ﻿using System.Transactions;
 using TestProject.DAL.Context;
-using WiodySurvey.Data.Infrastructure;
+using TestProject.Infrastructure.Infrastructures;
 
-namespace TestProject.DAL.Repository
+namespace TestProject.Repository.GenericRepo
 {
     public class UnitOfWork : IUnitOfWork
     {

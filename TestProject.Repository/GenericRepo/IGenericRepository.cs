@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq.Expressions;
 
-namespace TestProject.DAL.Repository
+namespace TestProject.Repository.GenericRepo
 {
     public interface IGenericRepository<T>
     {

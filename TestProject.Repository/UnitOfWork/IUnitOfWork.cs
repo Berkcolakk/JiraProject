@@ -1,4 +1,6 @@
-﻿namespace TestProject.DAL.Repository
+﻿using TestProject.Repository.GenericRepo;
+
+namespace TestProject.Infrastructure.Infrastructures
 {
     public interface IUnitOfWork
     {

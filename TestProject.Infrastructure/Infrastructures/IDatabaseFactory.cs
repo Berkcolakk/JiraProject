@@ -1,7 +1,7 @@
 ﻿using System;
 using TestProject.DAL.Context;
 
-namespace WiodySurvey.Data.Infrastructure
+namespace TestProject.Infrastructure.Infrastructures
 {
     public interface IDatabaseFactory : IDisposable
     {

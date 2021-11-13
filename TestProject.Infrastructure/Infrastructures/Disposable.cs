@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace TestProject.DAL.Infrastructure
+namespace TestProject.Infrastructure.Infrastructures
 {
     public class Disposable : IDisposable
     {

@@ -16,6 +16,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\TestProject.DAL\TestProject.DAL.csproj" />
+    <ProjectReference Include="..\TestProject.Utilities\TestProject.Utilities.csproj" />
   </ItemGroup>
 
   <ItemGroup>

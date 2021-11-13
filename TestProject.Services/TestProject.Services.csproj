@@ -20,4 +20,9 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.12" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\TestProject.DAL\TestProject.DAL.csproj" />
+    <ProjectReference Include="..\TestProject.Repository\TestProject.Repository.csproj" />
+  </ItemGroup>
+
 </Project>

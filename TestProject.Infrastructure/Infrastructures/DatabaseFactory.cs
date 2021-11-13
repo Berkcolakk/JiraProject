@@ -1,7 +1,6 @@
 ﻿using TestProject.DAL.Context;
-using WiodySurvey.Data.Infrastructure;
 
-namespace TestProject.DAL.Infrastructure
+namespace TestProject.Infrastructure.Infrastructures
 {
     public class DatabaseFactory : Disposable, IDatabaseFactory
     {
