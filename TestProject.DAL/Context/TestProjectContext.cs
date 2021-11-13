@@ -9,9 +9,13 @@ namespace TestProject.DAL.Context
     public class TestProjectContext : DbContext
     {
         public TestProjectContext(DbContextOptions<TestProjectContext> options) : base(options) { }
+
+        public TestProjectContext() { }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
+            //optionsBuilder.UseSqlServer(@"Server=.;Database=TestProjectDB;Trusted_Connection=True;");
             base.OnConfiguring(optionsBuilder);
+            optionsBuilder.UseSqlServer("Server=.;Database=TestProjectDB;Trusted_Connection=True;");
         }
         public DbSet<User> User { get; set; }
 
@@ -46,11 +50,23 @@ namespace TestProject.DAL.Context
         public DbSet<PayoffDetail> PayoffDetail { get; set; }
         public DbSet<PayoffDefault> PayoffDefault { get; set; }
         public DbSet<PayoffControl> PayoffControl { get; set; }
-        public object WindowsIdentity { get; private set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            System.Collections.Generic.IEnumerable<Microsoft.EntityFrameworkCore.Metadata.IMutableForeignKey> cascadeFKs = modelBuilder.Model.GetEntityTypes()
+            .SelectMany(t => t.GetForeignKeys())
+            .Where(fk => !fk.IsOwnership && fk.DeleteBehavior == DeleteBehavior.Cascade);
+
+            foreach (Microsoft.EntityFrameworkCore.Metadata.IMutableForeignKey fk in cascadeFKs)
+            {
+                fk.DeleteBehavior = DeleteBehavior.Restrict;
+            }
+
             base.OnModelCreating(modelBuilder);
+        }
+        public void Commit()
+        {
+            SaveChanges();
         }
         public override int SaveChanges(bool acceptAllChangesOnSuccess)
         {
