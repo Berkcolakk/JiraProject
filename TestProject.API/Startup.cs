@@ -10,6 +10,8 @@ using TestProject.Infrastructure.Infrastructures;
 using TestProject.Repository.GenericRepo;
 using TestProject.Repository.UnitOfWork;
 using TestProject.Services.CompanyServices;
+using TestProject.Services.MenuRoleServices;
+using TestProject.Services.MenuServices;
 using TestProject.Services.RoleServices;
 using TestProject.Services.UserRoleServices;
 using TestProject.Services.UserServices;
@@ -49,8 +51,11 @@ namespace TestProject.API
             services.AddScoped<ICompanyService, CompanyService>();
             services.AddScoped<CompanyManager>();
 
-            //services.AddScoped<IUserRoleService, UserRoleService>();
+            services.AddScoped<IMenuService, MenuService>();
+            services.AddScoped<MenuManager>();
 
+            services.AddScoped<IMenuRoleService, MenuRoleService>();
+            services.AddScoped<MenuRoleManager>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
