@@ -1,10 +1,11 @@
-﻿using TestProject.Repository.GenericRepo;
+﻿using System.Threading.Tasks;
+using TestProject.Repository.GenericRepo;
 
 namespace TestProject.Repository.UnitOfWork
 {
     public interface IUnitOfWork
     {
-        void Save();
+        Task Save();
         IGenericRepository<T> GetRepository<T>() where T : class;
     }
 }

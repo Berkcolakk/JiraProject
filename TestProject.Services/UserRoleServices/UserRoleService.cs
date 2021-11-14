@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
+using System.Threading.Tasks;
 using TestProject.DAL.Entities;
 using TestProject.Repository.GenericRepo;
 using TestProject.Repository.UnitOfWork;
+using TestProject.ServiceManager.UserRoleServiceMangers;
 
 namespace TestProject.Services.UserRoleServices
 {
@@ -18,7 +19,7 @@ namespace TestProject.Services.UserRoleServices
             this.userManager = userManager;
             this.unitOfWork = unitOfWork;
         }
-        public bool AddUserRole(UserRole user)
+        public async Task<bool> AddUserRole(UserRole user)
         {
             if (user == null)
             {
@@ -26,8 +27,8 @@ namespace TestProject.Services.UserRoleServices
             }
             try
             {
-                userRoleRepo.Insert(user);
-                Save();
+                await userRoleRepo.Insert(user);
+                await Save();
                 return true;
             }
             catch (Exception e)
@@ -35,7 +36,7 @@ namespace TestProject.Services.UserRoleServices
                 throw e;
             }
         }
-        public bool UpdateUserRole(UserRole user)
+        public async Task<bool> UpdateUserRole(UserRole user)
         {
             if (user == null)
             {
@@ -45,7 +46,7 @@ namespace TestProject.Services.UserRoleServices
             try
             {
                 userRoleRepo.Update(user, x => x.ID, x => x.CrtDate, x => x.CrtUserID, x => x.CrtUserIP);
-                Save();
+                await Save();
                 return true;
             }
             catch (Exception e)
@@ -53,7 +54,7 @@ namespace TestProject.Services.UserRoleServices
                 throw e;
             }
         }
-        public bool DeleteUserRole(int userRoleId)
+        public async Task<bool> DeleteUserRole(int userRoleId)
         {
             if (userRoleId == 0)
             {
@@ -62,7 +63,7 @@ namespace TestProject.Services.UserRoleServices
 
             try
             {
-                UserRole userRole = GetUserRoleById(userRoleId);
+                UserRole userRole = await GetUserRoleById(userRoleId);
                 userRoleRepo.Delete(userRole);
                 Save();
                 return true;
@@ -72,32 +73,32 @@ namespace TestProject.Services.UserRoleServices
                 throw e;
             }
         }
-        public List<UserRole> GetAllUserRoles()
+        public async Task<List<UserRole>> GetAllUserRoles()
         {
             try
             {
-                return userRoleRepo.GetAll().ToList();
+                return await userRoleRepo.GetAll();
             }
             catch (Exception e)
             {
                 throw e;
             }
         }
-        public UserRole GetUserRoleById(int id)
+        public async Task<UserRole> GetUserRoleById(int id)
         {
             try
             {
-                return userRoleRepo.Get(a => a.ID == id);
+                return await userRoleRepo.Get(a => a.ID == id);
             }
             catch (Exception e)
             {
                 throw e;
             }
         }
-        public void Save()
+        public async Task Save()
         {
 
-            unitOfWork.Save();
+            await unitOfWork.Save();
         }
     }
 }

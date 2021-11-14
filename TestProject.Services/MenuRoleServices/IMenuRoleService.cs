@@ -1,15 +1,16 @@
 ﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using TestProject.DAL.Entities;
 
 namespace TestProject.Services.MenuRoleServices
 {
     public interface IMenuRoleService
     {
-        bool AddMenuRole(MenuRole MenuRole);
-        public bool UpdateMenuRole(MenuRole MenuRole);
-        public List<MenuRole> GetAllMenuRoles();
-        public MenuRole GetMenuRoleById(int id);
-        bool DeleteMenuRole(int MenuRoleId);
-        public void Save();
+        Task<bool> AddMenuRole(MenuRole MenuRole);
+        public Task<bool> UpdateMenuRole(MenuRole MenuRole);
+        public Task<List<MenuRole>> GetAllMenuRoles();
+        public Task<MenuRole> GetMenuRoleById(int id);
+        Task<bool> DeleteMenuRole(int MenuRoleId);
+        public Task Save();
     }
 }

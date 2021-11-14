@@ -1,15 +1,16 @@
 ﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using TestProject.DAL.Entities;
 
 namespace TestProject.Services.UserRoleServices
 {
     public interface IUserRoleService
     {
-        bool AddUserRole(UserRole user);
-        public bool UpdateUserRole(UserRole user);
-        public List<UserRole> GetAllUserRoles();
-        public UserRole GetUserRoleById(int id);
-        bool DeleteUserRole(int userId);
-        public void Save();
+        Task<bool> AddUserRole(UserRole user);
+        public Task<bool> UpdateUserRole(UserRole user);
+        public Task<List<UserRole>> GetAllUserRoles();
+        public Task<UserRole> GetUserRoleById(int id);
+        Task<bool> DeleteUserRole(int userId);
+        public Task Save();
     }
 }

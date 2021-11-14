@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
 using TestProject.DAL.Entities;
 using TestProject.Services.UserRoleServices;
 
@@ -18,43 +19,43 @@ namespace TestProject.API.Controllers.UserRoles
         [HttpGet]
         [Route("/[controller]/GetAllUserRoles")]
         [Produces("application/json")]
-        public IActionResult GetAllUserRoles()
+        public async Task<IActionResult> GetAllUserRoles()
         {
-            return Ok(userRoleService.GetAllUserRoles());
+            return Ok(await userRoleService.GetAllUserRoles());
         }
 
         [HttpGet]
         [Route("/[controller]/GetUserRoleById/{id}")]
         [Produces("application/json")]
-        public IActionResult GetUserRoleById(int id)
+        public async Task<IActionResult> GetUserRoleById(int id)
         {
-            return Ok(userRoleService.GetUserRoleById(id));
+            return Ok(await userRoleService.GetUserRoleById(id));
         }
 
         [HttpPost]
         [Route("/[controller]/AddUserRole")]
         [Produces("application/json")]
-        public IActionResult AddUserRole(UserRole userRole)
+        public async Task<IActionResult> AddUserRole(UserRole userRole)
         {
-            userRoleService.AddUserRole(userRole);
+            await userRoleService.AddUserRole(userRole);
             return Ok();
         }
 
         [HttpPost]
         [Route("/[controller]/UpdateUserRole")]
         [Produces("application/json")]
-        public IActionResult UpdateUserRole(UserRole userRole)
+        public async Task<IActionResult> UpdateUserRole(UserRole userRole)
         {
-            userRoleService.UpdateUserRole(userRole);
+            await userRoleService.UpdateUserRole(userRole);
             return Ok();
         }
 
         [HttpPost]
         [Route("/[controller]/DeleteUserRole")]
         [Produces("application/json")]
-        public IActionResult DeleteUserRole(int id)
+        public async Task<IActionResult> DeleteUserRole(int id)
         {
-            userRoleService.DeleteUserRole(id);
+            await userRoleService.DeleteUserRole(id);
             return Ok();
         }
     }

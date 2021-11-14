@@ -1,4 +1,5 @@
-﻿using System.Transactions;
+﻿using System.Threading.Tasks;
+using System.Transactions;
 using TestProject.DAL.Context;
 using TestProject.Infrastructure.Infrastructures;
 using TestProject.Repository.GenericRepo;
@@ -16,11 +17,11 @@ namespace TestProject.Repository.UnitOfWork
 
         protected TestProjectContext DataContext => dataContext ?? (dataContext = databaseFactory.Get());
 
-        public void Save()
+        public async Task Save()
         {
             using (TransactionScope tScope = new TransactionScope())
             {
-                DataContext.Commit();
+                await dataContext.SaveChangesAsync();
                 tScope.Complete();
             }
         }

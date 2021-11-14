@@ -9,6 +9,7 @@ namespace TestProject.DAL.Entities
         public Roles()
         {
             UserRole = new List<UserRole>();
+            MenuRole = new List<MenuRole>();
         }
         public string Name { get; set; }
         public string Desc { get; set; }
@@ -16,5 +17,7 @@ namespace TestProject.DAL.Entities
         public int CompanyID { get; set; }
 
         public virtual ICollection<UserRole> UserRole { get; set; }
+        public virtual ICollection<MenuRole> MenuRole { get; set; }
+
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
 using TestProject.DAL.Entities;
 using TestProject.Services.UserServices;
 
@@ -16,43 +17,43 @@ namespace TestProject.API.Controllers.Users
         [HttpGet]
         [Route("/[controller]/GetAllUsers")]
         [Produces("application/json")]
-        public IActionResult GetAllUsers()
+        public async Task<IActionResult> GetAllUsers()
         {
-            return Ok(userService.GetAllUsers());
+            return Ok(await userService.GetAllUsers());
         }
 
         [HttpGet]
         [Route("/[controller]/GetUserById/{id}")]
         [Produces("application/json")]
-        public IActionResult GetUser(int id)
+        public async Task<IActionResult> GetUser(int id)
         {
-            return Ok(userService.GetUserById(id));
+            return Ok(await userService.GetUserById(id));
         }
 
         [HttpPost]
         [Route("/[controller]/AddUser")]
         [Produces("application/json")]
-        public IActionResult AddUser(User user)
+        public async Task<IActionResult> AddUser(User user)
         {
-            userService.AddUser(user);
+            await userService.AddUser(user);
             return Ok();
         }
 
         [HttpPost]
         [Route("/[controller]/UpdateUser")]
         [Produces("application/json")]
-        public IActionResult UpdateUser(User user)
+        public async Task<IActionResult> UpdateUser(User user)
         {
-            userService.UpdateUser(user);
+            await userService.UpdateUser(user);
             return Ok();
         }
 
         [HttpPost]
         [Route("/[controller]/Delete")]
         [Produces("application/json")]
-        public IActionResult DeleteUser(int id)
+        public async Task<IActionResult> DeleteUser(int id)
         {
-            userService.DeleteUser(id);
+            await userService.DeleteUser(id);
             return Ok();
         }
     }

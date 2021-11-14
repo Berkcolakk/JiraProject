@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
+using System.Threading.Tasks;
 using TestProject.DAL.Entities;
 using TestProject.Repository.GenericRepo;
 using TestProject.Repository.UnitOfWork;
+using TestProject.ServiceManager.MenuServiceMangers;
 
 namespace TestProject.Services.MenuServices
 {
@@ -18,7 +19,7 @@ namespace TestProject.Services.MenuServices
             this.MenuManager = MenuManager;
             this.unitOfWork = unitOfWork;
         }
-        public bool AddMenu(Menu Menu)
+        public async Task<bool> AddMenu(Menu Menu)
         {
             if (Menu == null)
             {
@@ -26,8 +27,8 @@ namespace TestProject.Services.MenuServices
             }
             try
             {
-                menuRepo.Insert(Menu);
-                Save();
+                await menuRepo.Insert(Menu);
+                await Save();
                 return true;
             }
             catch (Exception e)
@@ -35,7 +36,7 @@ namespace TestProject.Services.MenuServices
                 throw e;
             }
         }
-        public bool UpdateMenu(Menu Menu)
+        public async Task<bool> UpdateMenu(Menu Menu)
         {
             if (Menu == null)
             {
@@ -45,7 +46,7 @@ namespace TestProject.Services.MenuServices
             try
             {
                 menuRepo.Update(Menu, x => x.ID, x => x.CrtDate, x => x.CrtUserID, x => x.CrtUserIP);
-                Save();
+                await Save();
                 return true;
             }
             catch (Exception e)
@@ -53,29 +54,30 @@ namespace TestProject.Services.MenuServices
                 throw e;
             }
         }
-        public List<Menu> GetAllMenus()
+
+        public async Task<List<Menu>> GetAllMenus()
         {
             try
             {
-                return menuRepo.GetAll().ToList();
+                return await menuRepo.GetAll();
             }
             catch (Exception e)
             {
                 throw e;
             }
         }
-        public Menu GetMenuById(int id)
+        public async Task<Menu> GetMenuById(int id)
         {
             try
             {
-                return menuRepo.Get(a => a.ID == id);
+                return await menuRepo.Get(a => a.ID == id);
             }
             catch (Exception e)
             {
                 throw e;
             }
         }
-        public bool DeleteMenu(int MenuId)
+        public async Task<bool> DeleteMenu(int MenuId)
         {
             if (MenuId == 0)
             {
@@ -84,7 +86,7 @@ namespace TestProject.Services.MenuServices
 
             try
             {
-                Menu Menu = GetMenuById(MenuId);
+                Menu Menu = await GetMenuById(MenuId);
                 menuRepo.Delete(Menu);
                 Save();
                 return true;
@@ -94,10 +96,9 @@ namespace TestProject.Services.MenuServices
                 throw e;
             }
         }
-        public void Save()
+        public async Task Save()
         {
-
-            unitOfWork.Save();
+            await unitOfWork.Save();
         }
     }
 }

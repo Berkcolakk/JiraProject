@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
+using System.Threading.Tasks;
 using TestProject.DAL.Entities;
 using TestProject.Repository.GenericRepo;
 using TestProject.Repository.UnitOfWork;
+using TestProject.ServiceManager.UserServiceMangers;
 
 namespace TestProject.Services.UserServices
 {
@@ -18,7 +19,7 @@ namespace TestProject.Services.UserServices
             this.userManager = userManager;
             this.unitOfWork = unitOfWork;
         }
-        public bool AddUser(User user)
+        public async Task<bool> AddUser(User user)
         {
             if (user == null)
             {
@@ -26,8 +27,8 @@ namespace TestProject.Services.UserServices
             }
             try
             {
-                userRepo.Insert(user);
-                Save();
+                await userRepo.Insert(user);
+                await Save();
                 return true;
             }
             catch (Exception e)
@@ -35,7 +36,7 @@ namespace TestProject.Services.UserServices
                 throw e;
             }
         }
-        public bool UpdateUser(User user)
+        public async Task<bool> UpdateUser(User user)
         {
             if (user == null)
             {
@@ -45,7 +46,7 @@ namespace TestProject.Services.UserServices
             try
             {
                 userRepo.Update(user, x => x.ID, x => x.CrtDate, x => x.CrtUserID, x => x.CrtUserIP);
-                Save();
+                await Save();
                 return true;
             }
             catch (Exception e)
@@ -53,29 +54,29 @@ namespace TestProject.Services.UserServices
                 throw e;
             }
         }
-        public List<User> GetAllUsers()
+        public async Task<List<User>> GetAllUsers()
         {
             try
             {
-                return userRepo.GetAll().ToList();
+                return await userRepo.GetAll();
             }
             catch (Exception e)
             {
                 throw e;
             }
         }
-        public User GetUserById(int id)
+        public async Task<User> GetUserById(int id)
         {
             try
             {
-                return userRepo.Get(a => a.ID == id);
+                return await userRepo.Get(a => a.ID == id);
             }
             catch (Exception e)
             {
                 throw e;
             }
         }
-        public bool DeleteUser(int userId)
+        public async Task<bool> DeleteUser(int userId)
         {
             if (userId == 0)
             {
@@ -84,9 +85,9 @@ namespace TestProject.Services.UserServices
 
             try
             {
-                User user = GetUserById(userId);
+                User user = await GetUserById(userId);
                 userRepo.Delete(user);
-                Save();
+                await Save();
                 return true;
             }
             catch (Exception e)
@@ -94,10 +95,10 @@ namespace TestProject.Services.UserServices
                 throw e;
             }
         }
-        public void Save()
+        public async Task Save()
         {
 
-            unitOfWork.Save();
+            await unitOfWork.Save();
         }
     }
 }

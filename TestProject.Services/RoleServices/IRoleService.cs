@@ -1,15 +1,16 @@
 ﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using TestProject.DAL.Entities;
 
 namespace TestProject.Services.RoleServices
 {
     public interface IRoleService
     {
-        bool AddRoles(Roles Roles);
-        public bool UpdateRoles(Roles Roles);
-        public List<Roles> GetAllRoles();
-        public Roles GetRolesById(int id);
-        bool DeleteRoles(int RolesId);
-        public void Save();
+        Task<bool> AddRoles(Roles Roles);
+        public Task<bool> UpdateRoles(Roles Roles);
+        public Task<List<Roles>> GetAllRoles();
+        public Task<Roles> GetRolesById(int id);
+        Task<bool> DeleteRoles(int RolesId);
+        public Task Save();
     }
 }

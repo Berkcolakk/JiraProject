@@ -8,7 +8,7 @@ namespace TestProject.DAL.Entities
     {
         public Menu()
         {
-            MenuRole = new List<MenuRole>();
+            Roles = new List<Roles>();
         }
         public string Name { get; set; }
         public string Icon { get; set; }
@@ -17,6 +17,6 @@ namespace TestProject.DAL.Entities
         [ForeignKey("CompanyID")]
         public int CompanyID { get; set; }
 
-        public virtual ICollection<MenuRole> MenuRole { get; set; }
+        public virtual ICollection<Roles> Roles { get; set; }
     }
 }

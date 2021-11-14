@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
+using System.Threading.Tasks;
 using TestProject.DAL.Entities;
 using TestProject.Repository.GenericRepo;
 using TestProject.Repository.UnitOfWork;
+using TestProject.ServiceManager.MenuRoleServiceMangers;
 
 namespace TestProject.Services.MenuRoleServices
 {
@@ -18,7 +19,7 @@ namespace TestProject.Services.MenuRoleServices
             this.MenuRoleManager = MenuRoleManager;
             this.unitOfWork = unitOfWork;
         }
-        public bool AddMenuRole(MenuRole MenuRole)
+        public async Task<bool> AddMenuRole(MenuRole MenuRole)
         {
             if (MenuRole == null)
             {
@@ -26,8 +27,8 @@ namespace TestProject.Services.MenuRoleServices
             }
             try
             {
-                menuRoleRepo.Insert(MenuRole);
-                Save();
+                await menuRoleRepo.Insert(MenuRole);
+                await Save();
                 return true;
             }
             catch (Exception e)
@@ -35,7 +36,7 @@ namespace TestProject.Services.MenuRoleServices
                 throw e;
             }
         }
-        public bool UpdateMenuRole(MenuRole MenuRole)
+        public async Task<bool> UpdateMenuRole(MenuRole MenuRole)
         {
             if (MenuRole == null)
             {
@@ -45,7 +46,7 @@ namespace TestProject.Services.MenuRoleServices
             try
             {
                 menuRoleRepo.Update(MenuRole, x => x.ID, x => x.CrtDate, x => x.CrtUserID, x => x.CrtUserIP);
-                Save();
+                await Save();
                 return true;
             }
             catch (Exception e)
@@ -53,29 +54,29 @@ namespace TestProject.Services.MenuRoleServices
                 throw e;
             }
         }
-        public List<MenuRole> GetAllMenuRoles()
+        public async Task<List<MenuRole>> GetAllMenuRoles()
         {
             try
             {
-                return menuRoleRepo.GetAll().ToList();
+                return await menuRoleRepo.GetAll();
             }
             catch (Exception e)
             {
                 throw e;
             }
         }
-        public MenuRole GetMenuRoleById(int id)
+        public async Task<MenuRole> GetMenuRoleById(int id)
         {
             try
             {
-                return menuRoleRepo.Get(a => a.ID == id);
+                return await menuRoleRepo.Get(a => a.ID == id);
             }
             catch (Exception e)
             {
                 throw e;
             }
         }
-        public bool DeleteMenuRole(int MenuRoleId)
+        public async Task<bool> DeleteMenuRole(int MenuRoleId)
         {
             if (MenuRoleId == 0)
             {
@@ -84,9 +85,9 @@ namespace TestProject.Services.MenuRoleServices
 
             try
             {
-                MenuRole MenuRole = GetMenuRoleById(MenuRoleId);
+                MenuRole MenuRole = await GetMenuRoleById(MenuRoleId);
                 menuRoleRepo.Delete(MenuRole);
-                Save();
+                await Save();
                 return true;
             }
             catch (Exception e)
@@ -94,10 +95,10 @@ namespace TestProject.Services.MenuRoleServices
                 throw e;
             }
         }
-        public void Save()
+        public async Task Save()
         {
 
-            unitOfWork.Save();
+            await unitOfWork.Save();
         }
     }
 }

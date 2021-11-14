@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Threading.Tasks;
 using TestProject.DAL.Context;
 using TestProject.Infrastructure.Infrastructures;
 
@@ -27,31 +28,31 @@ namespace TestProject.Repository.GenericRepo
 
         protected virtual DbSet<T> Entities => _entities ?? DataContext.Set<T>();
 
-        public T Get(Expression<Func<T, bool>> predicate)
+        public Task<T> Get(Expression<Func<T, bool>> predicate)
         {
-            return Entities.Where(predicate).SingleOrDefault();
+            return Entities.Where(predicate).SingleOrDefaultAsync();
         }
 
-        public virtual T GetById(object id)
+        public virtual ValueTask<T> GetById(object id)
         {
-            return Entities.Find(id);
+            return Entities.FindAsync(id);
         }
 
-        public virtual IEnumerable<T> GetMany(Expression<Func<T, bool>> predicate)
+        public virtual Task<List<T>> GetMany(Expression<Func<T, bool>> predicate)
         {
-            return Entities.Where(predicate).ToList();
+            return Entities.Where(predicate).ToListAsync();
         }
-        public virtual IEnumerable<T> GetManyNoTracking(Expression<Func<T, bool>> predicate)
+        public virtual Task<List<T>> GetManyNoTracking(Expression<Func<T, bool>> predicate)
         {
-            return TableNoTracking.Where(predicate).ToList();
-        }
-
-        public IEnumerable<T> GetAll()
-        {
-            return Entities.ToList();
+            return TableNoTracking.Where(predicate).ToListAsync();
         }
 
-        public virtual void Insert(T entity)
+        public Task<List<T>> GetAll()
+        {
+            return Entities.ToListAsync();
+        }
+
+        public virtual async Task Insert(T entity)
         {
             try
             {
@@ -60,7 +61,7 @@ namespace TestProject.Repository.GenericRepo
                     throw new ArgumentNullException("entity");
                 }
 
-                Entities.Add(entity);
+                await Entities.AddAsync(entity);
             }
             catch (Exception dbEx)
             {
@@ -69,7 +70,7 @@ namespace TestProject.Repository.GenericRepo
             }
         }
 
-        public virtual void Insert(IEnumerable<T> entities)
+        public virtual async Task Insert(IEnumerable<T> entities)
         {
             try
             {
@@ -80,7 +81,7 @@ namespace TestProject.Repository.GenericRepo
 
                 foreach (T entity in entities)
                 {
-                    Entities.Add(entity);
+                    await Entities.AddAsync(entity);
                 }
             }
             catch (Exception dbEx)

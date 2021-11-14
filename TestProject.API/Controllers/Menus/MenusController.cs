@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
 using TestProject.DAL.Entities;
 using TestProject.Services.MenuServices;
 
@@ -17,43 +18,43 @@ namespace TestProject.API.Controllers.Companys
         [HttpGet]
         [Route("/[controller]/GetAllMenus")]
         [Produces("application/json")]
-        public IActionResult GetAllMenus()
+        public async Task<IActionResult> GetAllMenus()
         {
-            return Ok(menuService.GetAllMenus());
+            return Ok(await menuService.GetAllMenus());
         }
 
         [HttpGet]
         [Route("/[controller]/GetMenuById/{id}")]
         [Produces("application/json")]
-        public IActionResult GetMenuById(int id)
+        public async Task<IActionResult> GetMenuById(int id)
         {
-            return Ok(menuService.GetMenuById(id));
+            return Ok(await menuService.GetMenuById(id));
         }
 
         [HttpPost]
         [Route("/[controller]/AddMenu")]
         [Produces("application/json")]
-        public IActionResult AddMenu(Menu menu)
+        public async Task<IActionResult> AddMenu(Menu menu)
         {
-            menuService.AddMenu(menu);
+            await menuService.AddMenu(menu);
             return Ok();
         }
 
         [HttpPost]
         [Route("/[controller]/UpdateMenu")]
         [Produces("application/json")]
-        public IActionResult UpdateMenu(Menu menu)
+        public async Task<IActionResult> UpdateMenu(Menu menu)
         {
-            menuService.UpdateMenu(menu);
+            await menuService.UpdateMenu(menu);
             return Ok();
         }
 
         [HttpPost]
         [Route("/[controller]/DeleteMenu")]
         [Produces("application/json")]
-        public IActionResult DeleteMenu(int id)
+        public async Task<IActionResult> DeleteMenu(int id)
         {
-            menuService.DeleteMenu(id);
+            await menuService.DeleteMenu(id);
             return Ok();
         }
     }

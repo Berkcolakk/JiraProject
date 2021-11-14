@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
 using TestProject.DAL.Entities;
 using TestProject.Services.RoleServices;
 
@@ -17,43 +18,43 @@ namespace TestProject.API.Controllers.Role
         [HttpGet]
         [Route("/[controller]/GetAllRoles")]
         [Produces("application/json")]
-        public IActionResult GetAllRoles()
+        public async Task<IActionResult> GetAllRoles()
         {
-            return Ok(roleService.GetAllRoles());
+            return Ok(await roleService.GetAllRoles());
         }
 
         [HttpGet]
         [Route("/[controller]/GetRolesById/{id}")]
         [Produces("application/json")]
-        public IActionResult GetRolesById(int id)
+        public async Task<IActionResult> GetRolesById(int id)
         {
-            return Ok(roleService.GetRolesById(id));
+            return Ok(await roleService.GetRolesById(id));
         }
 
         [HttpPost]
         [Route("/[controller]/AddRoles")]
         [Produces("application/json")]
-        public IActionResult AddRoles(Roles roles)
+        public async Task<IActionResult> AddRoles(Roles roles)
         {
-            roleService.AddRoles(roles);
+            await roleService.AddRoles(roles);
             return Ok();
         }
 
         [HttpPost]
         [Route("/[controller]/UpdateRoles")]
         [Produces("application/json")]
-        public IActionResult UpdateRoles(Roles roles)
+        public async Task<IActionResult> UpdateRoles(Roles roles)
         {
-            roleService.UpdateRoles(roles);
+            await roleService.UpdateRoles(roles);
             return Ok();
         }
 
         [HttpPost]
         [Route("/[controller]/DeleteRoles")]
         [Produces("application/json")]
-        public IActionResult DeleteRoles(int id)
+        public async Task<IActionResult> DeleteRoles(int id)
         {
-            roleService.DeleteRoles(id);
+            await roleService.DeleteRoles(id);
             return Ok();
         }
     }

@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
 using TestProject.DAL.Entities;
 using TestProject.Services.MenuRoleServices;
 
@@ -17,43 +18,43 @@ namespace TestProject.API.Controllers.Companys
         [HttpGet]
         [Route("/[controller]/GetAllMenuRoles")]
         [Produces("application/json")]
-        public IActionResult GetAllMenuRoles()
+        public async Task<IActionResult> GetAllMenuRoles()
         {
-            return Ok(menuRoleService.GetAllMenuRoles());
+            return Ok(await menuRoleService.GetAllMenuRoles());
         }
 
         [HttpGet]
         [Route("/[controller]/GetMenuRoleById/{id}")]
         [Produces("application/json")]
-        public IActionResult GetMenuRoleById(int id)
+        public async Task<IActionResult> GetMenuRoleById(int id)
         {
-            return Ok(menuRoleService.GetMenuRoleById(id));
+            return Ok(await menuRoleService.GetMenuRoleById(id));
         }
 
         [HttpPost]
         [Route("/[controller]/AddMenuRole")]
         [Produces("application/json")]
-        public IActionResult AddMenuRole(MenuRole menuRole)
+        public async Task<IActionResult> AddMenuRole(MenuRole menuRole)
         {
-            menuRoleService.AddMenuRole(menuRole);
+            await menuRoleService.AddMenuRole(menuRole);
             return Ok();
         }
 
         [HttpPost]
         [Route("/[controller]/UpdateMenuRole")]
         [Produces("application/json")]
-        public IActionResult UpdateMenuRole(MenuRole menuRole)
+        public async Task<IActionResult> UpdateMenuRole(MenuRole menuRole)
         {
-            menuRoleService.UpdateMenuRole(menuRole);
+            await menuRoleService.UpdateMenuRole(menuRole);
             return Ok();
         }
 
         [HttpPost]
         [Route("/[controller]/DeleteMenuRole")]
         [Produces("application/json")]
-        public IActionResult DeleteMenuRole(int id)
+        public async Task<IActionResult> DeleteMenuRole(int id)
         {
-            menuRoleService.DeleteMenuRole(id);
+            await menuRoleService.DeleteMenuRole(id);
             return Ok();
         }
     }

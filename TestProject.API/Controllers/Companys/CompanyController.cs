@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
 using TestProject.DAL.Entities;
 using TestProject.Services.CompanyServices;
 
@@ -17,43 +18,43 @@ namespace TestProject.API.Controllers.Companys
         [HttpGet]
         [Route("/[controller]/GetAllCompanys")]
         [Produces("application/json")]
-        public IActionResult GetAllCompanys()
+        public async Task<IActionResult> GetAllCompanys()
         {
-            return Ok(companyService.GetAllCompanys());
+            return Ok(await companyService.GetAllCompanys());
         }
 
         [HttpGet]
         [Route("/[controller]/GetCompanyById/{id}")]
         [Produces("application/json")]
-        public IActionResult GetCompanyById(int id)
+        public async Task<IActionResult> GetCompanyById(int id)
         {
-            return Ok(companyService.GetCompanyById(id));
+            return Ok(await companyService.GetCompanyById(id));
         }
 
         [HttpPost]
         [Route("/[controller]/AddCompany")]
         [Produces("application/json")]
-        public IActionResult AddCompany(Company company)
+        public async Task<IActionResult> AddCompany(Company company)
         {
-            companyService.AddCompany(company);
+            await companyService.AddCompany(company);
             return Ok();
         }
 
         [HttpPost]
         [Route("/[controller]/UpdateCompany")]
         [Produces("application/json")]
-        public IActionResult UpdateCompany(Company company)
+        public async Task<IActionResult> UpdateCompany(Company company)
         {
-            companyService.UpdateCompany(company);
+            await companyService.UpdateCompany(company);
             return Ok();
         }
 
         [HttpPost]
         [Route("/[controller]/DeleteCompany")]
         [Produces("application/json")]
-        public IActionResult DeleteCompany(int id)
+        public async Task<IActionResult> DeleteCompany(int id)
         {
-            companyService.DeleteCompany(id);
+            await companyService.DeleteCompany(id);
             return Ok();
         }
     }

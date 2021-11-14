@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using TestProject.DAL.Entities.Base;
 
@@ -9,7 +8,6 @@ namespace TestProject.DAL.Entities
     {
         public UserRole()
         {
-            MenuRole = new List<MenuRole>();
         }
         [ForeignKey("UserID")]
         public int UserID { get; set; }
@@ -19,6 +17,5 @@ namespace TestProject.DAL.Entities
         public int RoleID { get; set; }
         [ForeignKey("CompanyID")]
         public int CompanyID { get; set; }
-        public virtual ICollection<MenuRole> MenuRole { get; set; }
     }
 }

@@ -23,6 +23,7 @@
   <ItemGroup>
     <ProjectReference Include="..\TestProject.DAL\TestProject.DAL.csproj" />
     <ProjectReference Include="..\TestProject.Repository\TestProject.Repository.csproj" />
+    <ProjectReference Include="..\TestProject.ServiceManager\TestProject.ServiceManager.csproj" />
   </ItemGroup>
 
   <ItemGroup>

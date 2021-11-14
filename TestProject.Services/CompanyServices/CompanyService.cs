@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
+using System.Threading.Tasks;
 using TestProject.DAL.Entities;
 using TestProject.Repository.GenericRepo;
 using TestProject.Repository.UnitOfWork;
+using TestProject.ServiceManager.CompanyServiceMangers;
 
 namespace TestProject.Services.CompanyServices
 {
@@ -18,7 +19,7 @@ namespace TestProject.Services.CompanyServices
             this.companyManager = companyManager;
             this.unitOfWork = unitOfWork;
         }
-        public bool AddCompany(Company Company)
+        public async Task<bool> AddCompany(Company Company)
         {
             if (Company == null)
             {
@@ -26,8 +27,8 @@ namespace TestProject.Services.CompanyServices
             }
             try
             {
-                companyRepo.Insert(Company);
-                Save();
+                Task task = companyRepo.Insert(Company);
+                await Save();
                 return true;
             }
             catch (Exception e)
@@ -35,7 +36,7 @@ namespace TestProject.Services.CompanyServices
                 throw e;
             }
         }
-        public bool UpdateCompany(Company Company)
+        public async Task<bool> UpdateCompany(Company Company)
         {
             if (Company == null)
             {
@@ -45,7 +46,7 @@ namespace TestProject.Services.CompanyServices
             try
             {
                 companyRepo.Update(Company, x => x.ID, x => x.CrtDate, x => x.CrtUserID, x => x.CrtUserIP);
-                Save();
+                await Save();
                 return true;
             }
             catch (Exception e)
@@ -53,29 +54,29 @@ namespace TestProject.Services.CompanyServices
                 throw e;
             }
         }
-        public List<Company> GetAllCompanys()
+        public async Task<List<Company>> GetAllCompanys()
         {
             try
             {
-                return companyRepo.GetAll().ToList();
+                return await companyRepo.GetAll();
             }
             catch (Exception e)
             {
                 throw e;
             }
         }
-        public Company GetCompanyById(int id)
+        public async Task<Company> GetCompanyById(int id)
         {
             try
             {
-                return companyRepo.Get(a => a.ID == id);
+                return await companyRepo.Get(a => a.ID == id);
             }
             catch (Exception e)
             {
                 throw e;
             }
         }
-        public bool DeleteCompany(int CompanyId)
+        public async Task<bool> DeleteCompany(int CompanyId)
         {
             if (CompanyId == 0)
             {
@@ -84,9 +85,9 @@ namespace TestProject.Services.CompanyServices
 
             try
             {
-                Company Company = GetCompanyById(CompanyId);
+                Company Company = await GetCompanyById(CompanyId);
                 companyRepo.Delete(Company);
-                Save();
+                await Save();
                 return true;
             }
             catch (Exception e)
@@ -94,10 +95,10 @@ namespace TestProject.Services.CompanyServices
                 throw e;
             }
         }
-        public void Save()
+        public async Task Save()
         {
 
-            unitOfWork.Save();
+            await unitOfWork.Save();
         }
     }
 }

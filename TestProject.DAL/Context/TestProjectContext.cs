@@ -43,7 +43,7 @@ namespace TestProject.DAL.Context
         }
         public void Commit()
         {
-            SaveChanges();
+            SaveChangesAsync();
         }
         public override int SaveChanges(bool acceptAllChangesOnSuccess)
         {

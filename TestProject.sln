@@ -9,11 +9,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestProject.DAL", "TestProj
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestProject.Services", "TestProject.Services\TestProject.Services.csproj", "{C8BB063E-787C-4C49-90D2-705EFC8794E5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestProject.Infrastructure", "TestProject.Infrastructure\TestProject.Infrastructure.csproj", "{86A3C687-1614-4749-A21A-74DB2B744154}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestProject.Infrastructure", "TestProject.Infrastructure\TestProject.Infrastructure.csproj", "{86A3C687-1614-4749-A21A-74DB2B744154}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestProject.Repository", "TestProject.Repository\TestProject.Repository.csproj", "{255142F2-746E-4963-ABA7-DE7676D08BC9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestProject.Repository", "TestProject.Repository\TestProject.Repository.csproj", "{255142F2-746E-4963-ABA7-DE7676D08BC9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestProject.Utilities", "TestProject.Utilities\TestProject.Utilities.csproj", "{9ADA0E83-893C-4E1C-98FF-76FD3AF92B64}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestProject.Utilities", "TestProject.Utilities\TestProject.Utilities.csproj", "{9ADA0E83-893C-4E1C-98FF-76FD3AF92B64}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestProject.ServiceManager", "TestProject.ServiceManager\TestProject.ServiceManager.csproj", "{9EE512DA-2634-49EF-B36C-32F9C9AD1934}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{9ADA0E83-893C-4E1C-98FF-76FD3AF92B64}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9ADA0E83-893C-4E1C-98FF-76FD3AF92B64}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9ADA0E83-893C-4E1C-98FF-76FD3AF92B64}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9EE512DA-2634-49EF-B36C-32F9C9AD1934}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9EE512DA-2634-49EF-B36C-32F9C9AD1934}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9EE512DA-2634-49EF-B36C-32F9C9AD1934}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9EE512DA-2634-49EF-B36C-32F9C9AD1934}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

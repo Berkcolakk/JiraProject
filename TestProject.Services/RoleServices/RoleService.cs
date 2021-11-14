@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
+using System.Threading.Tasks;
 using TestProject.DAL.Entities;
 using TestProject.Repository.GenericRepo;
 using TestProject.Repository.UnitOfWork;
+using TestProject.ServiceManager.RoleServiceMangers;
 
 namespace TestProject.Services.RoleServices
 {
@@ -18,7 +19,7 @@ namespace TestProject.Services.RoleServices
             this.rolesManager = rolesManager;
             this.unitOfWork = unitOfWork;
         }
-        public bool AddRoles(Roles Roles)
+        public async Task<bool> AddRoles(Roles Roles)
         {
             if (Roles == null)
             {
@@ -26,8 +27,8 @@ namespace TestProject.Services.RoleServices
             }
             try
             {
-                rolesRepo.Insert(Roles);
-                Save();
+                await rolesRepo.Insert(Roles);
+                await Save();
                 return true;
             }
             catch (Exception e)
@@ -35,7 +36,7 @@ namespace TestProject.Services.RoleServices
                 throw e;
             }
         }
-        public bool UpdateRoles(Roles Roles)
+        public async Task<bool> UpdateRoles(Roles Roles)
         {
             if (Roles == null)
             {
@@ -45,7 +46,7 @@ namespace TestProject.Services.RoleServices
             try
             {
                 rolesRepo.Update(Roles, x => x.ID, x => x.CrtDate, x => x.CrtUserID, x => x.CrtUserIP);
-                Save();
+                await Save();
                 return true;
             }
             catch (Exception e)
@@ -53,29 +54,29 @@ namespace TestProject.Services.RoleServices
                 throw e;
             }
         }
-        public List<Roles> GetAllRoles()
+        public async Task<List<Roles>> GetAllRoles()
         {
             try
             {
-                return rolesRepo.GetAll().ToList();
+                return await rolesRepo.GetAll();
             }
             catch (Exception e)
             {
                 throw e;
             }
         }
-        public Roles GetRolesById(int id)
+        public async Task<Roles> GetRolesById(int id)
         {
             try
             {
-                return rolesRepo.Get(a => a.ID == id);
+                return await rolesRepo.Get(a => a.ID == id);
             }
             catch (Exception e)
             {
                 throw e;
             }
         }
-        public bool DeleteRoles(int RolesId)
+        public async Task<bool> DeleteRoles(int RolesId)
         {
             if (RolesId == 0)
             {
@@ -84,9 +85,9 @@ namespace TestProject.Services.RoleServices
 
             try
             {
-                Roles Roles = GetRolesById(RolesId);
+                Roles Roles = await GetRolesById(RolesId);
                 rolesRepo.Delete(Roles);
-                Save();
+                await Save();
                 return true;
             }
             catch (Exception e)
@@ -94,10 +95,10 @@ namespace TestProject.Services.RoleServices
                 throw e;
             }
         }
-        public void Save()
+        public async Task Save()
         {
 
-            unitOfWork.Save();
+            await unitOfWork.Save();
         }
     }
 }
