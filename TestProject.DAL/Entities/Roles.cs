@@ -4,19 +4,14 @@ using TestProject.DAL.Entities.Base;
 
 namespace TestProject.DAL.Entities
 {
-    public class User : EntityBase
+    public class Roles : EntityBase
     {
-        public User()
+        public Roles()
         {
             UserRole = new List<UserRole>();
         }
-        public string Email { get; set; }
-
-        public string Password { get; set; }
-
-        public string UserName { get; set; }
-
-        public string Phone { get; set; }
+        public string Name { get; set; }
+        public string Desc { get; set; }
         [ForeignKey("CompanyID")]
         public string CompanyID { get; set; }
 
