@@ -18,7 +18,7 @@ namespace TestProject.DAL.Entities
 
         public string Phone { get; set; }
         [ForeignKey("CompanyID")]
-        public string CompanyID { get; set; }
+        public int CompanyID { get; set; }
 
         public virtual ICollection<UserRole> UserRole { get; set; }
     }
