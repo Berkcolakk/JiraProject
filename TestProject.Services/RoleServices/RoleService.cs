@@ -5,28 +5,28 @@ using TestProject.DAL.Entities;
 using TestProject.Repository.GenericRepo;
 using TestProject.Repository.UnitOfWork;
 
-namespace TestProject.Services.UserServices
+namespace TestProject.Services.RoleServices
 {
-    public class UserService : IUserService
+    public class RoleService : IRoleService
     {
-        private readonly IGenericRepository<User> userRepo;
-        private readonly UserManager userManager;
+        private readonly IGenericRepository<Roles> rolesRepo;
+        private readonly RoleManager rolesManager;
         private readonly IUnitOfWork unitOfWork;
-        public UserService(IGenericRepository<User> userRepo, UserManager userManager, UnitOfWork unitOfWork)
+        public RoleService(IGenericRepository<Roles> rolesRepo, RoleManager rolesManager, UnitOfWork unitOfWork)
         {
-            this.userRepo = userRepo;
-            this.userManager = userManager;
+            this.rolesRepo = rolesRepo;
+            this.rolesManager = rolesManager;
             this.unitOfWork = unitOfWork;
         }
-        public bool AddUser(User user)
+        public bool AddRoles(Roles Roles)
         {
-            if (user == null)
+            if (Roles == null)
             {
-                throw new ArgumentNullException("User object not found.");
+                throw new ArgumentNullException("Roles object not found.");
             }
             try
             {
-                userRepo.Insert(user);
+                rolesRepo.Insert(Roles);
                 Save();
                 return true;
             }
@@ -35,16 +35,16 @@ namespace TestProject.Services.UserServices
                 throw e;
             }
         }
-        public bool UpdateUser(User user)
+        public bool UpdateRoles(Roles Roles)
         {
-            if (user == null)
+            if (Roles == null)
             {
-                throw new ArgumentNullException("User object not found.");
+                throw new ArgumentNullException("Roles object not found.");
             }
 
             try
             {
-                userRepo.Update(user, x => x.ID, x => x.CrtDate, x => x.CrtUserID, x => x.CrtUserIP);
+                rolesRepo.Update(Roles, x => x.ID, x => x.CrtDate, x => x.CrtUserID, x => x.CrtUserIP);
                 Save();
                 return true;
             }
@@ -53,39 +53,39 @@ namespace TestProject.Services.UserServices
                 throw e;
             }
         }
-        public List<User> GetAllUsers()
+        public List<Roles> GetAllRoles()
         {
             try
             {
-                return userRepo.GetAll().ToList();
+                return rolesRepo.GetAll().ToList();
             }
             catch (Exception e)
             {
                 throw e;
             }
         }
-        public User GetUserById(int id)
+        public Roles GetRolesById(int id)
         {
             try
             {
-                return userRepo.Get(a => a.ID == id);
+                return rolesRepo.Get(a => a.ID == id);
             }
             catch (Exception e)
             {
                 throw e;
             }
         }
-        public bool DeleteUser(int userId)
+        public bool DeleteRoles(int RolesId)
         {
-            if (userId == 0)
+            if (RolesId == 0)
             {
-                throw new ArgumentNullException("UserId not found.");
+                throw new ArgumentNullException("RolesId not found.");
             }
 
             try
             {
-                User user = GetUserById(userId);
-                userRepo.Delete(user);
+                Roles Roles = GetRolesById(RolesId);
+                rolesRepo.Delete(Roles);
                 Save();
                 return true;
             }

@@ -1,6 +1,6 @@
 ﻿using TestProject.Repository.GenericRepo;
 
-namespace TestProject.Infrastructure.Infrastructures
+namespace TestProject.Repository.UnitOfWork
 {
     public interface IUnitOfWork
     {

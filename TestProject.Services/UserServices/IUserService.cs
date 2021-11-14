@@ -9,7 +9,7 @@ namespace TestProject.Services.UserServices
         public bool UpdateUser(User user);
         public List<User> GetAllUsers();
         public User GetUserById(int id);
-        bool DeleteUse(int userId);
+        bool DeleteUser(int userId);
         public void Save();
     }
 }

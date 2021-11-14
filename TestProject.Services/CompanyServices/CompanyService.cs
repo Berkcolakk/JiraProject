@@ -5,28 +5,28 @@ using TestProject.DAL.Entities;
 using TestProject.Repository.GenericRepo;
 using TestProject.Repository.UnitOfWork;
 
-namespace TestProject.Services.UserServices
+namespace TestProject.Services.CompanyServices
 {
-    public class UserService : IUserService
+    public class CompanyService : ICompanyService
     {
-        private readonly IGenericRepository<User> userRepo;
-        private readonly UserManager userManager;
+        private readonly IGenericRepository<Company> companyRepo;
+        private readonly CompanyManager companyManager;
         private readonly IUnitOfWork unitOfWork;
-        public UserService(IGenericRepository<User> userRepo, UserManager userManager, UnitOfWork unitOfWork)
+        public CompanyService(IGenericRepository<Company> companyRepo, CompanyManager companyManager, UnitOfWork unitOfWork)
         {
-            this.userRepo = userRepo;
-            this.userManager = userManager;
+            this.companyRepo = companyRepo;
+            this.companyManager = companyManager;
             this.unitOfWork = unitOfWork;
         }
-        public bool AddUser(User user)
+        public bool AddCompany(Company Company)
         {
-            if (user == null)
+            if (Company == null)
             {
-                throw new ArgumentNullException("User object not found.");
+                throw new ArgumentNullException("Company object not found.");
             }
             try
             {
-                userRepo.Insert(user);
+                companyRepo.Insert(Company);
                 Save();
                 return true;
             }
@@ -35,16 +35,16 @@ namespace TestProject.Services.UserServices
                 throw e;
             }
         }
-        public bool UpdateUser(User user)
+        public bool UpdateCompany(Company Company)
         {
-            if (user == null)
+            if (Company == null)
             {
-                throw new ArgumentNullException("User object not found.");
+                throw new ArgumentNullException("Company object not found.");
             }
 
             try
             {
-                userRepo.Update(user, x => x.ID, x => x.CrtDate, x => x.CrtUserID, x => x.CrtUserIP);
+                companyRepo.Update(Company, x => x.ID, x => x.CrtDate, x => x.CrtUserID, x => x.CrtUserIP);
                 Save();
                 return true;
             }
@@ -53,39 +53,39 @@ namespace TestProject.Services.UserServices
                 throw e;
             }
         }
-        public List<User> GetAllUsers()
+        public List<Company> GetAllCompanys()
         {
             try
             {
-                return userRepo.GetAll().ToList();
+                return companyRepo.GetAll().ToList();
             }
             catch (Exception e)
             {
                 throw e;
             }
         }
-        public User GetUserById(int id)
+        public Company GetCompanyById(int id)
         {
             try
             {
-                return userRepo.Get(a => a.ID == id);
+                return companyRepo.Get(a => a.ID == id);
             }
             catch (Exception e)
             {
                 throw e;
             }
         }
-        public bool DeleteUser(int userId)
+        public bool DeleteCompany(int CompanyId)
         {
-            if (userId == 0)
+            if (CompanyId == 0)
             {
-                throw new ArgumentNullException("UserId not found.");
+                throw new ArgumentNullException("CompanyId not found.");
             }
 
             try
             {
-                User user = GetUserById(userId);
-                userRepo.Delete(user);
+                Company Company = GetCompanyById(CompanyId);
+                companyRepo.Delete(Company);
                 Save();
                 return true;
             }

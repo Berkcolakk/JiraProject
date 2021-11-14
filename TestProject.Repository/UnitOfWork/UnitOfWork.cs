@@ -1,8 +1,9 @@
 ﻿using System.Transactions;
 using TestProject.DAL.Context;
 using TestProject.Infrastructure.Infrastructures;
+using TestProject.Repository.GenericRepo;
 
-namespace TestProject.Repository.GenericRepo
+namespace TestProject.Repository.UnitOfWork
 {
     public class UnitOfWork : IUnitOfWork
     {

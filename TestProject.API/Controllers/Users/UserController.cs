@@ -2,7 +2,7 @@
 using TestProject.DAL.Entities;
 using TestProject.Services.UserServices;
 
-namespace TestProject.API.Controllers
+namespace TestProject.API.Controllers.Users
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -22,7 +22,7 @@ namespace TestProject.API.Controllers
         }
 
         [HttpGet]
-        [Route("/[controller]/GetUser/{id}")]
+        [Route("/[controller]/GetUserById/{id}")]
         [Produces("application/json")]
         public IActionResult GetUser(int id)
         {
@@ -50,9 +50,9 @@ namespace TestProject.API.Controllers
         [HttpPost]
         [Route("/[controller]/Delete")]
         [Produces("application/json")]
-        public IActionResult Delete(int id)
+        public IActionResult DeleteUser(int id)
         {
-            userService.DeleteUse(id);
+            userService.DeleteUser(id);
             return Ok();
         }
     }

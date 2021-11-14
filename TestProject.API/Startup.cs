@@ -8,6 +8,10 @@ using TestProject.API.Utilities;
 using TestProject.DAL.Context;
 using TestProject.Infrastructure.Infrastructures;
 using TestProject.Repository.GenericRepo;
+using TestProject.Repository.UnitOfWork;
+using TestProject.Services.CompanyServices;
+using TestProject.Services.RoleServices;
+using TestProject.Services.UserRoleServices;
 using TestProject.Services.UserServices;
 
 namespace TestProject.API
@@ -35,6 +39,15 @@ namespace TestProject.API
 
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<UserManager>();
+
+            services.AddScoped<IRoleService, RoleService>();
+            services.AddScoped<RoleManager>();
+
+            services.AddScoped<IUserRoleService, UserRoleService>();
+            services.AddScoped<UserRoleManager>();
+
+            services.AddScoped<ICompanyService, CompanyService>();
+            services.AddScoped<CompanyManager>();
 
             //services.AddScoped<IUserRoleService, UserRoleService>();
 
