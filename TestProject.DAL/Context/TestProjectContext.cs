@@ -24,6 +24,10 @@ namespace TestProject.DAL.Context
         public DbSet<Roles> Roles { get; set; }
 
         public DbSet<Company> Company { get; set; }
+
+        public DbSet<Menu> Menu { get; set; }
+
+        public DbSet<MenuRole> MenuRole { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             System.Collections.Generic.IEnumerable<Microsoft.EntityFrameworkCore.Metadata.IMutableForeignKey> cascadeFKs = modelBuilder.Model.GetEntityTypes()

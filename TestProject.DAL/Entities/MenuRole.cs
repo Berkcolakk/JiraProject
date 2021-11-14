@@ -1,8 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
+using TestProject.DAL.Entities.Base;
 
 namespace TestProject.DAL.Entities
 {
-    public class MenuRole
+    public class MenuRole : EntityBase
     {
         [ForeignKey("MenuID")]
         public int MenuID { get; set; }
