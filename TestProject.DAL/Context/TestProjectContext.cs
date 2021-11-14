@@ -83,11 +83,17 @@ namespace TestProject.DAL.Context
                 {
                     if (item.State == EntityState.Added)
                     {
-                        entity.CREATED_USER_IP = ip;
-                        entity.ISACTIVE = true;
-                        entity.MACHINENAME_MACHINEIDENTITY = identity;
-                        entity.CREATED_USER_ID = 0;
-                        entity.CREATED_DATE = date;
+                        entity.CrtUserIP = ip;
+                        entity.IsActive = true;
+                        entity.MachineName = identity;
+                        entity.CrtUserID = 0;
+                        entity.CrtDate = date;
+                    }
+                    else if (item.State == EntityState.Modified || item.State == EntityState.Deleted)
+                    {
+                        entity.UpdUserIP = ip;
+                        entity.UpdUserID = 0;
+                        entity.UpdDate = date;
                     }
                 }
             }

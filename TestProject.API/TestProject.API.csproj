@@ -16,11 +16,9 @@
 
   <ItemGroup>
     <ProjectReference Include="..\TestProject.DAL\TestProject.DAL.csproj" />
+    <ProjectReference Include="..\TestProject.Repository\TestProject.Repository.csproj" />
+    <ProjectReference Include="..\TestProject.Services\TestProject.Services.csproj" />
     <ProjectReference Include="..\TestProject.Utilities\TestProject.Utilities.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Controllers\" />
   </ItemGroup>
 
 

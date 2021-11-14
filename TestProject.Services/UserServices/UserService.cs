@@ -44,7 +44,7 @@ namespace TestProject.Services.UserServices
 
             try
             {
-                userRepo.Update(user, x => x.ID, x => x.CREATED_DATE, x => x.CREATED_USER_ID, x => x.CREATED_USER_IP);
+                userRepo.Update(user, x => x.ID, x => x.CrtDate, x => x.CrtUserID, x => x.CrtUserIP);
                 Save();
                 return true;
             }
@@ -69,6 +69,25 @@ namespace TestProject.Services.UserServices
             try
             {
                 return userRepo.Get(a => a.ID == id);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+        public bool DeleteUse(int userId)
+        {
+            if (userId == 0)
+            {
+                throw new ArgumentNullException("UserId not found.");
+            }
+
+            try
+            {
+                User user = GetUserById(userId);
+                userRepo.Delete(user);
+                Save();
+                return true;
             }
             catch (Exception e)
             {

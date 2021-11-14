@@ -5,14 +5,13 @@ namespace TestProject.DAL.Entities
 {
     public class User : EntityBase
     {
-        public string USER_ACCESSNAME { get; set; }
+        public string Email { get; set; }
 
-        public string USER_ACCESSPASSWORD { get; set; }
+        public string Password { get; set; }
 
-        public string USER_NAME_SURNAME { get; set; }
+        public string UserName { get; set; }
 
-        public string USER_EMAIL { get; set; }
-
+        public string Phone { get; set; }
         public virtual List<ProjectManager> ProjectManagers { get; set; }
 
         public virtual List<ItemDemandMaster> ItemDemandMasters { get; set; }

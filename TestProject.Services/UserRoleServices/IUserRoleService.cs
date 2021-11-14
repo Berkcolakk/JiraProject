@@ -9,6 +9,7 @@ namespace TestProject.Services.UserRoleServices
         public bool UpdateUserRole(UserRole user);
         public List<UserRole> GetAllUserRoles();
         public UserRole GetUserRoleById(int id);
+        bool DeleteUserRole(int userId);
         public void Save();
     }
 }

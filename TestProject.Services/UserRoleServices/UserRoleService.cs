@@ -44,7 +44,26 @@ namespace TestProject.Services.UserRoleServices
 
             try
             {
-                userRoleRepo.Update(user, x => x.ID, x => x.CREATED_DATE, x => x.CREATED_USER_ID, x => x.CREATED_USER_IP);
+                userRoleRepo.Update(user, x => x.ID, x => x.CrtDate, x => x.CrtUserID, x => x.CrtUserIP);
+                Save();
+                return true;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+        public bool DeleteUserRole(int userRoleId)
+        {
+            if (userRoleId == 0)
+            {
+                throw new ArgumentNullException("UserId not found.");
+            }
+
+            try
+            {
+                UserRole userRole = GetUserRoleById(userRoleId);
+                userRoleRepo.Delete(userRole);
                 Save();
                 return true;
             }

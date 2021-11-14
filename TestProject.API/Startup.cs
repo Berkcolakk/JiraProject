@@ -4,7 +4,11 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using TestProject.API.Utilities;
 using TestProject.DAL.Context;
+using TestProject.Infrastructure.Infrastructures;
+using TestProject.Repository.GenericRepo;
+using TestProject.Services.UserServices;
 
 namespace TestProject.API
 {
@@ -20,10 +24,20 @@ namespace TestProject.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers();
+            services.AddControllers().AddJsonOptions(options => options.JsonSerializerOptions.PropertyNamingPolicy = null); ;
             services.AddDbContext<TestProjectContext>(ServiceLifetime.Transient);
             //services.AddDbContext<TestProjectContext>(options => options.UseSqlServer(Configuration.GetConnectionString("TestProjectDB")));
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+
+            services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+            services.AddScoped<IDatabaseFactory, DatabaseFactory>();
+            services.AddScoped<UnitOfWork>();
+
+            services.AddScoped<IUserService, UserService>();
+            services.AddScoped<UserManager>();
+
+            //services.AddScoped<IUserRoleService, UserRoleService>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -33,6 +47,14 @@ namespace TestProject.API
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseAuthentication();
+
+            app.UseStaticFiles();
+
+            app.UseCookiePolicy();
+
+            app.UseStaticHttpContext();
 
             app.UseHttpsRedirection();
 
