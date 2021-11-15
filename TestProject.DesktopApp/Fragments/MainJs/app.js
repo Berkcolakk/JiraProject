@@ -7,11 +7,9 @@ function createWindow() {
     const { width, height } = primaryDisplay.workAreaSize
     const win = new BrowserWindow({
         width: width ,
-        height: height,
-        webPreferences: {
-            preload: path.join(__dirname, 'preload.js')
-        }
+        height: height
     })
+    win.webContents.openDevTools()
     win.loadFile(path.join(__dirname, '../../View/Login/Login.html'))
     nativeTheme.themeSource = 'dark'
     //const INCREMENT = 0.03
@@ -36,12 +34,14 @@ function createWindow() {
 
 app.whenReady().then(() => {
     createWindow()
-    
     app.on('activate', () => {
         if (BrowserWindow.getAllWindows().length === 0) {
             createWindow()
         }
     })
+    ipcMain.on('error-in-window', function (event, data) {
+        console.log(data);
+    });
 })
 
 app.on('window-all-closed', () => {
