@@ -31,6 +31,15 @@ namespace TestProject.API.Controllers.Users
         }
 
         [HttpPost]
+        [Route("/[controller]/Login")]
+        [Produces("application/json")]
+        public async Task<IActionResult> Login(User user)
+        {
+            return Ok(await userService.GetLoginUser(user));
+        }
+
+
+        [HttpPost]
         [Route("/[controller]/AddUser")]
         [Produces("application/json")]
         public async Task<IActionResult> AddUser(User user)

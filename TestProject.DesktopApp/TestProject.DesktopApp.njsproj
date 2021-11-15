@@ -6,8 +6,7 @@
     <RootNamespace>TestProject.DesktopApp</RootNamespace>
     <SaveNodeJsSettingsInProjectFile>True</SaveNodeJsSettingsInProjectFile>
     <NodeExePath>C:\Users\Brkco\source\repos\TestProject\TestProject.DesktopApp\node_modules\electron\dist\electron.exe</NodeExePath>
-    <Environment>
-    </Environment>
+    <Environment>REQUEST_URL=https://localhost:44324 VERSION=0.00.01 APPLICATION_TYPE=DEVELOPMENT</Environment>
   </PropertyGroup>
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -11130,10 +11129,8 @@
     <Content Include="ExternalLib\scss\transparent\_widget_list.scss" />
     <Content Include="Fragments\MainJs\app.js" />
     <Content Include="Fragments\Notification\SendNotification.js" />
+    <Content Include="Fragments\Parameters\Parameters.js" />
     <Content Include="Module\Login\Login.js" />
-    <Content Include="View\Index\index.html">
-      <SubType>Code</SubType>
-    </Content>
     <Content Include="package.json" />
     <Content Include="README.md" />
     <Content Include="View\Layout\Layout.html" />
@@ -11874,17 +11871,16 @@
     <Folder Include="ExternalLib\scss\transparent\theme\" />
     <Folder Include="ExternalLib\scss\transparent\widget\" />
     <Folder Include="Fragments\MainJs\" />
+    <Folder Include="Fragments\Parameters\" />
     <Folder Include="Fragments\Notification\" />
-    <Folder Include="Fragments\Styles\" />
     <Folder Include="Module\" />
     <Folder Include="Fragments\" />
     <Folder Include="Module\Company\" />
     <Folder Include="Module\Menu\" />
     <Folder Include="ExternalLib\" />
     <Folder Include="Module\Login\" />
-    <Folder Include="Partials\" />
+    <Folder Include="Css\" />
     <Folder Include="View\" />
-    <Folder Include="View\Index\" />
     <Folder Include="View\Login\" />
     <Folder Include="View\Layout\" />
   </ItemGroup>

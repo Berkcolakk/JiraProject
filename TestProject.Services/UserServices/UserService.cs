@@ -36,6 +36,10 @@ namespace TestProject.Services.UserServices
                 throw e;
             }
         }
+        public async Task<bool> GetLoginUser(User user)
+        {
+            return await userManager.GetLoginUser(user);
+        }
         public async Task<bool> UpdateUser(User user)
         {
             if (user == null)
