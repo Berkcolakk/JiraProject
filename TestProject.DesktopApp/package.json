@@ -1,0 +1,15 @@
+{
+  "name": "test-project.desktop-app",
+  "version": "0.0.0",
+  "description": "TestProject.DesktopApp",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "author": {
+    "name": ""
+  },
+  "dependencies": {
+    "electron": "15.3.1"
+  }
+}

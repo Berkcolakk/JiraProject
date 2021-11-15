@@ -15,7 +15,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestProject.Repository", "T
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestProject.Utilities", "TestProject.Utilities\TestProject.Utilities.csproj", "{9ADA0E83-893C-4E1C-98FF-76FD3AF92B64}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestProject.ServiceManager", "TestProject.ServiceManager\TestProject.ServiceManager.csproj", "{9EE512DA-2634-49EF-B36C-32F9C9AD1934}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestProject.ServiceManager", "TestProject.ServiceManager\TestProject.ServiceManager.csproj", "{9EE512DA-2634-49EF-B36C-32F9C9AD1934}"
+EndProject
+Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "TestProject.DesktopApp", "TestProject.DesktopApp\TestProject.DesktopApp.njsproj", "{385D5055-9C65-43A7-BF1A-6347C2462DC0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +53,10 @@ Global
 		{9EE512DA-2634-49EF-B36C-32F9C9AD1934}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9EE512DA-2634-49EF-B36C-32F9C9AD1934}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9EE512DA-2634-49EF-B36C-32F9C9AD1934}.Release|Any CPU.Build.0 = Release|Any CPU
+		{385D5055-9C65-43A7-BF1A-6347C2462DC0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{385D5055-9C65-43A7-BF1A-6347C2462DC0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{385D5055-9C65-43A7-BF1A-6347C2462DC0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{385D5055-9C65-43A7-BF1A-6347C2462DC0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

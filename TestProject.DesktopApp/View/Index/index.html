@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Hello World!</title>
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
+    <style>
+        @media (prefers-color-scheme: dark) {
+            body {
+                background: #333;
+                color: white;
+            }
+        }
+    </style>
+   
+</head>
+<body>
+    <h1>Hello World!</h1>
+    <h1>Connection status: <strong id='status'></strong></h1>
+
+    <p id="output">Click it to see the effect in this interface.</p>
+    <script>
+        function updateOnlineStatus() {
+            document.getElementById('status').innerHTML = navigator.onLine ? 'Online' : 'Offline'
+        }
+
+        window.addEventListener('online', updateOnlineStatus)
+        window.addEventListener('offline', updateOnlineStatus)
+
+        updateOnlineStatus()
+
+        new Notification('TEST', { body: 'TEST' })
+            .onclick = () => document.getElementById("output").innerText = 'Clicked...'
+    </script>
+    <script src="../../Fragments/MainJs/main.js"></script>
+</body>
+</html>
