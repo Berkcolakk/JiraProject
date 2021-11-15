@@ -19,9 +19,9 @@ namespace TestProject.Repository.UnitOfWork
 
         public async Task Save()
         {
-            using (TransactionScope tScope = new TransactionScope())
+            using (TransactionScope tScope = new TransactionScope(TransactionScopeAsyncFlowOption.Enabled))
             {
-                await dataContext.SaveChangesAsync();
+                await DataContext.SaveChangesAsync();
                 tScope.Complete();
             }
         }

@@ -88,7 +88,7 @@ namespace TestProject.Services.MenuServices
             {
                 Menu Menu = await GetMenuById(MenuId);
                 menuRepo.Delete(Menu);
-                Save();
+                await Save();
                 return true;
             }
             catch (Exception e)

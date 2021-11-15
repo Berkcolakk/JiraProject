@@ -27,7 +27,7 @@ namespace TestProject.Services.CompanyServices
             }
             try
             {
-                Task task = companyRepo.Insert(Company);
+                await companyRepo.Insert(Company);
                 await Save();
                 return true;
             }
@@ -53,6 +53,11 @@ namespace TestProject.Services.CompanyServices
             {
                 throw e;
             }
+        }
+
+        public async Task<List<Company>> GetAllCompanyWithUserInfo(int companyId)
+        {
+            return await companyManager.GetAllCompanyWithUserInfo(companyId);
         }
         public async Task<List<Company>> GetAllCompanys()
         {

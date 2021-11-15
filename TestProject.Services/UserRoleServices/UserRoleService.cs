@@ -65,7 +65,7 @@ namespace TestProject.Services.UserRoleServices
             {
                 UserRole userRole = await GetUserRoleById(userRoleId);
                 userRoleRepo.Delete(userRole);
-                Save();
+                await Save();
                 return true;
             }
             catch (Exception e)

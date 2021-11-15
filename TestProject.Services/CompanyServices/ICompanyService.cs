@@ -12,5 +12,6 @@ namespace TestProject.Services.CompanyServices
         public Task<Company> GetCompanyById(int id);
         Task<bool> DeleteCompany(int CompanyId);
         public Task Save();
+        Task<List<Company>> GetAllCompanyWithUserInfo(int companyId);
     }
 }
