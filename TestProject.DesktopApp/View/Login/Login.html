@@ -22,9 +22,11 @@
     <!-- ================== END BASE CSS STYLE ================== -->
     <!-- ================== BEGIN BASE JS ================== -->
     <script src="../../ExternalLib/plugins/pace/pace.min.js"></script>
+    <script src="../../node_modules/vue/dist/vue.min.js"></script>
+
     <!-- ================== END BASE JS ================== -->
 </head>
-<body class="pace-top">
+<body class="pace-top" id="content">
     <!-- begin #page-loader -->
     <div id="page-loader" class="fade show"><span class="spinner"></span></div>
     <!-- end #page-loader -->
@@ -62,8 +64,8 @@
                             Beni Hatırla
                         </label>
                     </div>
-                    <div class="login-buttons">
-                        <button type="button" id="btnSubmit" class="btn btn-success btn-block btn-lg">Giriş Yap</button>
+                    <div class="login-buttons" id="btnLogin">
+                        <button type="button" v-on:click="IsLogin()" id="btnSubmit" class="btn btn-success btn-block btn-lg">Giriş Yap</button>
                     </div>
                 </form>
             </div>
