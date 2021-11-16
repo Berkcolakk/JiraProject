@@ -6,7 +6,9 @@
     <RootNamespace>TestProject.DesktopApp</RootNamespace>
     <SaveNodeJsSettingsInProjectFile>True</SaveNodeJsSettingsInProjectFile>
     <NodeExePath>C:\Users\Brkco\source\repos\TestProject\TestProject.DesktopApp\node_modules\electron\dist\electron.exe</NodeExePath>
-    <Environment>REQUEST_URL=https://localhost:44324 VERSION=0.00.01 APPLICATION_TYPE=DEVELOPMENT</Environment>
+    <Environment>REQUEST_URL=https://localhost:44324
+VERSION=0.00.01
+APPLICATION_TYPE=DEVELOPMENT</Environment>
   </PropertyGroup>
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -14,7 +16,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>385d5055-9c65-43a7-bf1a-6347c2462dc0</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>Fragments\MainJs\app.js</StartupFile>
+    <StartupFile>Fragments\Main\app.js</StartupFile>
     <StartWebBrowser>False</StartWebBrowser>
     <SearchPath>
     </SearchPath>
@@ -11127,7 +11129,9 @@
     <Content Include="ExternalLib\scss\transparent\_responsive.scss" />
     <Content Include="ExternalLib\scss\transparent\_variable.scss" />
     <Content Include="ExternalLib\scss\transparent\_widget_list.scss" />
-    <Content Include="Fragments\MainJs\app.js" />
+    <Content Include="Fragments\Main\app.js" />
+    <Content Include="Fragments\Menu\MenuTemplate.js" />
+    <Content Include="Fragments\Navbar\Navbar.js" />
     <Content Include="Fragments\Notification\SendNotification.js" />
     <Content Include="Fragments\Parameters\Parameters.js" />
     <Content Include="Module\Login\Login.js" />
@@ -11870,7 +11874,9 @@
     <Folder Include="ExternalLib\scss\transparent\plugins\" />
     <Folder Include="ExternalLib\scss\transparent\theme\" />
     <Folder Include="ExternalLib\scss\transparent\widget\" />
-    <Folder Include="Fragments\MainJs\" />
+    <Folder Include="Fragments\Main\" />
+    <Folder Include="Fragments\Menu\" />
+    <Folder Include="Fragments\Navbar\" />
     <Folder Include="Fragments\Parameters\" />
     <Folder Include="Fragments\Notification\" />
     <Folder Include="Module\" />

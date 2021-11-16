@@ -6,6 +6,10 @@
     <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
     <meta content="" name="description" />
     <meta content="" name="author" />
+    <!-- Insert this line above script imports  -->
+    <script>if (typeof module === 'object') { window.module = module; module = undefined; }</script>
+    <!-- Insert this line after script imports -->
+    <script>if (window.module) module = window.module;</script>
     <!-- ================== BEGIN BASE CSS STYLE ================== -->
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
     <link href="../../ExternalLib/plugins/jquery-ui/jquery-ui.min.css" rel="stylesheet" />
@@ -88,7 +92,7 @@
     <!-- ================== END BASE JS ================== -->
     <!-- ================== BEGIN PAGE LEVEL JS ================== -->
     <script src="../../ExternalLib/js/demo/login-v2.demo.min.js"></script>
-    <!--<script src="../../Module/Login/Login.js"></script>-->
+    <script src="../../Module/Login/Login.js"></script>
     <!-- ================== END PAGE LEVEL JS ================== -->
     <script>
 

@@ -5,12 +5,12 @@
   },
   "version": "0.0.0",
   "description": "TestProject.DesktopApp",
-  "main": "main.js",
+  "main": "Fragments/Main/app.js",
   "author": {
     "name": ""
   },
   "dependencies": {
-    "electron": "^11.5.0",
+    "electron": "^16.0.0",
     "electron-log": "^2.2.14",
     "electron-settings": "^3.0.7",
     "electron-shortcut-normalizer": "^1.0.0",
