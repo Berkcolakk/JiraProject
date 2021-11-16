@@ -11135,7 +11135,6 @@ APPLICATION_TYPE=DEVELOPMENT</Environment>
     <Content Include="Fragments\Notification\SendNotification.js" />
     <Content Include="Fragments\Parameters\Parameters.js" />
     <Content Include="Module\Login\Login.js" />
-    <Content Include="Module\Login\Login2.js" />
     <Content Include="package.json" />
     <Content Include="README.md" />
     <Content Include="View\Layout\Layout.html" />

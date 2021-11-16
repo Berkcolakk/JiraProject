@@ -20,6 +20,7 @@ app.on('ready', () => {
     mainWindow.loadURL(Parameters.Parameters.GetAbsoulutePath('../../View/Login/Login.html'))
     /* Initiliaze Screen */
 
+    
     /* Initiliaze Menu */
     const mainMenu = Menu.buildFromTemplate(menuTemplate.MenuTemplate.Template);
     Menu.setApplicationMenu(mainMenu);
