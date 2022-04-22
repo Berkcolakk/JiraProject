@@ -1,6 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System;
+using System.Collections.Generic;
 using System.Linq;
+using TestProject.DAL.DataSeeding;
 using TestProject.DAL.Entities;
 using TestProject.DAL.Entities.Base;
 
@@ -39,6 +41,13 @@ namespace TestProject.DAL.Context
                 fk.DeleteBehavior = DeleteBehavior.Restrict;
             }
 
+            modelBuilder.Entity<Company>().HasData(Seeding.AllCompanyCreate());
+            modelBuilder.Entity<Roles>().HasData(Seeding.AllRolesCreate());
+            modelBuilder.Entity<User>().HasData(Seeding.AllUserCreate());
+            modelBuilder.Entity<Menu>().HasData(Seeding.AllMenuCreate());
+            modelBuilder.Entity<UserRole>().HasData(Seeding.AllUserRoleCreate());
+            modelBuilder.Entity<MenuRole>().HasData(Seeding.AllMenuRoleCreate());
+
             base.OnModelCreating(modelBuilder);
         }
         public void Commit()
@@ -76,6 +85,7 @@ namespace TestProject.DAL.Context
             }
             return base.SaveChanges(acceptAllChangesOnSuccess);
         }
+
 
     }
 }
