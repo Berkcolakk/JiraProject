@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Cors;
+using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 using TestProject.DAL.Entities;
 using TestProject.Services.CompanyServices;
