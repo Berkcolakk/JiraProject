@@ -52,8 +52,7 @@ namespace TestProject.API.Controllers.Users
         [Produces("application/json")]
         public async Task<IActionResult> AddUser(User user)
         {
-            await userService.AddUser(user);
-            return Ok();
+            return Ok(await userService.AddUser(user));
         }
 
         [HttpPost]
@@ -61,8 +60,8 @@ namespace TestProject.API.Controllers.Users
         [Produces("application/json")]
         public async Task<IActionResult> UpdateUser(User user)
         {
-            await userService.UpdateUser(user);
-            return Ok();
+            return Ok(await userService.UpdateUser(user));
+
         }
 
         [HttpPost]
@@ -70,8 +69,8 @@ namespace TestProject.API.Controllers.Users
         [Produces("application/json")]
         public async Task<IActionResult> DeleteUser(int id)
         {
-            await userService.DeleteUser(id);
-            return Ok();
+            return Ok(await userService.DeleteUser(id));
+
         }
     }
 }

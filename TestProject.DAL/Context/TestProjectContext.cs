@@ -19,6 +19,7 @@ namespace TestProject.DAL.Context
             base.OnConfiguring(optionsBuilder);
             optionsBuilder.UseSqlServer("Server=.;Database=TestProjectDB;Trusted_Connection=True;");
         }
+        /*TABLES*/
         public DbSet<User> User { get; set; }
 
         public DbSet<UserRole> UserRole { get; set; }
@@ -30,6 +31,7 @@ namespace TestProject.DAL.Context
         public DbSet<Menu> Menu { get; set; }
 
         public DbSet<MenuRole> MenuRole { get; set; }
+        public DbSet<UserToken> UserToken { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             System.Collections.Generic.IEnumerable<Microsoft.EntityFrameworkCore.Metadata.IMutableForeignKey> cascadeFKs = modelBuilder.Model.GetEntityTypes()

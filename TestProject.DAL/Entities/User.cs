@@ -9,6 +9,7 @@ namespace TestProject.DAL.Entities
         public User()
         {
             UserRole = new List<UserRole>();
+            UserToken = new List<UserToken>();
         }
         public string Email { get; set; }
 
@@ -21,5 +22,6 @@ namespace TestProject.DAL.Entities
         public int CompanyID { get; set; }
 
         public virtual ICollection<UserRole> UserRole { get; set; }
+        public virtual ICollection<UserToken> UserToken { get; set; }
     }
 }
