@@ -11,5 +11,6 @@ namespace TestProject.DAL.Entities
     {
         public string Token { get; set; }
         public DateTime ExpireDate { get; set; }
+        public int UserID { get; set; }
     }
 }

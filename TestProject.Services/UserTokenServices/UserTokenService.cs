@@ -27,8 +27,17 @@ namespace TestProject.Services.UserTokenServices
             }
             try
             {
-                await userTokenRepo.Insert(userToken);
-                await Save();
+                UserToken existsUserToken = await userTokenRepo.Get(x => x.UserID == userToken.UserID && x.ExpireDate >= DateTime.Now);
+                if (existsUserToken == null)
+                {
+                    await userTokenRepo.Insert(userToken);
+
+                    await Save();
+                }
+                else
+                {
+                    return true;
+                }
                 return true;
             }
             catch (Exception)

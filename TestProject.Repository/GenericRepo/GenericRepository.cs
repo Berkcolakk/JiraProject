@@ -28,19 +28,19 @@ namespace TestProject.Repository.GenericRepo
 
         protected virtual DbSet<T> Entities => _entities ?? DataContext.Set<T>();
 
-        public Task<T> Get(Expression<Func<T, bool>> predicate)
+        public virtual async Task<T> Get(Expression<Func<T, bool>> predicate)
         {
-            return Entities.Where(predicate).SingleOrDefaultAsync();
+            return await Entities.Where(predicate).SingleOrDefaultAsync();
         }
 
-        public virtual ValueTask<T> GetById(object id)
+        public virtual async ValueTask<T> GetById(object id)
         {
-            return Entities.FindAsync(id);
+            return await Entities.FindAsync(id);
         }
 
-        public virtual Task<List<T>> GetMany(Expression<Func<T, bool>> predicate)
+        public virtual async Task<List<T>> GetMany(Expression<Func<T, bool>> predicate)
         {
-            return Entities.Where(predicate).ToListAsync();
+            return await Entities.Where(predicate).ToListAsync();
         }
         public virtual Task<List<T>> GetManyNoTracking(Expression<Func<T, bool>> predicate)
         {

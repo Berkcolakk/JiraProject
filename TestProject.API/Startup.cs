@@ -15,12 +15,14 @@ using TestProject.ServiceManager.MenuServiceMangers;
 using TestProject.ServiceManager.RoleServiceMangers;
 using TestProject.ServiceManager.UserRoleServiceMangers;
 using TestProject.ServiceManager.UserServiceMangers;
+using TestProject.ServiceManager.UserTokenServiceMangers;
 using TestProject.Services.CompanyServices;
 using TestProject.Services.MenuRoleServices;
 using TestProject.Services.MenuServices;
 using TestProject.Services.RoleServices;
 using TestProject.Services.UserRoleServices;
 using TestProject.Services.UserServices;
+using TestProject.Services.UserTokenServices;
 
 namespace TestProject.API
 {
@@ -63,6 +65,9 @@ namespace TestProject.API
 
             services.AddScoped<IMenuRoleService, MenuRoleService>();
             services.AddScoped<MenuRoleManager>();
+
+            services.AddScoped<IUserTokenService, UserTokenService>();
+            services.AddScoped<UserTokenManager>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
