@@ -1,9 +1,12 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Localization;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using System.Globalization;
+using TestProject.API.Helpers;
 using TestProject.API.Utilities;
 using TestProject.DAL.Context;
 using TestProject.Infrastructure.Infrastructures;
@@ -68,6 +71,22 @@ namespace TestProject.API
 
             services.AddScoped<IUserTokenService, UserTokenService>();
             services.AddScoped<UserTokenManager>();
+
+            services.Configure<RequestLocalizationOptions>(
+                        opts =>
+                        {
+                            var supportedCultures = new[]
+                            {
+
+                        new CultureInfo("tr-TR"),
+                            };
+
+                            opts.DefaultRequestCulture = new RequestCulture("tr-TR");
+                            // Formatting numbers, dates, etc.
+                            opts.SupportedCultures = supportedCultures;
+                            // UI strings that we have localized.
+                            opts.SupportedUICultures = supportedCultures;
+                        });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -82,6 +101,8 @@ namespace TestProject.API
                          .AllowAnyOrigin()
                          .AllowAnyMethod()
                          .AllowAnyHeader());
+            //Middleware
+            app.UseMiddleware<CustomMiddleware>();
 
             app.UseAuthentication();
 

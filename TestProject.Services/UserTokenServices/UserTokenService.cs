@@ -1,5 +1,8 @@
-﻿using System;
+﻿using Microsoft.Extensions.Configuration;
+using Microsoft.IdentityModel.Tokens;
+using System;
 using System.Collections.Generic;
+using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,13 +16,61 @@ namespace TestProject.Services.UserTokenServices
     {
         private readonly IGenericRepository<UserToken> userTokenRepo;
         private readonly IUnitOfWork unitOfWork;
-        public UserTokenService(IGenericRepository<UserToken> userTokenRepo, UnitOfWork unitOfWork)
+        private readonly IConfiguration config;
+        public UserTokenService(IGenericRepository<UserToken> userTokenRepo, UnitOfWork unitOfWork, IConfiguration config)
         {
             this.userTokenRepo = userTokenRepo;
             this.unitOfWork = unitOfWork;
+            this.config = config;
         }
+        public async Task<UserToken> CheckTokenByUserID(int id)
+        {
+            try
+            {
+                return await userTokenRepo.Get(x => x.UserID == id && x.ExpireDate >= DateTime.Now);
 
-        public async Task<bool> AddToken(UserToken userToken)
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+        public async Task<UserToken> GenerateUserToken(int id)
+        {
+            try
+            {
+                UserToken checkUserToken = await CheckTokenByUserID(id);
+                if (checkUserToken == null)
+                {
+                    var secret = config.GetSection("AppIdentitySettings:Password");
+                    var tokenHandler = new JwtSecurityTokenHandler();
+                    var key = Encoding.ASCII.GetBytes(secret.Value);
+                    DateTime expireDate = DateTime.UtcNow.AddDays(7);
+                    var securityToken = tokenHandler.CreateToken(new SecurityTokenDescriptor()
+                    {
+                        Expires = expireDate,
+                        SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
+                    });
+                    string token = tokenHandler.WriteToken(securityToken);
+                    return await AddToken(new UserToken()
+                    {
+                        Token = token,
+                        ExpireDate = expireDate,
+                        UserID = id
+                    });
+                }
+                else
+                {
+                    return checkUserToken;
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+
+        }
+        public async Task<UserToken> AddToken(UserToken userToken)
         {
             if (userToken == null)
             {
@@ -27,18 +78,9 @@ namespace TestProject.Services.UserTokenServices
             }
             try
             {
-                UserToken existsUserToken = await userTokenRepo.Get(x => x.UserID == userToken.UserID && x.ExpireDate >= DateTime.Now);
-                if (existsUserToken == null)
-                {
-                    await userTokenRepo.Insert(userToken);
-
-                    await Save();
-                }
-                else
-                {
-                    return true;
-                }
-                return true;
+                await userTokenRepo.Insert(userToken);
+                await Save();
+                return userToken;
             }
             catch (Exception)
             {
@@ -46,12 +88,19 @@ namespace TestProject.Services.UserTokenServices
             }
         }
 
-        public async Task<UserToken> CheckTokenByUserToken(UserToken userToken)
+        public async Task<bool> CheckTokenByUserToken(string token)
         {
             try
             {
-
-                return await userTokenRepo.Get(a => a.Token == userToken.Token);
+                UserToken userToken = await userTokenRepo.Get(a => a.Token == token && a.ExpireDate >= DateTime.Now);
+                if (userToken == null)
+                {
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
             }
             catch (Exception)
             {
