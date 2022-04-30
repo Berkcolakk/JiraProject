@@ -10,5 +10,6 @@ namespace TestProject.Dto.User.Auth
     {
         public string Token { get; set; }
         public DateTime ExpireDate { get; set; }
+        public Error.Error Error { get; set; }
     }
 }
