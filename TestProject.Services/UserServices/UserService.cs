@@ -1,7 +1,9 @@
-﻿using System;
+﻿using Microsoft.IdentityModel.Tokens;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using TestProject.DAL.Entities;
+using TestProject.Dto.User.Auth;
 using TestProject.Repository.GenericRepo;
 using TestProject.Repository.UnitOfWork;
 using TestProject.ServiceManager.UserServiceMangers;
@@ -36,7 +38,7 @@ namespace TestProject.Services.UserServices
                 throw e;
             }
         }
-        public async Task<bool> GetLoginUser(User user)
+        public async Task<TokenDTO> GetLoginUser(User user)
         {
             return await userManager.GetLoginUser(user);
         }

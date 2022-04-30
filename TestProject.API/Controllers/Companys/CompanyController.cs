@@ -50,12 +50,11 @@ namespace TestProject.API.Controllers.Companys
             return Ok();
         }
 
-        [HttpPost]
+        [HttpDelete]
         [Route("/[controller]/DeleteCompany")]
-        [Produces("application/json")]
         public async Task<IActionResult> DeleteCompany(int id)
         {
-            await companyService.DeleteCompany(id);
+            //await companyService.DeleteCompany(id);
             return Ok();
         }
     }

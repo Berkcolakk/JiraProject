@@ -1,6 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using Microsoft.IdentityModel.Tokens;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using TestProject.DAL.Entities;
+using TestProject.Dto.User.Auth;
 
 namespace TestProject.Services.UserServices
 {
@@ -9,7 +11,7 @@ namespace TestProject.Services.UserServices
         Task<bool> AddUser(User user);
         public Task<bool> UpdateUser(User user);
         public Task<List<User>> GetAllUsers();
-        Task<bool> GetLoginUser(User user);
+        Task<TokenDTO> GetLoginUser(User user);
         public Task<User> GetUserById(int id);
         Task<bool> DeleteUser(int userId);
         public Task Save();
