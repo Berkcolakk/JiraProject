@@ -33,14 +33,14 @@ namespace TestProject.Services.UserServices
                 await Save();
                 return true;
             }
-            catch (Exception e)
+            catch (Exception)
             {
-                throw e;
+                throw;
             }
         }
-        public async Task<TokenDTO> GetLoginUser(User user)
+        public async Task<TokenDTO> UserAuthentication(User user)
         {
-            return await userManager.GetLoginUser(user);
+            return await userManager.UserAuthentication(user);
         }
         public async Task<bool> UpdateUser(User user)
         {
@@ -55,9 +55,9 @@ namespace TestProject.Services.UserServices
                 await Save();
                 return true;
             }
-            catch (Exception e)
+            catch (Exception)
             {
-                throw e;
+                throw;
             }
         }
         public async Task<List<User>> GetAllUsers()
@@ -68,7 +68,7 @@ namespace TestProject.Services.UserServices
             }
             catch (Exception e)
             {
-                throw e;
+                throw;
             }
         }
         public async Task<User> GetUserById(int id)
@@ -96,9 +96,9 @@ namespace TestProject.Services.UserServices
                 await Save();
                 return true;
             }
-            catch (Exception e)
+            catch (Exception)
             {
-                throw e;
+                throw;
             }
         }
         public async Task Save()

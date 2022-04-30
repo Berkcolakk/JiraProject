@@ -10,5 +10,6 @@ namespace TestProject.DAL.Entities
     public class UserToken : EntityBase
     {
         public string Token { get; set; }
+        public DateTime ExpireDate { get; set; }
     }
 }

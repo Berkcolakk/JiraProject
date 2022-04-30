@@ -23,7 +23,7 @@ namespace TestProject.ServiceManager.UserServiceMangers
             config = _config;
         }
 
-        public async Task<TokenDTO> GetLoginUser(User user)
+        public async Task<TokenDTO> UserAuthentication(User user)
         {
             User appUser = await context.User.Where(x => x.Email == user.Email && x.Password == user.Password).SingleOrDefaultAsync();
 

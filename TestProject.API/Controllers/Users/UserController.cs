@@ -43,7 +43,7 @@ namespace TestProject.API.Controllers.Users
         [Produces("application/json")]
         public async Task<IActionResult> Login(User user)
         {
-            return Ok(await userService.GetLoginUser(user));
+            return Ok(await userService.UserAuthentication(user));
         }
 
 
