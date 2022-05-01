@@ -43,7 +43,7 @@ namespace TestProject.API.Controllers.UserRoles
             return Ok();
         }
 
-        [HttpPost]
+        [HttpPut]
         [Route("/[controller]/UpdateUserRole")]
         [Produces("application/json")]
         public async Task<IActionResult> UpdateUserRole(UserRole userRole)
@@ -52,7 +52,7 @@ namespace TestProject.API.Controllers.UserRoles
             return Ok();
         }
 
-        [HttpPost]
+        [HttpDelete]
         [Route("/[controller]/DeleteUserRole")]
         [Produces("application/json")]
         public async Task<IActionResult> DeleteUserRole(int id)

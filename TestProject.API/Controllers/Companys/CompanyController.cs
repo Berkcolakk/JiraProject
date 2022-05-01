@@ -41,7 +41,7 @@ namespace TestProject.API.Controllers.Companys
             return Ok();
         }
 
-        [HttpPost]
+        [HttpPut]
         [Route("/[controller]/UpdateCompany")]
         [Produces("application/json")]
         public async Task<IActionResult> UpdateCompany(Company company)

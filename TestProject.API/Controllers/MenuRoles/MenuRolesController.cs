@@ -41,7 +41,7 @@ namespace TestProject.API.Controllers.Companys
             return Ok();
         }
 
-        [HttpPost]
+        [HttpPut]
         [Route("/[controller]/UpdateMenuRole")]
         [Produces("application/json")]
         public async Task<IActionResult> UpdateMenuRole(MenuRole menuRole)
@@ -50,7 +50,7 @@ namespace TestProject.API.Controllers.Companys
             return Ok();
         }
 
-        [HttpPost]
+        [HttpDelete]
         [Route("/[controller]/DeleteMenuRole")]
         [Produces("application/json")]
         public async Task<IActionResult> DeleteMenuRole(int id)
