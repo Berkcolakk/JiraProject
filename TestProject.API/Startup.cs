@@ -41,11 +41,15 @@ namespace TestProject.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers().AddJsonOptions(options => options.JsonSerializerOptions.PropertyNamingPolicy = null);
-            string conn = Configuration.GetConnectionString("DefaultConnection");
-            services.AddDbContext<TestProjectContext>(x => x.UseSqlServer(conn), ServiceLifetime.Transient);
+            services.AddControllers().AddJsonOptions(options =>
 
-            //services.AddDbContext<TestProjectContext>(options => options.UseSqlServer(Configuration.GetConnectionString("TestProjectDB")));
+            {
+                options.JsonSerializerOptions.PropertyNamingPolicy = null;
+                options.JsonSerializerOptions.Converters.Add(new DateConverter());
+            });
+
+            services.AddDbContext<TestProjectContext>(x => x.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")), ServiceLifetime.Transient);
+
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
             services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
