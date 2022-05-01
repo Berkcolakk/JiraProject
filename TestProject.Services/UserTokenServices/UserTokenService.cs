@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using Hangfire;
+using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using System;
 using System.IdentityModel.Tokens.Jwt;
@@ -13,30 +14,45 @@ namespace TestProject.Services.UserTokenServices
     public class UserTokenService : IUserTokenService
     {
         private readonly IGenericRepository<UserToken> userTokenRepo;
-
         private readonly IUnitOfWork unitOfWork;
-
         private readonly IConfiguration config;
+        private readonly IBackgroundJobClient backgroundJobs;
 
-        public UserTokenService(IGenericRepository<UserToken> userTokenRepo, UnitOfWork unitOfWork, IConfiguration config)
+        public UserTokenService(IGenericRepository<UserToken> userTokenRepo, UnitOfWork unitOfWork, IConfiguration config, IBackgroundJobClient backgroundJobs)
         {
             this.userTokenRepo = userTokenRepo;
             this.unitOfWork = unitOfWork;
             this.config = config;
+            this.backgroundJobs = backgroundJobs;
         }
+
 
         public async Task<UserToken> CheckTokenByUserID(int id)
         {
             try
             {
-                return await userTokenRepo.Get(x => x.UserID == id && x.ExpireDate >= DateTime.Now);
+                return await userTokenRepo.Get(x => x.UserID == id && x.ExpireDate >= DateTime.Now && x.IsActive == true);
             }
             catch (Exception)
             {
                 throw;
             }
         }
+        public async Task<bool> HasTokenExpired(string token)
+        {
+            if (string.IsNullOrEmpty(token))
+            {
+                throw new ArgumentException($"'{nameof(token)}' cannot be null or empty.", nameof(token));
+            }
+            UserToken userToken = await CheckTokenByUserToken(token);
+            if (userToken != null)
+            {
+                userToken.IsActive = false;
+                await TokenExpired(userToken);
+            }
+            return true;
 
+        }
         public async Task<UserToken> GenerateUserToken(int id)
         {
             try
@@ -54,6 +70,9 @@ namespace TestProject.Services.UserTokenServices
                         SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
                     });
                     string token = tokenHandler.WriteToken(securityToken);
+
+
+                    backgroundJobs.Schedule(() => HasTokenExpired(token), expireDate);
                     return await AddToken(new UserToken()
                     {
                         Token = token,
@@ -90,19 +109,11 @@ namespace TestProject.Services.UserTokenServices
             }
         }
 
-        public async Task<bool> CheckTokenByUserToken(string token)
+        public async Task<UserToken> CheckTokenByUserToken(string token)
         {
             try
             {
-                UserToken userToken = await userTokenRepo.Get(a => a.Token == token && a.ExpireDate >= DateTime.Now);
-                if (userToken == null)
-                {
-                    return false;
-                }
-                else
-                {
-                    return true;
-                }
+                return await userTokenRepo.Get(a => a.Token == token && a.ExpireDate >= DateTime.Now);
             }
             catch (Exception)
             {

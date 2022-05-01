@@ -67,6 +67,8 @@ namespace TestProject.API
             }));
 
             services.AddHangfireServer();
+
+            services.AddHangfireServer();
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
             services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
@@ -112,6 +114,7 @@ namespace TestProject.API
                          .AllowAnyOrigin()
                          .AllowAnyMethod()
                          .AllowAnyHeader());
+
 
             app.UseHangfireDashboard();
 
