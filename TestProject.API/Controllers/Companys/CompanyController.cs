@@ -54,7 +54,7 @@ namespace TestProject.API.Controllers.Companys
         [Route("/[controller]/DeleteCompany")]
         public async Task<IActionResult> DeleteCompany(int id)
         {
-            //await companyService.DeleteCompany(id);
+            await companyService.DeleteCompany(id);
             return Ok();
         }
     }

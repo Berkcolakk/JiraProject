@@ -10,7 +10,7 @@ namespace TestProject.API.Helpers
         //{
         //    this.userTokenService = userTokenService;
         //}
-        public async void OnAuthorization(AuthorizationFilterContext context)
+        public void OnAuthorization(AuthorizationFilterContext context)
         {
             //string authKey = context.HttpContext.Request.Headers["Authorization"];
             //if (!String.IsNullOrEmpty(authKey))

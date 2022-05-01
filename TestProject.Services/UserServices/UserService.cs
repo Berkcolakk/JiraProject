@@ -86,7 +86,7 @@ namespace TestProject.Services.UserServices
             {
                 return await userRepo.GetAll();
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 throw;
             }
@@ -98,9 +98,9 @@ namespace TestProject.Services.UserServices
             {
                 return await userRepo.Get(a => a.ID == id);
             }
-            catch (Exception e)
+            catch (Exception)
             {
-                throw e;
+                throw;
             }
         }
 
