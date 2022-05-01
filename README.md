@@ -7,6 +7,7 @@
 * [EF Core - Code First DB](https://docs.microsoft.com/en-us/ef/core/)
 * [JWT Token](https://jwt.io/)
 * [Swagger](https://swagger.io/)
+* [Hangfire](https://www.hangfire.io/)
 -----
 * [Vue.js](https://vuejs.org/)
 * [Elecron.js](https://www.electronjs.org/)
