@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Localization;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -42,8 +43,8 @@ namespace TestProject.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers().AddJsonOptions(options => options.JsonSerializerOptions.PropertyNamingPolicy = null);
-
-            services.AddDbContext<TestProjectContext>(ServiceLifetime.Transient);
+            string conn = Configuration.GetConnectionString("DefaultConnection");
+            services.AddDbContext<TestProjectContext>(x => x.UseSqlServer(conn), ServiceLifetime.Transient);
             //services.AddDbContext<TestProjectContext>(options => options.UseSqlServer(Configuration.GetConnectionString("TestProjectDB")));
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
@@ -72,21 +73,6 @@ namespace TestProject.API
             services.AddScoped<IUserTokenService, UserTokenService>();
             services.AddScoped<UserTokenManager>();
 
-            services.Configure<RequestLocalizationOptions>(
-                        opts =>
-                        {
-                            var supportedCultures = new[]
-                            {
-
-                        new CultureInfo("tr-TR"),
-                            };
-
-                            opts.DefaultRequestCulture = new RequestCulture("tr-TR");
-                            // Formatting numbers, dates, etc.
-                            opts.SupportedCultures = supportedCultures;
-                            // UI strings that we have localized.
-                            opts.SupportedUICultures = supportedCultures;
-                        });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

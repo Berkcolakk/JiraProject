@@ -11,14 +11,6 @@ namespace TestProject.DAL.Context
     public class TestProjectContext : DbContext
     {
         public TestProjectContext(DbContextOptions<TestProjectContext> options) : base(options) { }
-
-        public TestProjectContext() { }
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            //optionsBuilder.UseSqlServer(@"Server=.;Database=TestProjectDB;Trusted_Connection=True;");
-            base.OnConfiguring(optionsBuilder);
-            optionsBuilder.UseSqlServer("Server=.;Database=TestProjectDB;Trusted_Connection=True;");
-        }
         /*TABLES*/
         public DbSet<User> User { get; set; }
 

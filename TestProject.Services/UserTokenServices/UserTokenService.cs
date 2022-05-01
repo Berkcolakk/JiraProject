@@ -42,7 +42,7 @@ namespace TestProject.Services.UserTokenServices
                 UserToken checkUserToken = await CheckTokenByUserID(id);
                 if (checkUserToken == null)
                 {
-                    var secret = config.GetSection("AppIdentitySettings:Password");
+                    var secret = config.GetSection("AppIdentitySettings:Key");
                     var tokenHandler = new JwtSecurityTokenHandler();
                     var key = Encoding.ASCII.GetBytes(secret.Value);
                     DateTime expireDate = DateTime.UtcNow.AddDays(7);
