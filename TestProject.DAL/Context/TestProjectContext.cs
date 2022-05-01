@@ -28,6 +28,9 @@ namespace TestProject.DAL.Context
         public DbSet<MenuRole> MenuRole { get; set; }
 
         public DbSet<UserToken> UserToken { get; set; }
+        public DbSet<ParameterMaster> ParameterMaster { get; set; }
+        public DbSet<ParameterDetail> ParameterDetail { get; set; }
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
