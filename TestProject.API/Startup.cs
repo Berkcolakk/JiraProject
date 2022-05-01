@@ -1,12 +1,10 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Localization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using System.Globalization;
 using TestProject.API.Helpers;
 using TestProject.API.Utilities;
 using TestProject.DAL.Context;
@@ -35,8 +33,8 @@ namespace TestProject.API
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
-
         }
+
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
@@ -45,6 +43,7 @@ namespace TestProject.API
             services.AddControllers().AddJsonOptions(options => options.JsonSerializerOptions.PropertyNamingPolicy = null);
             string conn = Configuration.GetConnectionString("DefaultConnection");
             services.AddDbContext<TestProjectContext>(x => x.UseSqlServer(conn), ServiceLifetime.Transient);
+
             //services.AddDbContext<TestProjectContext>(options => options.UseSqlServer(Configuration.GetConnectionString("TestProjectDB")));
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
@@ -72,7 +71,6 @@ namespace TestProject.API
 
             services.AddScoped<IUserTokenService, UserTokenService>();
             services.AddScoped<UserTokenManager>();
-
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -87,6 +85,7 @@ namespace TestProject.API
                          .AllowAnyOrigin()
                          .AllowAnyMethod()
                          .AllowAnyHeader());
+
             //Middleware
             app.UseMiddleware<CustomMiddleware>();
 

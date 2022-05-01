@@ -1,12 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc.Filters;
 using System;
-using TestProject.Services.UserTokenServices;
 
 namespace TestProject.API.Helpers
 {
     public class AuthAttribute : Attribute, IAuthorizationFilter
     {
-        private readonly IUserTokenService userTokenService;
+        //private readonly IUserTokenService userTokenService;
         //public AuthAttribute(IUserTokenService userTokenService)
         //{
         //    this.userTokenService = userTokenService;

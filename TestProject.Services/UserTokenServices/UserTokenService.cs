@@ -1,9 +1,7 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using System;
-using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
-using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TestProject.DAL.Entities;
@@ -15,26 +13,30 @@ namespace TestProject.Services.UserTokenServices
     public class UserTokenService : IUserTokenService
     {
         private readonly IGenericRepository<UserToken> userTokenRepo;
+
         private readonly IUnitOfWork unitOfWork;
+
         private readonly IConfiguration config;
+
         public UserTokenService(IGenericRepository<UserToken> userTokenRepo, UnitOfWork unitOfWork, IConfiguration config)
         {
             this.userTokenRepo = userTokenRepo;
             this.unitOfWork = unitOfWork;
             this.config = config;
         }
+
         public async Task<UserToken> CheckTokenByUserID(int id)
         {
             try
             {
                 return await userTokenRepo.Get(x => x.UserID == id && x.ExpireDate >= DateTime.Now);
-
             }
             catch (Exception)
             {
                 throw;
             }
         }
+
         public async Task<UserToken> GenerateUserToken(int id)
         {
             try
@@ -68,8 +70,8 @@ namespace TestProject.Services.UserTokenServices
             {
                 throw;
             }
-
         }
+
         public async Task<UserToken> AddToken(UserToken userToken)
         {
             if (userToken == null)

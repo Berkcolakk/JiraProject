@@ -10,6 +10,7 @@ namespace TestProject.ServiceManager.CompanyServiceMangers
     public class CompanyManager
     {
         private readonly TestProjectContext context;
+
         public CompanyManager(TestProjectContext context)
         {
             this.context = context;

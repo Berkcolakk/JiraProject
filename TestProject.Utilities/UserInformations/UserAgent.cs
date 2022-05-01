@@ -5,6 +5,7 @@
         private readonly string _userAgent;
 
         private ClientBrowser _browser;
+
         public ClientBrowser Browser
         {
             get
@@ -18,6 +19,7 @@
         }
 
         private ClientOS _os;
+
         public ClientOS OS
         {
             get

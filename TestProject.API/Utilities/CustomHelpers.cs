@@ -29,6 +29,7 @@ namespace TestProject.API.Utilities
         /// <param name="exception">The Exception thrown when processing did not complete successfully, otherwise null.</param>
         void DisposeContext(TContext context, Exception exception);
     }
+
     public static class HttpContext
     {
         private static IHttpContextAccessor _contextAccessor;
@@ -40,6 +41,7 @@ namespace TestProject.API.Utilities
             _contextAccessor = contextAccessor;
         }
     }
+
     public static class StaticHttpContextExtensions
     {
         public static void AddHttpContextAccessor(this IServiceCollection services)

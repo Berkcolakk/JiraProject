@@ -2,7 +2,6 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using System.Threading.Tasks;
-using TestProject.Services.UserTokenServices;
 
 namespace TestProject.API.Helpers
 {
@@ -10,6 +9,7 @@ namespace TestProject.API.Helpers
     public class CustomMiddleware
     {
         private readonly RequestDelegate _next;
+
         private readonly ILogger _logger;
 
         public CustomMiddleware(RequestDelegate next, ILoggerFactory logFactory)

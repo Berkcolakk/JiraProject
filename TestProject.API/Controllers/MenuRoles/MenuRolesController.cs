@@ -10,6 +10,7 @@ namespace TestProject.API.Controllers.Companys
     public class MenuRolesController : ControllerBase
     {
         private readonly IMenuRoleService menuRoleService;
+
         public MenuRolesController(IMenuRoleService _menuRoleService)
         {
             menuRoleService = _menuRoleService;

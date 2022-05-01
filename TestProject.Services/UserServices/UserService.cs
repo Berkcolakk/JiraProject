@@ -1,9 +1,5 @@
-﻿using Microsoft.Extensions.Configuration;
-using Microsoft.IdentityModel.Tokens;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.IdentityModel.Tokens.Jwt;
-using System.Text;
 using System.Threading.Tasks;
 using TestProject.DAL.Entities;
 using TestProject.Dto.User.Auth;
@@ -17,9 +13,13 @@ namespace TestProject.Services.UserServices
     public class UserService : IUserService
     {
         private readonly IGenericRepository<User> userRepo;
+
         private readonly UserManager userManager;
+
         private readonly IUnitOfWork unitOfWork;
+
         private readonly IUserTokenService userTokenService;
+
         public UserService(IGenericRepository<User> userRepo, UserManager userManager, UnitOfWork unitOfWork, IUserTokenService userTokenService)
         {
             this.userRepo = userRepo;
@@ -27,6 +27,7 @@ namespace TestProject.Services.UserServices
             this.unitOfWork = unitOfWork;
             this.userTokenService = userTokenService;
         }
+
         public async Task<bool> AddUser(User user)
         {
             if (user == null)
@@ -44,6 +45,7 @@ namespace TestProject.Services.UserServices
                 throw;
             }
         }
+
         public async Task<TokenDTO> UserAuthentication(User user)
         {
             User appUser = await userRepo.Get(x => x.Email == user.Email && x.Password == user.Password && x.IsActive == true);
@@ -58,6 +60,7 @@ namespace TestProject.Services.UserServices
                 return new TokenDTO() { Error = new Dto.Error.Error() { ErrorMessage = "Wrong email or password." } };
             }
         }
+
         public async Task<bool> UpdateUser(User user)
         {
             if (user == null)
@@ -76,6 +79,7 @@ namespace TestProject.Services.UserServices
                 throw;
             }
         }
+
         public async Task<List<User>> GetAllUsers()
         {
             try
@@ -87,6 +91,7 @@ namespace TestProject.Services.UserServices
                 throw;
             }
         }
+
         public async Task<User> GetUserById(int id)
         {
             try
@@ -98,6 +103,7 @@ namespace TestProject.Services.UserServices
                 throw e;
             }
         }
+
         public async Task<bool> DeleteUser(int userId)
         {
             if (userId == 0)
@@ -117,9 +123,9 @@ namespace TestProject.Services.UserServices
                 throw;
             }
         }
+
         public async Task Save()
         {
-
             await unitOfWork.Save();
         }
     }

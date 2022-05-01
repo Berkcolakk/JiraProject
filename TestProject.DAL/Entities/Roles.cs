@@ -11,13 +11,16 @@ namespace TestProject.DAL.Entities
             UserRole = new List<UserRole>();
             MenuRole = new List<MenuRole>();
         }
+
         public string Name { get; set; }
+
         public string Desc { get; set; }
+
         [ForeignKey("CompanyID")]
         public int CompanyID { get; set; }
 
         public virtual ICollection<UserRole> UserRole { get; set; }
-        public virtual ICollection<MenuRole> MenuRole { get; set; }
 
+        public virtual ICollection<MenuRole> MenuRole { get; set; }
     }
 }

@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Cors;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 using TestProject.DAL.Entities;
 using TestProject.Services.CompanyServices;
@@ -11,6 +10,7 @@ namespace TestProject.API.Controllers.Companys
     public class CompanyController : ControllerBase
     {
         private readonly ICompanyService companyService;
+
         public CompanyController(ICompanyService _companyService)
         {
             companyService = _companyService;

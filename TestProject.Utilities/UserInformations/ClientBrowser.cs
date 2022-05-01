@@ -43,7 +43,6 @@ namespace TestProject.Utilities.UserInformations
 
         public string Version { get; set; }
 
-
         private static void NameVersionAction(Match match, object obj)
         {
             ClientBrowser current = obj as ClientBrowser;
@@ -95,10 +94,10 @@ namespace TestProject.Utilities.UserInformations
                 Regexes = new List<Regex>{
                     new Regex(@"(kindle)\/([\w\.]+)",RegexOptions.IgnoreCase),// Kindle
                     new Regex(@"(lunascape|maxthon|netfront|jasmine|blazer)[\/\s]?([\w\.]+)*",RegexOptions.IgnoreCase),// Lunascape/Maxthon/Netfront/Jasmine/Blazer
-                    
+
                     new Regex(@"(avant\s|iemobile|slim|baidu)(?:browser)?[\/\s]?([\w\.]*)",RegexOptions.IgnoreCase), // Avant/IEMobile/SlimBrowser/Baidu
                     new Regex(@"(?:ms|\()(ie)\s([\w\.]+)",RegexOptions.IgnoreCase),// Internet Explorer
-                    
+
                     new Regex(@"(rekonq)\/([\w\.]+)*",RegexOptions.IgnoreCase),// Rekonq
                     new Regex(@"(chromium|flock|rockmelt|midori|epiphany|silk|skyfire|ovibrowser|bolt|iron|vivaldi|iridium|phantomjs)\/([\w\.-]+)",RegexOptions.IgnoreCase), // Chromium/Flock/RockMelt/Midori/Epiphany/Silk/Skyfire/Bolt/Iron/Iridium/PhantomJS
                 },

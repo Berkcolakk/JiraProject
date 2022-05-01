@@ -10,6 +10,7 @@ namespace TestProject.API.Controllers.Role
     public class RoleController : ControllerBase
     {
         private readonly IRoleService roleService;
+
         public RoleController(IRoleService _roleService)
         {
             roleService = _roleService;

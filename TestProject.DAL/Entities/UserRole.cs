@@ -9,12 +9,17 @@ namespace TestProject.DAL.Entities
         public UserRole()
         {
         }
+
         [ForeignKey("UserID")]
         public int UserID { get; set; }
+
         public string Desc { get; set; }
+
         public DateTime StartDate { get; set; }
+
         [ForeignKey("RoleID")]
         public int RoleID { get; set; }
+
         [ForeignKey("CompanyID")]
         public int CompanyID { get; set; }
     }

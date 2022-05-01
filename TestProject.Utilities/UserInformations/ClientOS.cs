@@ -59,7 +59,6 @@ namespace TestProject.Utilities.UserInformations
             new MatchExpression{
                 Regexes = new List<Regex>{
                     new Regex(@"microsoft\s(windows)\s(vista|xp)",RegexOptions.IgnoreCase),// Windows (iTunes)
-                    
                 },
                 Action = NameVersionAction
             },
@@ -175,6 +174,7 @@ namespace TestProject.Utilities.UserInformations
             },
             new MatchExpression{
                 Regexes = new List<Regex>{
+
                     // Console
                     new Regex(@"(nintendo|playstation)\s([wids34portablevu]+)",RegexOptions.IgnoreCase),// Nintendo/Playstation
 
@@ -182,7 +182,7 @@ namespace TestProject.Utilities.UserInformations
                     new Regex(@"(mint)[\/\s\(]?(\w+)*",RegexOptions.IgnoreCase),// Mint
                     new Regex(@"(mageia|vectorlinux)[;\s]",RegexOptions.IgnoreCase),// Mageia/VectorLinux
                     new Regex(@"(joli|[kxln]?ubuntu|debian|[open]*suse|gentoo|(?=\s)arch|slackware|fedora|mandriva|centos|pclinuxos|redhat|zenwalk|linpus)[\/\s-]?(?!chrom)([\w\.-]+)*",RegexOptions.IgnoreCase),// Joli/Ubuntu/Debian/SUSE/Gentoo/Arch/Slackware
-                    
+
                     // Joli/Ubuntu/Debian/SUSE/Gentoo/Arch/Slackware
                     // Fedora/Mandriva/CentOS/PCLinuxOS/RedHat/Zenwalk/Linpus
                     new Regex(@"(hurd|linux)\s?([\w\.]+)*",RegexOptions.IgnoreCase),// Hurd/Linux

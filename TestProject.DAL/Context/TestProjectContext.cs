@@ -1,6 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using TestProject.DAL.DataSeeding;
 using TestProject.DAL.Entities;
@@ -10,8 +9,12 @@ namespace TestProject.DAL.Context
 {
     public class TestProjectContext : DbContext
     {
-        public TestProjectContext(DbContextOptions<TestProjectContext> options) : base(options) { }
+        public TestProjectContext(DbContextOptions<TestProjectContext> options) : base(options)
+        {
+        }
+
         /*TABLES*/
+
         public DbSet<User> User { get; set; }
 
         public DbSet<UserRole> UserRole { get; set; }
@@ -23,7 +26,9 @@ namespace TestProject.DAL.Context
         public DbSet<Menu> Menu { get; set; }
 
         public DbSet<MenuRole> MenuRole { get; set; }
+
         public DbSet<UserToken> UserToken { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             System.Collections.Generic.IEnumerable<Microsoft.EntityFrameworkCore.Metadata.IMutableForeignKey> cascadeFKs = modelBuilder.Model.GetEntityTypes()
@@ -44,10 +49,12 @@ namespace TestProject.DAL.Context
 
             base.OnModelCreating(modelBuilder);
         }
+
         public void Commit()
         {
             SaveChangesAsync();
         }
+
         public override int SaveChanges(bool acceptAllChangesOnSuccess)
         {
             System.Collections.Generic.IEnumerable<Microsoft.EntityFrameworkCore.ChangeTracking.EntityEntry> Entries = ChangeTracker.Entries().Where(e => e.State == EntityState.Added || e.State == EntityState.Modified);
@@ -79,7 +86,5 @@ namespace TestProject.DAL.Context
             }
             return base.SaveChanges(acceptAllChangesOnSuccess);
         }
-
-
     }
 }

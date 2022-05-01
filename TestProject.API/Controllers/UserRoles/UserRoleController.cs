@@ -12,10 +12,12 @@ namespace TestProject.API.Controllers.UserRoles
     public class UserRoleController : ControllerBase
     {
         private readonly IUserRoleService userRoleService;
+
         public UserRoleController(IUserRoleService _userRoleService)
         {
             userRoleService = _userRoleService;
         }
+
         [HttpGet]
         [Route("/[controller]/GetAllUserRoles")]
         [Produces("application/json")]

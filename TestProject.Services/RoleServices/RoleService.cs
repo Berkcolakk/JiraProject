@@ -11,14 +11,18 @@ namespace TestProject.Services.RoleServices
     public class RoleService : IRoleService
     {
         private readonly IGenericRepository<Roles> rolesRepo;
+
         private readonly RoleManager rolesManager;
+
         private readonly IUnitOfWork unitOfWork;
+
         public RoleService(IGenericRepository<Roles> rolesRepo, RoleManager rolesManager, UnitOfWork unitOfWork)
         {
             this.rolesRepo = rolesRepo;
             this.rolesManager = rolesManager;
             this.unitOfWork = unitOfWork;
         }
+
         public async Task<bool> AddRoles(Roles Roles)
         {
             if (Roles == null)
@@ -36,6 +40,7 @@ namespace TestProject.Services.RoleServices
                 throw e;
             }
         }
+
         public async Task<bool> UpdateRoles(Roles Roles)
         {
             if (Roles == null)
@@ -54,6 +59,7 @@ namespace TestProject.Services.RoleServices
                 throw e;
             }
         }
+
         public async Task<List<Roles>> GetAllRoles()
         {
             try
@@ -65,6 +71,7 @@ namespace TestProject.Services.RoleServices
                 throw e;
             }
         }
+
         public async Task<Roles> GetRolesById(int id)
         {
             try
@@ -76,6 +83,7 @@ namespace TestProject.Services.RoleServices
                 throw e;
             }
         }
+
         public async Task<bool> DeleteRoles(int RolesId)
         {
             if (RolesId == 0)
@@ -95,9 +103,9 @@ namespace TestProject.Services.RoleServices
                 throw e;
             }
         }
+
         public async Task Save()
         {
-
             await unitOfWork.Save();
         }
     }

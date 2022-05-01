@@ -11,6 +11,7 @@ namespace TestProject.DAL.Entities.Base
         public int CrtUserID { get; set; }
 
         public string CrtUserIP { get; set; }
+
         public DateTime UpdDate { get; set; }
 
         public int UpdUserID { get; set; }

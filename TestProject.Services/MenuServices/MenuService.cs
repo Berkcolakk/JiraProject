@@ -11,14 +11,18 @@ namespace TestProject.Services.MenuServices
     public class MenuService : IMenuService
     {
         private readonly IGenericRepository<Menu> menuRepo;
+
         private readonly MenuManager MenuManager;
+
         private readonly IUnitOfWork unitOfWork;
+
         public MenuService(IGenericRepository<Menu> menuRepo, MenuManager MenuManager, UnitOfWork unitOfWork)
         {
             this.menuRepo = menuRepo;
             this.MenuManager = MenuManager;
             this.unitOfWork = unitOfWork;
         }
+
         public async Task<bool> AddMenu(Menu Menu)
         {
             if (Menu == null)
@@ -36,6 +40,7 @@ namespace TestProject.Services.MenuServices
                 throw e;
             }
         }
+
         public async Task<bool> UpdateMenu(Menu Menu)
         {
             if (Menu == null)
@@ -66,6 +71,7 @@ namespace TestProject.Services.MenuServices
                 throw e;
             }
         }
+
         public async Task<Menu> GetMenuById(int id)
         {
             try
@@ -77,6 +83,7 @@ namespace TestProject.Services.MenuServices
                 throw e;
             }
         }
+
         public async Task<bool> DeleteMenu(int MenuId)
         {
             if (MenuId == 0)
@@ -96,6 +103,7 @@ namespace TestProject.Services.MenuServices
                 throw e;
             }
         }
+
         public async Task Save()
         {
             await unitOfWork.Save();

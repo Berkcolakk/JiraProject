@@ -5,11 +5,13 @@ namespace TestProject.Infrastructure.Infrastructures
 {
     public class DatabaseFactory : Disposable, IDatabaseFactory
     {
-        DbContextOptions<TestProjectContext> options;
+        private DbContextOptions<TestProjectContext> options;
+
         public DatabaseFactory(DbContextOptions<TestProjectContext> options)
         {
             this.options = options;
         }
+
         private TestProjectContext dataContext;
 
         public TestProjectContext Get()

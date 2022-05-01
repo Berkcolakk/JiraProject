@@ -10,6 +10,7 @@ namespace TestProject.API.Controllers.Companys
     public class MenuController : ControllerBase
     {
         private readonly IMenuService menuService;
+
         public MenuController(IMenuService _menuService)
         {
             menuService = _menuService;

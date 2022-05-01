@@ -10,10 +10,15 @@ namespace TestProject.DAL.Entities
         {
             Roles = new List<Roles>();
         }
+
         public string Name { get; set; }
+
         public string Icon { get; set; }
+
         public string Color { get; set; }
+
         public string Desc { get; set; }
+
         [ForeignKey("CompanyID")]
         public int CompanyID { get; set; }
 

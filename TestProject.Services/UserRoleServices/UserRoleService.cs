@@ -11,14 +11,18 @@ namespace TestProject.Services.UserRoleServices
     public class UserRoleService : IUserRoleService
     {
         private readonly IGenericRepository<UserRole> userRoleRepo;
+
         private readonly UserRoleManager userManager;
+
         private readonly IUnitOfWork unitOfWork;
+
         public UserRoleService(IGenericRepository<UserRole> userRoleRepo, UserRoleManager userManager, UnitOfWork unitOfWork)
         {
             this.userRoleRepo = userRoleRepo;
             this.userManager = userManager;
             this.unitOfWork = unitOfWork;
         }
+
         public async Task<bool> AddUserRole(UserRole user)
         {
             if (user == null)
@@ -36,6 +40,7 @@ namespace TestProject.Services.UserRoleServices
                 throw e;
             }
         }
+
         public async Task<bool> UpdateUserRole(UserRole user)
         {
             if (user == null)
@@ -54,6 +59,7 @@ namespace TestProject.Services.UserRoleServices
                 throw e;
             }
         }
+
         public async Task<bool> DeleteUserRole(int userRoleId)
         {
             if (userRoleId == 0)
@@ -73,6 +79,7 @@ namespace TestProject.Services.UserRoleServices
                 throw e;
             }
         }
+
         public async Task<List<UserRole>> GetAllUserRoles()
         {
             try
@@ -84,6 +91,7 @@ namespace TestProject.Services.UserRoleServices
                 throw e;
             }
         }
+
         public async Task<UserRole> GetUserRoleById(int id)
         {
             try
@@ -95,9 +103,9 @@ namespace TestProject.Services.UserRoleServices
                 throw e;
             }
         }
+
         public async Task Save()
         {
-
             await unitOfWork.Save();
         }
     }

@@ -9,7 +9,9 @@ namespace TestProject.Repository.UnitOfWork
     public class UnitOfWork : IUnitOfWork
     {
         private readonly IDatabaseFactory databaseFactory;
+
         private TestProjectContext dataContext;
+
         public UnitOfWork(IDatabaseFactory databaseFactory)
         {
             this.databaseFactory = databaseFactory;

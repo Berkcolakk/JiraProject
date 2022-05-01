@@ -85,7 +85,6 @@ namespace TestProject.DAL.DataSeeding
                     ID = 1,
                     Desc = "TEST",
                     StartDate = DateTime.Now
-
                 }
             };
             return allUsers;
@@ -109,7 +108,6 @@ namespace TestProject.DAL.DataSeeding
                     CompanyID = 1,
                     Desc = "TEST",
                     Name = "Yazılım Geliştirici",
-
                 }
             };
             return allUsers;

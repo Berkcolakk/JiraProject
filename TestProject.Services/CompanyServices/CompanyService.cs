@@ -11,14 +11,18 @@ namespace TestProject.Services.CompanyServices
     public class CompanyService : ICompanyService
     {
         private readonly IGenericRepository<Company> companyRepo;
+
         private readonly CompanyManager companyManager;
+
         private readonly IUnitOfWork unitOfWork;
+
         public CompanyService(IGenericRepository<Company> companyRepo, CompanyManager companyManager, UnitOfWork unitOfWork)
         {
             this.companyRepo = companyRepo;
             this.companyManager = companyManager;
             this.unitOfWork = unitOfWork;
         }
+
         public async Task<bool> AddCompany(Company Company)
         {
             if (Company == null)
@@ -36,6 +40,7 @@ namespace TestProject.Services.CompanyServices
                 throw e;
             }
         }
+
         public async Task<bool> UpdateCompany(Company Company)
         {
             if (Company == null)
@@ -59,6 +64,7 @@ namespace TestProject.Services.CompanyServices
         {
             return await companyManager.GetAllCompanyWithUserInfo(companyId);
         }
+
         public async Task<List<Company>> GetAllCompanys()
         {
             try
@@ -70,6 +76,7 @@ namespace TestProject.Services.CompanyServices
                 throw e;
             }
         }
+
         public async Task<Company> GetCompanyById(int id)
         {
             try
@@ -81,6 +88,7 @@ namespace TestProject.Services.CompanyServices
                 throw e;
             }
         }
+
         public async Task<bool> DeleteCompany(int CompanyId)
         {
             if (CompanyId == 0)
@@ -100,9 +108,9 @@ namespace TestProject.Services.CompanyServices
                 throw e;
             }
         }
+
         public async Task Save()
         {
-
             await unitOfWork.Save();
         }
     }

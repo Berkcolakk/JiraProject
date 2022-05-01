@@ -12,7 +12,9 @@ namespace TestProject.Repository.GenericRepo
     public class GenericRepository<T> : IGenericRepository<T> where T : class
     {
         private TestProjectContext _context;
+
         private readonly DbSet<T> _entities;
+
         protected IDatabaseFactory DatabaseFactory { get; private set; }
 
         public GenericRepository(IDatabaseFactory databaseFactory)
@@ -42,6 +44,7 @@ namespace TestProject.Repository.GenericRepo
         {
             return await Entities.Where(predicate).ToListAsync();
         }
+
         public virtual Task<List<T>> GetManyNoTracking(Expression<Func<T, bool>> predicate)
         {
             return TableNoTracking.Where(predicate).ToListAsync();
@@ -124,7 +127,6 @@ namespace TestProject.Repository.GenericRepo
                     Entities.Attach(entity);
                     DataContext.Entry(entity).State = EntityState.Modified;
                 }
-
             }
             catch (Exception dbEx)
             {
@@ -143,7 +145,6 @@ namespace TestProject.Repository.GenericRepo
                 DataContext.Entry(entity).Property(property).IsModified = false;
             }
         }
-
 
         public virtual void Delete(T entity)
         {

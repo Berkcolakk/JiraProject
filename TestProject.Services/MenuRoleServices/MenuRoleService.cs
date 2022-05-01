@@ -11,14 +11,18 @@ namespace TestProject.Services.MenuRoleServices
     public class MenuRoleService : IMenuRoleService
     {
         private readonly IGenericRepository<MenuRole> menuRoleRepo;
+
         private readonly MenuRoleManager MenuRoleManager;
+
         private readonly IUnitOfWork unitOfWork;
+
         public MenuRoleService(IGenericRepository<MenuRole> menuRoleRepo, MenuRoleManager MenuRoleManager, UnitOfWork unitOfWork)
         {
             this.menuRoleRepo = menuRoleRepo;
             this.MenuRoleManager = MenuRoleManager;
             this.unitOfWork = unitOfWork;
         }
+
         public async Task<bool> AddMenuRole(MenuRole MenuRole)
         {
             if (MenuRole == null)
@@ -36,6 +40,7 @@ namespace TestProject.Services.MenuRoleServices
                 throw e;
             }
         }
+
         public async Task<bool> UpdateMenuRole(MenuRole MenuRole)
         {
             if (MenuRole == null)
@@ -54,6 +59,7 @@ namespace TestProject.Services.MenuRoleServices
                 throw e;
             }
         }
+
         public async Task<List<MenuRole>> GetAllMenuRoles()
         {
             try
@@ -65,6 +71,7 @@ namespace TestProject.Services.MenuRoleServices
                 throw e;
             }
         }
+
         public async Task<MenuRole> GetMenuRoleById(int id)
         {
             try
@@ -76,6 +83,7 @@ namespace TestProject.Services.MenuRoleServices
                 throw e;
             }
         }
+
         public async Task<bool> DeleteMenuRole(int MenuRoleId)
         {
             if (MenuRoleId == 0)
@@ -95,9 +103,9 @@ namespace TestProject.Services.MenuRoleServices
                 throw e;
             }
         }
+
         public async Task Save()
         {
-
             await unitOfWork.Save();
         }
     }
