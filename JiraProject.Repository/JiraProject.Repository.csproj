@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net5.0</TargetFramework>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\JiraProject.DAL\JiraProject.DAL.csproj" />
+		<ProjectReference Include="..\JiraProject.Infrastructure\JiraProject.Infrastructure.csproj" />
+	</ItemGroup>
+
+</Project>

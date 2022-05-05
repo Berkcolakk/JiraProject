@@ -3,23 +3,23 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.31903.286
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JiraProject.API", "TestProject.API\JiraProject.API.csproj", "{4D65063B-02C3-4C9E-8CE8-9F889A3135CF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JiraProject.API", "JiraProject.API\JiraProject.API.csproj", "{4D65063B-02C3-4C9E-8CE8-9F889A3135CF}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JiraProject.DAL", "TestProject.DAL\JiraProject.DAL.csproj", "{1BCE9A7F-98D0-41EB-AD42-A9F344D6AEE5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JiraProject.DAL", "JiraProject.DAL\JiraProject.DAL.csproj", "{1BCE9A7F-98D0-41EB-AD42-A9F344D6AEE5}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JiraProject.Services", "TestProject.Services\JiraProject.Services.csproj", "{C8BB063E-787C-4C49-90D2-705EFC8794E5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JiraProject.Services", "JiraProject.Services\JiraProject.Services.csproj", "{C8BB063E-787C-4C49-90D2-705EFC8794E5}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JiraProject.Infrastructure", "TestProject.Infrastructure\JiraProject.Infrastructure.csproj", "{86A3C687-1614-4749-A21A-74DB2B744154}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JiraProject.Infrastructure", "JiraProject.Infrastructure\JiraProject.Infrastructure.csproj", "{86A3C687-1614-4749-A21A-74DB2B744154}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JiraProject.Repository", "TestProject.Repository\JiraProject.Repository.csproj", "{255142F2-746E-4963-ABA7-DE7676D08BC9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JiraProject.Repository", "JiraProject.Repository\JiraProject.Repository.csproj", "{255142F2-746E-4963-ABA7-DE7676D08BC9}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JiraProject.Utilities", "TestProject.Utilities\JiraProject.Utilities.csproj", "{9ADA0E83-893C-4E1C-98FF-76FD3AF92B64}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JiraProject.Utilities", "JiraProject.Utilities\JiraProject.Utilities.csproj", "{9ADA0E83-893C-4E1C-98FF-76FD3AF92B64}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JiraProject.ServiceManager", "TestProject.ServiceManager\JiraProject.ServiceManager.csproj", "{9EE512DA-2634-49EF-B36C-32F9C9AD1934}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JiraProject.ServiceManager", "JiraProject.ServiceManager\JiraProject.ServiceManager.csproj", "{9EE512DA-2634-49EF-B36C-32F9C9AD1934}"
 EndProject
-Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "JiraProject.DesktopApp", "TestProject.DesktopApp\JiraProject.DesktopApp.njsproj", "{385D5055-9C65-43A7-BF1A-6347C2462DC0}"
+Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "JiraProject.DesktopApp", "JiraProject.DesktopApp\JiraProject.DesktopApp.njsproj", "{385D5055-9C65-43A7-BF1A-6347C2462DC0}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JiraProject.Dto", "TestProject.Dto\JiraProject.Dto.csproj", "{643DE641-96B3-4935-8EF6-419959AAF04B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JiraProject.Dto", "JiraProject.Dto\JiraProject.Dto.csproj", "{643DE641-96B3-4935-8EF6-419959AAF04B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
