@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace TestProject.DAL.Entities.Base
+namespace JiraProject.DAL.Entities.Base
 {
     public class EntityBase
     {

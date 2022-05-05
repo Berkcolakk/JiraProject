@@ -2,7 +2,7 @@
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">14.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
-    <Name>TestProject.DesktopApp</Name>
+    <Name>JiraProject.DesktopApp</Name>
     <RootNamespace>TestProject.DesktopApp</RootNamespace>
     <SaveNodeJsSettingsInProjectFile>True</SaveNodeJsSettingsInProjectFile>
     <NodeExePath>C:\Users\Brkco\source\repos\TestProject\TestProject.DesktopApp\node_modules\electron\dist\electron.exe</NodeExePath>
@@ -15,7 +15,8 @@ APPLICATION_TYPE=DEVELOPMENT</Environment>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>385d5055-9c65-43a7-bf1a-6347c2462dc0</ProjectGuid>
-    <ProjectHome>.</ProjectHome>
+    <ProjectHome>
+    </ProjectHome>
     <StartupFile>Fragments\Main\app.js</StartupFile>
     <StartWebBrowser>False</StartWebBrowser>
     <SearchPath>

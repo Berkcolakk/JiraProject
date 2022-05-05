@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using TestProject.DAL.Entities;
-using TestProject.Repository.GenericRepo;
-using TestProject.Repository.UnitOfWork;
-using TestProject.ServiceManager.CompanyServiceMangers;
+using JiraProject.DAL.Entities;
+using JiraProject.Repository.GenericRepo;
+using JiraProject.Repository.UnitOfWork;
+using JiraProject.ServiceManager.CompanyServiceMangers;
 
-namespace TestProject.Services.CompanyServices
+namespace JiraProject.Services.CompanyServices
 {
     public class CompanyService : ICompanyService
     {

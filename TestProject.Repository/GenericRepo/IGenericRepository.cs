@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 
-namespace TestProject.Repository.GenericRepo
+namespace JiraProject.Repository.GenericRepo
 {
     public interface IGenericRepository<T>
     {

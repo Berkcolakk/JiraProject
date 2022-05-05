@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace TestProject.Dto.User.Auth
+namespace JiraProject.Dto.User.Auth
 {
     public class TokenDTO
     {

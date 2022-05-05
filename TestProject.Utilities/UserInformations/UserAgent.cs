@@ -1,4 +1,4 @@
-﻿namespace TestProject.Utilities.UserInformations
+﻿namespace JiraProject.Utilities.UserInformations
 {
     public class UserAgent
     {

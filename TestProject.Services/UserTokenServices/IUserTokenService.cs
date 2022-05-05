@@ -1,7 +1,8 @@
-﻿using System.Threading.Tasks;
-using TestProject.DAL.Entities;
+﻿using System;
+using System.Threading.Tasks;
+using JiraProject.DAL.Entities;
 
-namespace TestProject.Services.UserTokenServices
+namespace JiraProject.Services.UserTokenServices
 {
     public interface IUserTokenService
     {
@@ -13,6 +14,7 @@ namespace TestProject.Services.UserTokenServices
         Task<UserToken> CheckTokenByUserID(int id);
 
         Task<UserToken> GenerateUserToken(int id);
+        string GenerateToken(DateTime expireDate);
 
         Task Save();
     }

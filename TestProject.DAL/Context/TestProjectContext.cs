@@ -1,11 +1,11 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System;
 using System.Linq;
-using TestProject.DAL.DataSeeding;
-using TestProject.DAL.Entities;
-using TestProject.DAL.Entities.Base;
+using JiraProject.DAL.DataSeeding;
+using JiraProject.DAL.Entities;
+using JiraProject.DAL.Entities.Base;
 
-namespace TestProject.DAL.Context
+namespace JiraProject.DAL.Context
 {
     public class TestProjectContext : DbContext
     {

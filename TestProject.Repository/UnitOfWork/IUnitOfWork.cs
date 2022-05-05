@@ -1,7 +1,7 @@
 ﻿using System.Threading.Tasks;
-using TestProject.Repository.GenericRepo;
+using JiraProject.Repository.GenericRepo;
 
-namespace TestProject.Repository.UnitOfWork
+namespace JiraProject.Repository.UnitOfWork
 {
     public interface IUnitOfWork
     {

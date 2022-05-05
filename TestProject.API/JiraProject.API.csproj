@@ -20,10 +20,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\TestProject.DAL\TestProject.DAL.csproj" />
-    <ProjectReference Include="..\TestProject.Repository\TestProject.Repository.csproj" />
-    <ProjectReference Include="..\TestProject.Services\TestProject.Services.csproj" />
-    <ProjectReference Include="..\TestProject.Utilities\TestProject.Utilities.csproj" />
+    <ProjectReference Include="..\TestProject.DAL\JiraProject.DAL.csproj" />
+    <ProjectReference Include="..\TestProject.Repository\JiraProject.Repository.csproj" />
+    <ProjectReference Include="..\TestProject.Services\JiraProject.Services.csproj" />
+    <ProjectReference Include="..\TestProject.Utilities\JiraProject.Utilities.csproj" />
   </ItemGroup>
 
 

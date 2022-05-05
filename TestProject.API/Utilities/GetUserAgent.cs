@@ -1,7 +1,7 @@
 ﻿using System.Net;
-using TestProject.Utilities.UserInformations;
+using JiraProject.Utilities.UserInformations;
 
-namespace TestProject.API.Utilities
+namespace JiraProject.API.Utilities
 {
     public class GetUserAgent
     {

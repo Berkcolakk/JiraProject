@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
-using TestProject.DAL.Entities.Base;
+using JiraProject.DAL.Entities.Base;
 
-namespace TestProject.DAL.Entities
+namespace JiraProject.DAL.Entities
 {
     public class Company : EntityBase
     {

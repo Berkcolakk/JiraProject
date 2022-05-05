@@ -1,9 +1,9 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using TestProject.DAL.Entities.Base;
+using JiraProject.DAL.Entities.Base;
 
-namespace TestProject.DAL.Entities
+namespace JiraProject.DAL.Entities
 {
     public class UserToken : EntityBase
     {

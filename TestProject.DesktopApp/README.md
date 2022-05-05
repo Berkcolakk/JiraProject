@@ -1,3 +1,3 @@
-# TestProject.DesktopApp
+# JiraProject.DesktopApp
 
 

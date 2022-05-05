@@ -5,11 +5,11 @@ using System;
 using System.IdentityModel.Tokens.Jwt;
 using System.Text;
 using System.Threading.Tasks;
-using TestProject.DAL.Entities;
-using TestProject.Repository.GenericRepo;
-using TestProject.Repository.UnitOfWork;
+using JiraProject.DAL.Entities;
+using JiraProject.Repository.GenericRepo;
+using JiraProject.Repository.UnitOfWork;
 
-namespace TestProject.Services.UserTokenServices
+namespace JiraProject.Services.UserTokenServices
 {
     public class UserTokenService : IUserTokenService
     {
@@ -25,8 +25,6 @@ namespace TestProject.Services.UserTokenServices
             this.config = config;
             this.backgroundJobs = backgroundJobs;
         }
-
-
         public async Task<UserToken> CheckTokenByUserID(int id)
         {
             try
@@ -53,6 +51,19 @@ namespace TestProject.Services.UserTokenServices
             return true;
 
         }
+        public string GenerateToken(DateTime expireDate)
+        {
+            var secret = config.GetSection("AppIdentitySettings:Key");
+            var tokenHandler = new JwtSecurityTokenHandler();
+            var key = Encoding.ASCII.GetBytes(secret.Value);
+            var securityToken = tokenHandler.CreateToken(new SecurityTokenDescriptor()
+            {
+                Expires = expireDate,
+                SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
+            });
+            string token = tokenHandler.WriteToken(securityToken);
+            return token;
+        }
         public async Task<UserToken> GenerateUserToken(int id)
         {
             try
@@ -60,18 +71,8 @@ namespace TestProject.Services.UserTokenServices
                 UserToken checkUserToken = await CheckTokenByUserID(id);
                 if (checkUserToken == null)
                 {
-                    var secret = config.GetSection("AppIdentitySettings:Key");
-                    var tokenHandler = new JwtSecurityTokenHandler();
-                    var key = Encoding.ASCII.GetBytes(secret.Value);
                     DateTime expireDate = DateTime.UtcNow.AddDays(7);
-                    var securityToken = tokenHandler.CreateToken(new SecurityTokenDescriptor()
-                    {
-                        Expires = expireDate,
-                        SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
-                    });
-                    string token = tokenHandler.WriteToken(securityToken);
-
-
+                    string token = GenerateToken(expireDate);
                     backgroundJobs.Schedule(() => HasTokenExpired(token), expireDate);
                     return await AddToken(new UserToken()
                     {

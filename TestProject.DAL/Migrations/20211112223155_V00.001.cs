@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 using System;
 
-namespace TestProject.DAL.Migrations
+namespace JiraProject.DAL.Migrations
 {
     public partial class V00001 : Migration
     {

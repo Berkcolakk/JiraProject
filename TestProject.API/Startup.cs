@@ -1,5 +1,7 @@
 using Hangfire;
 using Hangfire.SqlServer;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -9,28 +11,28 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using System;
-using TestProject.API.Helpers;
-using TestProject.API.Utilities;
-using TestProject.DAL.Context;
-using TestProject.Infrastructure.Infrastructures;
-using TestProject.Repository.GenericRepo;
-using TestProject.Repository.UnitOfWork;
-using TestProject.ServiceManager.CompanyServiceMangers;
-using TestProject.ServiceManager.MenuRoleServiceMangers;
-using TestProject.ServiceManager.MenuServiceMangers;
-using TestProject.ServiceManager.RoleServiceMangers;
-using TestProject.ServiceManager.UserRoleServiceMangers;
-using TestProject.ServiceManager.UserServiceMangers;
-using TestProject.ServiceManager.UserTokenServiceMangers;
-using TestProject.Services.CompanyServices;
-using TestProject.Services.MenuRoleServices;
-using TestProject.Services.MenuServices;
-using TestProject.Services.RoleServices;
-using TestProject.Services.UserRoleServices;
-using TestProject.Services.UserServices;
-using TestProject.Services.UserTokenServices;
+using JiraProject.API.Helpers;
+using JiraProject.API.Utilities;
+using JiraProject.DAL.Context;
+using JiraProject.Infrastructure.Infrastructures;
+using JiraProject.Repository.GenericRepo;
+using JiraProject.Repository.UnitOfWork;
+using JiraProject.ServiceManager.CompanyServiceMangers;
+using JiraProject.ServiceManager.MenuRoleServiceMangers;
+using JiraProject.ServiceManager.MenuServiceMangers;
+using JiraProject.ServiceManager.RoleServiceMangers;
+using JiraProject.ServiceManager.UserRoleServiceMangers;
+using JiraProject.ServiceManager.UserServiceMangers;
+using JiraProject.ServiceManager.UserTokenServiceMangers;
+using JiraProject.Services.CompanyServices;
+using JiraProject.Services.MenuRoleServices;
+using JiraProject.Services.MenuServices;
+using JiraProject.Services.RoleServices;
+using JiraProject.Services.UserRoleServices;
+using JiraProject.Services.UserServices;
+using JiraProject.Services.UserTokenServices;
 
-namespace TestProject.API
+namespace JiraProject.API
 {
     public class Startup
     {
@@ -100,6 +102,8 @@ namespace TestProject.API
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "My API", Version = "v1" });
             });
+
+            services.AddAuthentication("Basic").AddScheme<BasicAuthenticationOptions, CustomAuthenticationHandler>("Basic", null);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

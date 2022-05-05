@@ -1,11 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
-using TestProject.DAL.Entities;
-using TestProject.Services.UserRoleServices;
+using JiraProject.DAL.Entities;
+using JiraProject.Services.UserRoleServices;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
-namespace TestProject.API.Controllers.UserRoles
+namespace JiraProject.API.Controllers.UserRoles
 {
     [Route("api/[controller]")]
     [ApiController]

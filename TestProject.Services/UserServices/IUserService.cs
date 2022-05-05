@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using TestProject.DAL.Entities;
-using TestProject.Dto.User.Auth;
+using JiraProject.DAL.Entities;
+using JiraProject.Dto.User.Auth;
 
-namespace TestProject.Services.UserServices
+namespace JiraProject.Services.UserServices
 {
     public interface IUserService
     {

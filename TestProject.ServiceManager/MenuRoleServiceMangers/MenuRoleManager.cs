@@ -1,4 +1,4 @@
-﻿namespace TestProject.ServiceManager.MenuRoleServiceMangers
+﻿namespace JiraProject.ServiceManager.MenuRoleServiceMangers
 {
     public class MenuRoleManager
     {

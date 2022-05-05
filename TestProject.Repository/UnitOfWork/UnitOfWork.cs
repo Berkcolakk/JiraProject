@@ -1,10 +1,10 @@
 ﻿using System.Threading.Tasks;
 using System.Transactions;
-using TestProject.DAL.Context;
-using TestProject.Infrastructure.Infrastructures;
-using TestProject.Repository.GenericRepo;
+using JiraProject.DAL.Context;
+using JiraProject.Infrastructure.Infrastructures;
+using JiraProject.Repository.GenericRepo;
 
-namespace TestProject.Repository.UnitOfWork
+namespace JiraProject.Repository.UnitOfWork
 {
     public class UnitOfWork : IUnitOfWork
     {

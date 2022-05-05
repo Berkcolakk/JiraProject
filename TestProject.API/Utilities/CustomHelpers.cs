@@ -5,7 +5,7 @@ using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Threading.Tasks;
 
-namespace TestProject.API.Utilities
+namespace JiraProject.API.Utilities
 {
     public interface IHttpApplication<TContext>
     {

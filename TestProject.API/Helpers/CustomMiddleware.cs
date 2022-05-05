@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using System.Threading.Tasks;
 
-namespace TestProject.API.Helpers
+namespace JiraProject.API.Helpers
 {
     // You may need to install the Microsoft.AspNetCore.Http.Abstractions package into your project
     public class CustomMiddleware

@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using TestProject.DAL.Entities;
+using JiraProject.DAL.Entities;
 
-namespace TestProject.Services.MenuServices
+namespace JiraProject.Services.MenuServices
 {
     public interface IMenuService
     {

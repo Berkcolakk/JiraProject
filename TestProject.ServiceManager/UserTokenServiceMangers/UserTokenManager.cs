@@ -1,6 +1,6 @@
-﻿using TestProject.DAL.Context;
+﻿using JiraProject.DAL.Context;
 
-namespace TestProject.ServiceManager.UserTokenServiceMangers
+namespace JiraProject.ServiceManager.UserTokenServiceMangers
 {
     public class UserTokenManager
     {

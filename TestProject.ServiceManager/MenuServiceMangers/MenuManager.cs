@@ -1,4 +1,4 @@
-﻿namespace TestProject.ServiceManager.MenuServiceMangers
+﻿namespace JiraProject.ServiceManager.MenuServiceMangers
 {
     public class MenuManager
     {

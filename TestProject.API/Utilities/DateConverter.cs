@@ -3,7 +3,7 @@ using System.Globalization;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
-namespace TestProject.API.Utilities
+namespace JiraProject.API.Utilities
 {
     public class DateConverter : JsonConverter<DateTime>
     {

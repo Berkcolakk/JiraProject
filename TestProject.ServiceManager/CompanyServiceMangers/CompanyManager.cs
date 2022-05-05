@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using TestProject.DAL.Context;
-using TestProject.DAL.Entities;
+using JiraProject.DAL.Context;
+using JiraProject.DAL.Entities;
 
-namespace TestProject.ServiceManager.CompanyServiceMangers
+namespace JiraProject.ServiceManager.CompanyServiceMangers
 {
     public class CompanyManager
     {

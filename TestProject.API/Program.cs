@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
 
-namespace TestProject.API
+namespace JiraProject.API
 {
     public class Program
     {

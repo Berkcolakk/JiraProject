@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using TestProject.DAL.Entities;
+using JiraProject.DAL.Entities;
 
-namespace TestProject.DAL.DataSeeding
+namespace JiraProject.DAL.DataSeeding
 {
     public static class Seeding
     {

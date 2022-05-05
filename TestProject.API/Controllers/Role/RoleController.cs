@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
-using TestProject.DAL.Entities;
-using TestProject.Services.RoleServices;
+using JiraProject.DAL.Entities;
+using JiraProject.Services.RoleServices;
 
-namespace TestProject.API.Controllers.Role
+namespace JiraProject.API.Controllers.Role
 {
     [Route("api/[controller]")]
     [ApiController]

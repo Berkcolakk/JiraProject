@@ -5,9 +5,9 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using TestProject.DAL.Context;
+using JiraProject.DAL.Context;
 
-namespace TestProject.DAL.Migrations
+namespace JiraProject.DAL.Migrations
 {
     [DbContext(typeof(TestProjectContext))]
     [Migration("20211113170345_V00.003")]
@@ -21,7 +21,7 @@ namespace TestProject.DAL.Migrations
                 .HasAnnotation("ProductVersion", "5.0.12")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("TestProject.DAL.Entities.Company", b =>
+            modelBuilder.Entity("JiraProject.DAL.Entities.Company", b =>
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
@@ -74,7 +74,7 @@ namespace TestProject.DAL.Migrations
                     b.ToTable("Company");
                 });
 
-            modelBuilder.Entity("TestProject.DAL.Entities.Contract", b =>
+            modelBuilder.Entity("JiraProject.DAL.Entities.Contract", b =>
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
@@ -118,7 +118,7 @@ namespace TestProject.DAL.Migrations
                     b.ToTable("Contract");
                 });
 
-            modelBuilder.Entity("TestProject.DAL.Entities.Item", b =>
+            modelBuilder.Entity("JiraProject.DAL.Entities.Item", b =>
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
@@ -176,7 +176,7 @@ namespace TestProject.DAL.Migrations
                     b.ToTable("Item");
                 });
 
-            modelBuilder.Entity("TestProject.DAL.Entities.ItemDemandDetail", b =>
+            modelBuilder.Entity("JiraProject.DAL.Entities.ItemDemandDetail", b =>
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
@@ -219,7 +219,7 @@ namespace TestProject.DAL.Migrations
                     b.ToTable("ItemDemandDetail");
                 });
 
-            modelBuilder.Entity("TestProject.DAL.Entities.ItemDemandMaster", b =>
+            modelBuilder.Entity("JiraProject.DAL.Entities.ItemDemandMaster", b =>
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
@@ -267,7 +267,7 @@ namespace TestProject.DAL.Migrations
                     b.ToTable("ItemDemandMaster");
                 });
 
-            modelBuilder.Entity("TestProject.DAL.Entities.MenuRole", b =>
+            modelBuilder.Entity("JiraProject.DAL.Entities.MenuRole", b =>
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
@@ -304,7 +304,7 @@ namespace TestProject.DAL.Migrations
                     b.ToTable("MenuRole");
                 });
 
-            modelBuilder.Entity("TestProject.DAL.Entities.ParameterDetail", b =>
+            modelBuilder.Entity("JiraProject.DAL.Entities.ParameterDetail", b =>
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
@@ -348,7 +348,7 @@ namespace TestProject.DAL.Migrations
                     b.ToTable("ParameterDetail");
                 });
 
-            modelBuilder.Entity("TestProject.DAL.Entities.ParameterMaster", b =>
+            modelBuilder.Entity("JiraProject.DAL.Entities.ParameterMaster", b =>
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
@@ -381,7 +381,7 @@ namespace TestProject.DAL.Migrations
                     b.ToTable("ParameterMaster");
                 });
 
-            modelBuilder.Entity("TestProject.DAL.Entities.PayoffControl", b =>
+            modelBuilder.Entity("JiraProject.DAL.Entities.PayoffControl", b =>
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
@@ -446,7 +446,7 @@ namespace TestProject.DAL.Migrations
                     b.ToTable("PayoffControl");
                 });
 
-            modelBuilder.Entity("TestProject.DAL.Entities.PayoffDefault", b =>
+            modelBuilder.Entity("JiraProject.DAL.Entities.PayoffDefault", b =>
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
@@ -538,7 +538,7 @@ namespace TestProject.DAL.Migrations
                     b.ToTable("PayoffDefault");
                 });
 
-            modelBuilder.Entity("TestProject.DAL.Entities.PayoffDetail", b =>
+            modelBuilder.Entity("JiraProject.DAL.Entities.PayoffDetail", b =>
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
@@ -581,7 +581,7 @@ namespace TestProject.DAL.Migrations
                     b.ToTable("PayoffDetail");
                 });
 
-            modelBuilder.Entity("TestProject.DAL.Entities.PayoffMaster", b =>
+            modelBuilder.Entity("JiraProject.DAL.Entities.PayoffMaster", b =>
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
@@ -616,7 +616,7 @@ namespace TestProject.DAL.Migrations
                     b.ToTable("PayoffMaster");
                 });
 
-            modelBuilder.Entity("TestProject.DAL.Entities.Project", b =>
+            modelBuilder.Entity("JiraProject.DAL.Entities.Project", b =>
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
@@ -707,7 +707,7 @@ namespace TestProject.DAL.Migrations
                     b.ToTable("Project");
                 });
 
-            modelBuilder.Entity("TestProject.DAL.Entities.ProjectExplore", b =>
+            modelBuilder.Entity("JiraProject.DAL.Entities.ProjectExplore", b =>
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
@@ -783,7 +783,7 @@ namespace TestProject.DAL.Migrations
                     b.ToTable("ProjectExplore");
                 });
 
-            modelBuilder.Entity("TestProject.DAL.Entities.ProjectManager", b =>
+            modelBuilder.Entity("JiraProject.DAL.Entities.ProjectManager", b =>
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
@@ -820,7 +820,7 @@ namespace TestProject.DAL.Migrations
                     b.ToTable("ProjectManager");
                 });
 
-            modelBuilder.Entity("TestProject.DAL.Entities.StockDetail", b =>
+            modelBuilder.Entity("JiraProject.DAL.Entities.StockDetail", b =>
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
@@ -891,7 +891,7 @@ namespace TestProject.DAL.Migrations
                     b.ToTable("StockDetail");
                 });
 
-            modelBuilder.Entity("TestProject.DAL.Entities.StockMaster", b =>
+            modelBuilder.Entity("JiraProject.DAL.Entities.StockMaster", b =>
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
@@ -955,7 +955,7 @@ namespace TestProject.DAL.Migrations
                     b.ToTable("StockMaster");
                 });
 
-            modelBuilder.Entity("TestProject.DAL.Entities.User", b =>
+            modelBuilder.Entity("JiraProject.DAL.Entities.User", b =>
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
@@ -994,7 +994,7 @@ namespace TestProject.DAL.Migrations
                     b.ToTable("User");
                 });
 
-            modelBuilder.Entity("TestProject.DAL.Entities.UserRole", b =>
+            modelBuilder.Entity("JiraProject.DAL.Entities.UserRole", b =>
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
@@ -1031,33 +1031,33 @@ namespace TestProject.DAL.Migrations
                     b.ToTable("UserRole");
                 });
 
-            modelBuilder.Entity("TestProject.DAL.Entities.Company", b =>
+            modelBuilder.Entity("JiraProject.DAL.Entities.Company", b =>
                 {
-                    b.HasOne("TestProject.DAL.Entities.ParameterDetail", "ParameterDetail_Company_Store")
+                    b.HasOne("JiraProject.DAL.Entities.ParameterDetail", "ParameterDetail_Company_Store")
                         .WithMany("ParameterDetail_Company_Store")
                         .HasForeignKey("COMPANY_STORE_ID");
 
                     b.Navigation("ParameterDetail_Company_Store");
                 });
 
-            modelBuilder.Entity("TestProject.DAL.Entities.Contract", b =>
+            modelBuilder.Entity("JiraProject.DAL.Entities.Contract", b =>
                 {
-                    b.HasOne("TestProject.DAL.Entities.Contract", "MasterContract")
+                    b.HasOne("JiraProject.DAL.Entities.Contract", "MasterContract")
                         .WithMany()
                         .HasForeignKey("CONTRACT_MASTER_ID");
 
                     b.Navigation("MasterContract");
                 });
 
-            modelBuilder.Entity("TestProject.DAL.Entities.Item", b =>
+            modelBuilder.Entity("JiraProject.DAL.Entities.Item", b =>
                 {
-                    b.HasOne("TestProject.DAL.Entities.ParameterDetail", "ParameterDetail_Item_Group")
+                    b.HasOne("JiraProject.DAL.Entities.ParameterDetail", "ParameterDetail_Item_Group")
                         .WithMany("ParameterDetail_Group")
                         .HasForeignKey("ITEM_GROUP_ID")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("TestProject.DAL.Entities.ParameterDetail", "ParameterDetail_Item_Unit")
+                    b.HasOne("JiraProject.DAL.Entities.ParameterDetail", "ParameterDetail_Item_Unit")
                         .WithMany("ParameterDetail_Unit")
                         .HasForeignKey("ITEM_UNIT_ID")
                         .OnDelete(DeleteBehavior.Restrict)
@@ -1068,15 +1068,15 @@ namespace TestProject.DAL.Migrations
                     b.Navigation("ParameterDetail_Item_Unit");
                 });
 
-            modelBuilder.Entity("TestProject.DAL.Entities.ItemDemandDetail", b =>
+            modelBuilder.Entity("JiraProject.DAL.Entities.ItemDemandDetail", b =>
                 {
-                    b.HasOne("TestProject.DAL.Entities.Item", "Item")
+                    b.HasOne("JiraProject.DAL.Entities.Item", "Item")
                         .WithMany("ItemDemandDetails")
                         .HasForeignKey("ITEMDEMANDDETAIL_ITEM_ID")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("TestProject.DAL.Entities.ItemDemandMaster", "ItemDemandMaster")
+                    b.HasOne("JiraProject.DAL.Entities.ItemDemandMaster", "ItemDemandMaster")
                         .WithMany("ItemDemandDetails")
                         .HasForeignKey("ITEMDEMANDDETAIL_MASTER_ID")
                         .OnDelete(DeleteBehavior.Restrict)
@@ -1087,21 +1087,21 @@ namespace TestProject.DAL.Migrations
                     b.Navigation("ItemDemandMaster");
                 });
 
-            modelBuilder.Entity("TestProject.DAL.Entities.ItemDemandMaster", b =>
+            modelBuilder.Entity("JiraProject.DAL.Entities.ItemDemandMaster", b =>
                 {
-                    b.HasOne("TestProject.DAL.Entities.Project", "Project")
+                    b.HasOne("JiraProject.DAL.Entities.Project", "Project")
                         .WithMany()
                         .HasForeignKey("ITEMDEMANDMASTER_PROJECT_ID")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("TestProject.DAL.Entities.ParameterDetail", "ParameterDetail_ItemDemandMaster_State")
+                    b.HasOne("JiraProject.DAL.Entities.ParameterDetail", "ParameterDetail_ItemDemandMaster_State")
                         .WithMany("ParameterDetail_ItemDemandMaster_State")
                         .HasForeignKey("ITEMDEMANDMASTER_STATE_ID")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("TestProject.DAL.Entities.User", "User")
+                    b.HasOne("JiraProject.DAL.Entities.User", "User")
                         .WithMany("ItemDemandMasters")
                         .HasForeignKey("ITEMDEMANDMASTER_USER_ID")
                         .OnDelete(DeleteBehavior.Restrict)
@@ -1114,15 +1114,15 @@ namespace TestProject.DAL.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("TestProject.DAL.Entities.MenuRole", b =>
+            modelBuilder.Entity("JiraProject.DAL.Entities.MenuRole", b =>
                 {
-                    b.HasOne("TestProject.DAL.Entities.ParameterDetail", "ParameterDetail_MenuRole_Menu")
+                    b.HasOne("JiraProject.DAL.Entities.ParameterDetail", "ParameterDetail_MenuRole_Menu")
                         .WithMany("ParameterDetail_Menu")
                         .HasForeignKey("MENUROLE_MENU_ID")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("TestProject.DAL.Entities.ParameterDetail", "ParameterDetail_MenuRole_Role")
+                    b.HasOne("JiraProject.DAL.Entities.ParameterDetail", "ParameterDetail_MenuRole_Role")
                         .WithMany("ParameterDetail_Role")
                         .HasForeignKey("MENUROLE_ROLE_ID")
                         .OnDelete(DeleteBehavior.Restrict)
@@ -1133,9 +1133,9 @@ namespace TestProject.DAL.Migrations
                     b.Navigation("ParameterDetail_MenuRole_Role");
                 });
 
-            modelBuilder.Entity("TestProject.DAL.Entities.ParameterDetail", b =>
+            modelBuilder.Entity("JiraProject.DAL.Entities.ParameterDetail", b =>
                 {
-                    b.HasOne("TestProject.DAL.Entities.ParameterMaster", "ParameterMaster")
+                    b.HasOne("JiraProject.DAL.Entities.ParameterMaster", "ParameterMaster")
                         .WithMany("ParameterDetails")
                         .HasForeignKey("PARAMETERDETAIL_MASTER_ID")
                         .OnDelete(DeleteBehavior.Restrict)
@@ -1144,9 +1144,9 @@ namespace TestProject.DAL.Migrations
                     b.Navigation("ParameterMaster");
                 });
 
-            modelBuilder.Entity("TestProject.DAL.Entities.PayoffControl", b =>
+            modelBuilder.Entity("JiraProject.DAL.Entities.PayoffControl", b =>
                 {
-                    b.HasOne("TestProject.DAL.Entities.PayoffMaster", "PayoffMaster")
+                    b.HasOne("JiraProject.DAL.Entities.PayoffMaster", "PayoffMaster")
                         .WithMany("PayoffControls")
                         .HasForeignKey("PAYOFFCONTROL_PAYOFFMASTER_ID")
                         .OnDelete(DeleteBehavior.Restrict)
@@ -1155,9 +1155,9 @@ namespace TestProject.DAL.Migrations
                     b.Navigation("PayoffMaster");
                 });
 
-            modelBuilder.Entity("TestProject.DAL.Entities.PayoffDefault", b =>
+            modelBuilder.Entity("JiraProject.DAL.Entities.PayoffDefault", b =>
                 {
-                    b.HasOne("TestProject.DAL.Entities.PayoffMaster", "PayoffMaster")
+                    b.HasOne("JiraProject.DAL.Entities.PayoffMaster", "PayoffMaster")
                         .WithMany("PayoffDefaults")
                         .HasForeignKey("PAYOFFDEFAULT_PAYOFFMASTER_ID")
                         .OnDelete(DeleteBehavior.Restrict)
@@ -1166,15 +1166,15 @@ namespace TestProject.DAL.Migrations
                     b.Navigation("PayoffMaster");
                 });
 
-            modelBuilder.Entity("TestProject.DAL.Entities.PayoffDetail", b =>
+            modelBuilder.Entity("JiraProject.DAL.Entities.PayoffDetail", b =>
                 {
-                    b.HasOne("TestProject.DAL.Entities.ParameterDetail", "ParameterDetail_Payoff_ItemType")
+                    b.HasOne("JiraProject.DAL.Entities.ParameterDetail", "ParameterDetail_Payoff_ItemType")
                         .WithMany("ParameterDetail_ItemType")
                         .HasForeignKey("PAYOFFDETAIL_ITEMTYPE_ID")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("TestProject.DAL.Entities.Item", "Item")
+                    b.HasOne("JiraProject.DAL.Entities.Item", "Item")
                         .WithMany("PayoffDetails")
                         .HasForeignKey("PAYOFFDETAIL_ITEM_ID")
                         .OnDelete(DeleteBehavior.Restrict)
@@ -1185,9 +1185,9 @@ namespace TestProject.DAL.Migrations
                     b.Navigation("ParameterDetail_Payoff_ItemType");
                 });
 
-            modelBuilder.Entity("TestProject.DAL.Entities.PayoffMaster", b =>
+            modelBuilder.Entity("JiraProject.DAL.Entities.PayoffMaster", b =>
                 {
-                    b.HasOne("TestProject.DAL.Entities.Project", "Project")
+                    b.HasOne("JiraProject.DAL.Entities.Project", "Project")
                         .WithMany("Payoffs")
                         .HasForeignKey("PAYOFFMASTER_PROJECT_ID")
                         .OnDelete(DeleteBehavior.Restrict)
@@ -1196,33 +1196,33 @@ namespace TestProject.DAL.Migrations
                     b.Navigation("Project");
                 });
 
-            modelBuilder.Entity("TestProject.DAL.Entities.Project", b =>
+            modelBuilder.Entity("JiraProject.DAL.Entities.Project", b =>
                 {
-                    b.HasOne("TestProject.DAL.Entities.Company", "Company")
+                    b.HasOne("JiraProject.DAL.Entities.Company", "Company")
                         .WithMany("Projects")
                         .HasForeignKey("PROJECT_COMPANY_ID")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("TestProject.DAL.Entities.Contract", "Contract")
+                    b.HasOne("JiraProject.DAL.Entities.Contract", "Contract")
                         .WithMany("Projects")
                         .HasForeignKey("PROJECT_CONTRACT_ID")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("TestProject.DAL.Entities.ParameterDetail", "ParameterDetail_Project_ExploreState")
+                    b.HasOne("JiraProject.DAL.Entities.ParameterDetail", "ParameterDetail_Project_ExploreState")
                         .WithMany("ParameterDetail_ExploreState")
                         .HasForeignKey("PROJECT_EXPLORESTATE_ID")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("TestProject.DAL.Entities.ParameterDetail", "ParameterDetail_Project_State")
+                    b.HasOne("JiraProject.DAL.Entities.ParameterDetail", "ParameterDetail_Project_State")
                         .WithMany("ParameterDetail_State")
                         .HasForeignKey("PROJECT_STATE_ID")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("TestProject.DAL.Entities.ParameterDetail", "ParameterDetail_Project_ContractType")
+                    b.HasOne("JiraProject.DAL.Entities.ParameterDetail", "ParameterDetail_Project_ContractType")
                         .WithMany("ParameterDetail_ContractType")
                         .HasForeignKey("PROJECT_TYPE_ID")
                         .OnDelete(DeleteBehavior.Restrict)
@@ -1239,15 +1239,15 @@ namespace TestProject.DAL.Migrations
                     b.Navigation("ParameterDetail_Project_State");
                 });
 
-            modelBuilder.Entity("TestProject.DAL.Entities.ProjectExplore", b =>
+            modelBuilder.Entity("JiraProject.DAL.Entities.ProjectExplore", b =>
                 {
-                    b.HasOne("TestProject.DAL.Entities.Item", "Item")
+                    b.HasOne("JiraProject.DAL.Entities.Item", "Item")
                         .WithMany("ProjectExplores")
                         .HasForeignKey("PROJECTEXPLORE_ITEM_ID")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("TestProject.DAL.Entities.Project", "Project")
+                    b.HasOne("JiraProject.DAL.Entities.Project", "Project")
                         .WithMany("ProjectExplores")
                         .HasForeignKey("PROJECTEXPLORE_PROJECT_ID")
                         .OnDelete(DeleteBehavior.Restrict)
@@ -1258,15 +1258,15 @@ namespace TestProject.DAL.Migrations
                     b.Navigation("Project");
                 });
 
-            modelBuilder.Entity("TestProject.DAL.Entities.ProjectManager", b =>
+            modelBuilder.Entity("JiraProject.DAL.Entities.ProjectManager", b =>
                 {
-                    b.HasOne("TestProject.DAL.Entities.Project", "Project")
+                    b.HasOne("JiraProject.DAL.Entities.Project", "Project")
                         .WithMany("ProjectManagers")
                         .HasForeignKey("PROJECTMANAGER_PROJECT_ID")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("TestProject.DAL.Entities.User", "User")
+                    b.HasOne("JiraProject.DAL.Entities.User", "User")
                         .WithMany("ProjectManagers")
                         .HasForeignKey("PROJECTMANAGER_USER_ID")
                         .OnDelete(DeleteBehavior.Restrict)
@@ -1277,27 +1277,27 @@ namespace TestProject.DAL.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("TestProject.DAL.Entities.StockDetail", b =>
+            modelBuilder.Entity("JiraProject.DAL.Entities.StockDetail", b =>
                 {
-                    b.HasOne("TestProject.DAL.Entities.Item", "Item")
+                    b.HasOne("JiraProject.DAL.Entities.Item", "Item")
                         .WithMany()
                         .HasForeignKey("STOCKDETAIL_ITEM_ID")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("TestProject.DAL.Entities.StockMaster", "StockMaster")
+                    b.HasOne("JiraProject.DAL.Entities.StockMaster", "StockMaster")
                         .WithMany("StockDetails")
                         .HasForeignKey("STOCKDETAIL_MASTER_ID")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("TestProject.DAL.Entities.ParameterDetail", "ParameterDetail_StockDetail_Rack")
+                    b.HasOne("JiraProject.DAL.Entities.ParameterDetail", "ParameterDetail_StockDetail_Rack")
                         .WithMany("ParameterDetail_Rack")
                         .HasForeignKey("STOCKDETAIL_RACK_ID")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("TestProject.DAL.Entities.ParameterDetail", "ParameterDetail_StockDetail_Store")
+                    b.HasOne("JiraProject.DAL.Entities.ParameterDetail", "ParameterDetail_StockDetail_Store")
                         .WithMany("ParameterDetail_Store")
                         .HasForeignKey("STOCKDETAIL_STORE_ID")
                         .OnDelete(DeleteBehavior.Restrict)
@@ -1312,29 +1312,29 @@ namespace TestProject.DAL.Migrations
                     b.Navigation("StockMaster");
                 });
 
-            modelBuilder.Entity("TestProject.DAL.Entities.StockMaster", b =>
+            modelBuilder.Entity("JiraProject.DAL.Entities.StockMaster", b =>
                 {
-                    b.HasOne("TestProject.DAL.Entities.Company", "SubCompany")
+                    b.HasOne("JiraProject.DAL.Entities.Company", "SubCompany")
                         .WithMany("Sub_StockMasters")
                         .HasForeignKey("COMPANY_SUB_COMPANY_ID");
 
-                    b.HasOne("TestProject.DAL.Entities.Company", "Company")
+                    b.HasOne("JiraProject.DAL.Entities.Company", "Company")
                         .WithMany("StockMasters")
                         .HasForeignKey("STOCKMASTER_COMPANY_ID");
 
-                    b.HasOne("TestProject.DAL.Entities.ParameterDetail", "ParameterDetail_StockMaster_SourceStore")
+                    b.HasOne("JiraProject.DAL.Entities.ParameterDetail", "ParameterDetail_StockMaster_SourceStore")
                         .WithMany("StockMaster_SourceStores")
                         .HasForeignKey("STOCKMASTER_SOURCESTORE_ID")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("TestProject.DAL.Entities.ParameterDetail", "ParameterDetail_StockMaster_Store")
+                    b.HasOne("JiraProject.DAL.Entities.ParameterDetail", "ParameterDetail_StockMaster_Store")
                         .WithMany("StockMaster_Stores")
                         .HasForeignKey("STOCKMASTER_TARGETSTORE_ID")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("TestProject.DAL.Entities.ParameterDetail", "ParameterDetail_StockMaster_Type")
+                    b.HasOne("JiraProject.DAL.Entities.ParameterDetail", "ParameterDetail_StockMaster_Type")
                         .WithMany("StockMaster_Types")
                         .HasForeignKey("STOCKMASTER_TYPE_ID")
                         .OnDelete(DeleteBehavior.Restrict)
@@ -1351,15 +1351,15 @@ namespace TestProject.DAL.Migrations
                     b.Navigation("SubCompany");
                 });
 
-            modelBuilder.Entity("TestProject.DAL.Entities.UserRole", b =>
+            modelBuilder.Entity("JiraProject.DAL.Entities.UserRole", b =>
                 {
-                    b.HasOne("TestProject.DAL.Entities.ParameterDetail", "ParameterDetail_UserRole_Role")
+                    b.HasOne("JiraProject.DAL.Entities.ParameterDetail", "ParameterDetail_UserRole_Role")
                         .WithMany("ParameterDetail_UserRole")
                         .HasForeignKey("USERROLE_ROLE_ID")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("TestProject.DAL.Entities.User", "User")
+                    b.HasOne("JiraProject.DAL.Entities.User", "User")
                         .WithMany()
                         .HasForeignKey("USERROLE_USER_ID")
                         .OnDelete(DeleteBehavior.Restrict)
@@ -1370,7 +1370,7 @@ namespace TestProject.DAL.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("TestProject.DAL.Entities.Company", b =>
+            modelBuilder.Entity("JiraProject.DAL.Entities.Company", b =>
                 {
                     b.Navigation("Projects");
 
@@ -1379,12 +1379,12 @@ namespace TestProject.DAL.Migrations
                     b.Navigation("Sub_StockMasters");
                 });
 
-            modelBuilder.Entity("TestProject.DAL.Entities.Contract", b =>
+            modelBuilder.Entity("JiraProject.DAL.Entities.Contract", b =>
                 {
                     b.Navigation("Projects");
                 });
 
-            modelBuilder.Entity("TestProject.DAL.Entities.Item", b =>
+            modelBuilder.Entity("JiraProject.DAL.Entities.Item", b =>
                 {
                     b.Navigation("ItemDemandDetails");
 
@@ -1393,12 +1393,12 @@ namespace TestProject.DAL.Migrations
                     b.Navigation("ProjectExplores");
                 });
 
-            modelBuilder.Entity("TestProject.DAL.Entities.ItemDemandMaster", b =>
+            modelBuilder.Entity("JiraProject.DAL.Entities.ItemDemandMaster", b =>
                 {
                     b.Navigation("ItemDemandDetails");
                 });
 
-            modelBuilder.Entity("TestProject.DAL.Entities.ParameterDetail", b =>
+            modelBuilder.Entity("JiraProject.DAL.Entities.ParameterDetail", b =>
                 {
                     b.Navigation("ParameterDetail_Company_Store");
 
@@ -1433,19 +1433,19 @@ namespace TestProject.DAL.Migrations
                     b.Navigation("StockMaster_Types");
                 });
 
-            modelBuilder.Entity("TestProject.DAL.Entities.ParameterMaster", b =>
+            modelBuilder.Entity("JiraProject.DAL.Entities.ParameterMaster", b =>
                 {
                     b.Navigation("ParameterDetails");
                 });
 
-            modelBuilder.Entity("TestProject.DAL.Entities.PayoffMaster", b =>
+            modelBuilder.Entity("JiraProject.DAL.Entities.PayoffMaster", b =>
                 {
                     b.Navigation("PayoffControls");
 
                     b.Navigation("PayoffDefaults");
                 });
 
-            modelBuilder.Entity("TestProject.DAL.Entities.Project", b =>
+            modelBuilder.Entity("JiraProject.DAL.Entities.Project", b =>
                 {
                     b.Navigation("Payoffs");
 
@@ -1454,12 +1454,12 @@ namespace TestProject.DAL.Migrations
                     b.Navigation("ProjectManagers");
                 });
 
-            modelBuilder.Entity("TestProject.DAL.Entities.StockMaster", b =>
+            modelBuilder.Entity("JiraProject.DAL.Entities.StockMaster", b =>
                 {
                     b.Navigation("StockDetails");
                 });
 
-            modelBuilder.Entity("TestProject.DAL.Entities.User", b =>
+            modelBuilder.Entity("JiraProject.DAL.Entities.User", b =>
                 {
                     b.Navigation("ItemDemandMasters");
 

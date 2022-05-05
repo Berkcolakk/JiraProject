@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace TestProject.Infrastructure.Infrastructures
+namespace JiraProject.Infrastructure.Infrastructures
 {
     public class Disposable : IDisposable
     {

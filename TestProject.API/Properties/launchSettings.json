@@ -17,7 +17,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "TestProject.API": {
+    "JiraProject.API": {
       "commandName": "Project",
       "launchBrowser": true,
       "launchUrl": "",

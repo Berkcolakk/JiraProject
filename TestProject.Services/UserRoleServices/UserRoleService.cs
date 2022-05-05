@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using TestProject.DAL.Entities;
-using TestProject.Repository.GenericRepo;
-using TestProject.Repository.UnitOfWork;
-using TestProject.ServiceManager.UserRoleServiceMangers;
+using JiraProject.DAL.Entities;
+using JiraProject.Repository.GenericRepo;
+using JiraProject.Repository.UnitOfWork;
+using JiraProject.ServiceManager.UserRoleServiceMangers;
 
-namespace TestProject.Services.UserRoleServices
+namespace JiraProject.Services.UserRoleServices
 {
     public class UserRoleService : IUserRoleService
     {

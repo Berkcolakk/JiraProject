@@ -4,10 +4,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
-using TestProject.DAL.Context;
-using TestProject.Infrastructure.Infrastructures;
+using JiraProject.DAL.Context;
+using JiraProject.Infrastructure.Infrastructures;
 
-namespace TestProject.Repository.GenericRepo
+namespace JiraProject.Repository.GenericRepo
 {
     public class GenericRepository<T> : IGenericRepository<T> where T : class
     {

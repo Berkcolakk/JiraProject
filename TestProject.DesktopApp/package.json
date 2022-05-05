@@ -4,7 +4,7 @@
     "start": "electron ."
   },
   "version": "0.0.0",
-  "description": "TestProject.DesktopApp",
+  "description": "JiraProject.DesktopApp",
   "main": "Fragments/Main/app.js",
   "author": {
     "name": ""

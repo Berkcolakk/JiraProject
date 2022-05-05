@@ -1,4 +1,4 @@
-﻿namespace TestProject.ServiceManager.RoleServiceMangers
+﻿namespace JiraProject.ServiceManager.RoleServiceMangers
 {
     public class RoleManager
     {

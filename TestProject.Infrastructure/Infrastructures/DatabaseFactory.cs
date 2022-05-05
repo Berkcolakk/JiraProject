@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using TestProject.DAL.Context;
+using JiraProject.DAL.Context;
 
-namespace TestProject.Infrastructure.Infrastructures
+namespace JiraProject.Infrastructure.Infrastructures
 {
     public class DatabaseFactory : Disposable, IDatabaseFactory
     {

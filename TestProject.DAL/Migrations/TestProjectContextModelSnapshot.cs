@@ -4,9 +4,9 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using TestProject.DAL.Context;
+using JiraProject.DAL.Context;
 
-namespace TestProject.DAL.Migrations
+namespace JiraProject.DAL.Migrations
 {
     [DbContext(typeof(TestProjectContext))]
     partial class TestProjectContextModelSnapshot : ModelSnapshot
@@ -19,7 +19,7 @@ namespace TestProject.DAL.Migrations
                 .HasAnnotation("ProductVersion", "5.0.16")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("TestProject.DAL.Entities.Company", b =>
+            modelBuilder.Entity("JiraProject.DAL.Entities.Company", b =>
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
@@ -85,7 +85,7 @@ namespace TestProject.DAL.Migrations
                         });
                 });
 
-            modelBuilder.Entity("TestProject.DAL.Entities.Menu", b =>
+            modelBuilder.Entity("JiraProject.DAL.Entities.Menu", b =>
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
@@ -138,7 +138,7 @@ namespace TestProject.DAL.Migrations
                     b.ToTable("Menu");
                 });
 
-            modelBuilder.Entity("TestProject.DAL.Entities.MenuRole", b =>
+            modelBuilder.Entity("JiraProject.DAL.Entities.MenuRole", b =>
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
@@ -188,7 +188,7 @@ namespace TestProject.DAL.Migrations
                     b.ToTable("MenuRole");
                 });
 
-            modelBuilder.Entity("TestProject.DAL.Entities.ParameterDetail", b =>
+            modelBuilder.Entity("JiraProject.DAL.Entities.ParameterDetail", b =>
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
@@ -244,7 +244,7 @@ namespace TestProject.DAL.Migrations
                     b.ToTable("ParameterDetail");
                 });
 
-            modelBuilder.Entity("TestProject.DAL.Entities.ParameterMaster", b =>
+            modelBuilder.Entity("JiraProject.DAL.Entities.ParameterMaster", b =>
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
@@ -283,7 +283,7 @@ namespace TestProject.DAL.Migrations
                     b.ToTable("ParameterMaster");
                 });
 
-            modelBuilder.Entity("TestProject.DAL.Entities.Roles", b =>
+            modelBuilder.Entity("JiraProject.DAL.Entities.Roles", b =>
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
@@ -352,7 +352,7 @@ namespace TestProject.DAL.Migrations
                         });
                 });
 
-            modelBuilder.Entity("TestProject.DAL.Entities.User", b =>
+            modelBuilder.Entity("JiraProject.DAL.Entities.User", b =>
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
@@ -458,7 +458,7 @@ namespace TestProject.DAL.Migrations
                         });
                 });
 
-            modelBuilder.Entity("TestProject.DAL.Entities.UserRole", b =>
+            modelBuilder.Entity("JiraProject.DAL.Entities.UserRole", b =>
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
@@ -537,7 +537,7 @@ namespace TestProject.DAL.Migrations
                         });
                 });
 
-            modelBuilder.Entity("TestProject.DAL.Entities.UserToken", b =>
+            modelBuilder.Entity("JiraProject.DAL.Entities.UserToken", b =>
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
@@ -584,82 +584,82 @@ namespace TestProject.DAL.Migrations
                     b.ToTable("UserToken");
                 });
 
-            modelBuilder.Entity("TestProject.DAL.Entities.Menu", b =>
+            modelBuilder.Entity("JiraProject.DAL.Entities.Menu", b =>
                 {
-                    b.HasOne("TestProject.DAL.Entities.Company", null)
+                    b.HasOne("JiraProject.DAL.Entities.Company", null)
                         .WithMany("Menu")
                         .HasForeignKey("CompanyID")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("TestProject.DAL.Entities.MenuRole", b =>
+            modelBuilder.Entity("JiraProject.DAL.Entities.MenuRole", b =>
                 {
-                    b.HasOne("TestProject.DAL.Entities.Roles", null)
+                    b.HasOne("JiraProject.DAL.Entities.Roles", null)
                         .WithMany("MenuRole")
                         .HasForeignKey("RolesID");
                 });
 
-            modelBuilder.Entity("TestProject.DAL.Entities.ParameterDetail", b =>
+            modelBuilder.Entity("JiraProject.DAL.Entities.ParameterDetail", b =>
                 {
-                    b.HasOne("TestProject.DAL.Entities.ParameterMaster", null)
+                    b.HasOne("JiraProject.DAL.Entities.ParameterMaster", null)
                         .WithMany("ParameterDetail")
                         .HasForeignKey("ParameterMasterID")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("TestProject.DAL.Entities.Roles", b =>
+            modelBuilder.Entity("JiraProject.DAL.Entities.Roles", b =>
                 {
-                    b.HasOne("TestProject.DAL.Entities.Company", null)
+                    b.HasOne("JiraProject.DAL.Entities.Company", null)
                         .WithMany("Roles")
                         .HasForeignKey("CompanyID")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("TestProject.DAL.Entities.Menu", null)
+                    b.HasOne("JiraProject.DAL.Entities.Menu", null)
                         .WithMany("Roles")
                         .HasForeignKey("MenuID");
                 });
 
-            modelBuilder.Entity("TestProject.DAL.Entities.User", b =>
+            modelBuilder.Entity("JiraProject.DAL.Entities.User", b =>
                 {
-                    b.HasOne("TestProject.DAL.Entities.Company", null)
+                    b.HasOne("JiraProject.DAL.Entities.Company", null)
                         .WithMany("User")
                         .HasForeignKey("CompanyID")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("TestProject.DAL.Entities.UserRole", b =>
+            modelBuilder.Entity("JiraProject.DAL.Entities.UserRole", b =>
                 {
-                    b.HasOne("TestProject.DAL.Entities.Company", null)
+                    b.HasOne("JiraProject.DAL.Entities.Company", null)
                         .WithMany("UserRole")
                         .HasForeignKey("CompanyID")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("TestProject.DAL.Entities.Roles", null)
+                    b.HasOne("JiraProject.DAL.Entities.Roles", null)
                         .WithMany("UserRole")
                         .HasForeignKey("RolesID");
 
-                    b.HasOne("TestProject.DAL.Entities.User", null)
+                    b.HasOne("JiraProject.DAL.Entities.User", null)
                         .WithMany("UserRole")
                         .HasForeignKey("UserID")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("TestProject.DAL.Entities.UserToken", b =>
+            modelBuilder.Entity("JiraProject.DAL.Entities.UserToken", b =>
                 {
-                    b.HasOne("TestProject.DAL.Entities.User", null)
+                    b.HasOne("JiraProject.DAL.Entities.User", null)
                         .WithMany("UserToken")
                         .HasForeignKey("UserID")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("TestProject.DAL.Entities.Company", b =>
+            modelBuilder.Entity("JiraProject.DAL.Entities.Company", b =>
                 {
                     b.Navigation("Menu");
 
@@ -670,24 +670,24 @@ namespace TestProject.DAL.Migrations
                     b.Navigation("UserRole");
                 });
 
-            modelBuilder.Entity("TestProject.DAL.Entities.Menu", b =>
+            modelBuilder.Entity("JiraProject.DAL.Entities.Menu", b =>
                 {
                     b.Navigation("Roles");
                 });
 
-            modelBuilder.Entity("TestProject.DAL.Entities.ParameterMaster", b =>
+            modelBuilder.Entity("JiraProject.DAL.Entities.ParameterMaster", b =>
                 {
                     b.Navigation("ParameterDetail");
                 });
 
-            modelBuilder.Entity("TestProject.DAL.Entities.Roles", b =>
+            modelBuilder.Entity("JiraProject.DAL.Entities.Roles", b =>
                 {
                     b.Navigation("MenuRole");
 
                     b.Navigation("UserRole");
                 });
 
-            modelBuilder.Entity("TestProject.DAL.Entities.User", b =>
+            modelBuilder.Entity("JiraProject.DAL.Entities.User", b =>
                 {
                     b.Navigation("UserRole");
 

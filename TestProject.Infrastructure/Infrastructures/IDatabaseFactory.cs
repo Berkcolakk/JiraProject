@@ -1,7 +1,7 @@
 ﻿using System;
-using TestProject.DAL.Context;
+using JiraProject.DAL.Context;
 
-namespace TestProject.Infrastructure.Infrastructures
+namespace JiraProject.Infrastructure.Infrastructures
 {
     public interface IDatabaseFactory : IDisposable
     {

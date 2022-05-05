@@ -1,4 +1,4 @@
-﻿namespace TestProject.Dto.Error
+﻿namespace JiraProject.Dto.Error
 {
     public class Error
     {

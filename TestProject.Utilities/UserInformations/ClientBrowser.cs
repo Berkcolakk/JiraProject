@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Text.RegularExpressions;
 
-namespace TestProject.Utilities.UserInformations
+namespace JiraProject.Utilities.UserInformations
 {
     public class ClientBrowser
     {

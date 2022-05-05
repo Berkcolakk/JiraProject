@@ -1,6 +1,6 @@
-﻿using TestProject.DAL.Context;
+﻿using JiraProject.DAL.Context;
 
-namespace TestProject.ServiceManager.UserServiceMangers
+namespace JiraProject.ServiceManager.UserServiceMangers
 {
     public class UserManager
     {

@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
-using TestProject.DAL.Entities;
-using TestProject.Services.CompanyServices;
+using JiraProject.DAL.Entities;
+using JiraProject.Services.CompanyServices;
 
-namespace TestProject.API.Controllers.Companys
+namespace JiraProject.API.Controllers.Companys
 {
     [Route("api/[controller]")]
     [ApiController]

@@ -1,14 +1,15 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
-using TestProject.DAL.Entities;
-using TestProject.Services.UserServices;
+using JiraProject.API.Helpers;
+using JiraProject.DAL.Entities;
+using JiraProject.Services.UserServices;
 
-namespace TestProject.API.Controllers.Users
+namespace JiraProject.API.Controllers.Users
 {
-    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class UserController : ControllerBase
     {
         private readonly IUserService userService;
@@ -32,13 +33,13 @@ namespace TestProject.API.Controllers.Users
         }
         /// <summary>
         /// Example response
-        /// {"Token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IjAiLCJuYmYiOjE2NTEzMzExNzMsImV4cCI6MTY1MTkzNTk3MywiaWF0IjoxNjUxMzMxMTczfQ.mcY6X5o4OMY8E3GTQbuXJQsgrFuyQNXPim_EWWgR_Xw","ExpireDate": "0001-01-01T00:00:00"}
+        /// {"Token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYmYiOjE2NTE3NzI4NzUsImV4cCI6MTY1MjM3NzY3NSwiaWF0IjoxNjUxNzcyODc1fQ.lHA-Y16XUyuhwmHUmESoBKC-T5kJ5qh79rQP3vwLM9s","ExpireDate": "12.05.2022 17:47:55","Error": null}
         /// </summary>
         /// <param name="user" >User object</param>
         [HttpPut]
-        [AllowAnonymous]
         [Route("/[controller]/Login")]
         [Produces("application/json")]
+        [AllowAnonymous]
         public async Task<IActionResult> Login(User user)
         {
             return Ok(await userService.UserAuthentication(user));

@@ -1,14 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using TestProject.DAL.Entities;
-using TestProject.Dto.User.Auth;
-using TestProject.Repository.GenericRepo;
-using TestProject.Repository.UnitOfWork;
-using TestProject.ServiceManager.UserServiceMangers;
-using TestProject.Services.UserTokenServices;
+using JiraProject.DAL.Entities;
+using JiraProject.Dto.User.Auth;
+using JiraProject.Repository.GenericRepo;
+using JiraProject.Repository.UnitOfWork;
+using JiraProject.ServiceManager.UserServiceMangers;
+using JiraProject.Services.UserTokenServices;
 
-namespace TestProject.Services.UserServices
+namespace JiraProject.Services.UserServices
 {
     public class UserService : IUserService
     {

@@ -5,9 +5,9 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using TestProject.DAL.Context;
+using JiraProject.DAL.Context;
 
-namespace TestProject.DAL.Migrations
+namespace JiraProject.DAL.Migrations
 {
     [DbContext(typeof(TestProjectContext))]
     [Migration("20211114152023_00.008")]
@@ -21,7 +21,7 @@ namespace TestProject.DAL.Migrations
                 .HasAnnotation("ProductVersion", "5.0.12")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("TestProject.DAL.Entities.Company", b =>
+            modelBuilder.Entity("JiraProject.DAL.Entities.Company", b =>
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
@@ -69,7 +69,7 @@ namespace TestProject.DAL.Migrations
                     b.ToTable("Company");
                 });
 
-            modelBuilder.Entity("TestProject.DAL.Entities.Roles", b =>
+            modelBuilder.Entity("JiraProject.DAL.Entities.Roles", b =>
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
@@ -119,7 +119,7 @@ namespace TestProject.DAL.Migrations
                     b.ToTable("Roles");
                 });
 
-            modelBuilder.Entity("TestProject.DAL.Entities.User", b =>
+            modelBuilder.Entity("JiraProject.DAL.Entities.User", b =>
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
@@ -175,7 +175,7 @@ namespace TestProject.DAL.Migrations
                     b.ToTable("User");
                 });
 
-            modelBuilder.Entity("TestProject.DAL.Entities.UserRole", b =>
+            modelBuilder.Entity("JiraProject.DAL.Entities.UserRole", b =>
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
@@ -238,38 +238,38 @@ namespace TestProject.DAL.Migrations
                     b.ToTable("UserRole");
                 });
 
-            modelBuilder.Entity("TestProject.DAL.Entities.Roles", b =>
+            modelBuilder.Entity("JiraProject.DAL.Entities.Roles", b =>
                 {
-                    b.HasOne("TestProject.DAL.Entities.Company", null)
+                    b.HasOne("JiraProject.DAL.Entities.Company", null)
                         .WithMany("Roles")
                         .HasForeignKey("CompanyID1");
                 });
 
-            modelBuilder.Entity("TestProject.DAL.Entities.User", b =>
+            modelBuilder.Entity("JiraProject.DAL.Entities.User", b =>
                 {
-                    b.HasOne("TestProject.DAL.Entities.Company", null)
+                    b.HasOne("JiraProject.DAL.Entities.Company", null)
                         .WithMany("User")
                         .HasForeignKey("CompanyID1");
                 });
 
-            modelBuilder.Entity("TestProject.DAL.Entities.UserRole", b =>
+            modelBuilder.Entity("JiraProject.DAL.Entities.UserRole", b =>
                 {
-                    b.HasOne("TestProject.DAL.Entities.Company", null)
+                    b.HasOne("JiraProject.DAL.Entities.Company", null)
                         .WithMany("UserRole")
                         .HasForeignKey("CompanyID1");
 
-                    b.HasOne("TestProject.DAL.Entities.Roles", null)
+                    b.HasOne("JiraProject.DAL.Entities.Roles", null)
                         .WithMany("UserRole")
                         .HasForeignKey("RolesID");
 
-                    b.HasOne("TestProject.DAL.Entities.User", null)
+                    b.HasOne("JiraProject.DAL.Entities.User", null)
                         .WithMany("UserRole")
                         .HasForeignKey("UserID")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("TestProject.DAL.Entities.Company", b =>
+            modelBuilder.Entity("JiraProject.DAL.Entities.Company", b =>
                 {
                     b.Navigation("Roles");
 
@@ -278,12 +278,12 @@ namespace TestProject.DAL.Migrations
                     b.Navigation("UserRole");
                 });
 
-            modelBuilder.Entity("TestProject.DAL.Entities.Roles", b =>
+            modelBuilder.Entity("JiraProject.DAL.Entities.Roles", b =>
                 {
                     b.Navigation("UserRole");
                 });
 
-            modelBuilder.Entity("TestProject.DAL.Entities.User", b =>
+            modelBuilder.Entity("JiraProject.DAL.Entities.User", b =>
                 {
                     b.Navigation("UserRole");
                 });
