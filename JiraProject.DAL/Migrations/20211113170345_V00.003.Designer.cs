@@ -9,7 +9,7 @@ using JiraProject.DAL.Context;
 
 namespace JiraProject.DAL.Migrations
 {
-    [DbContext(typeof(TestProjectContext))]
+    [DbContext(typeof(JiraProjectContext))]
     [Migration("20211113170345_V00.003")]
     partial class V00003
     {

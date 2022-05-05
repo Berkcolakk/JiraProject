@@ -5,18 +5,18 @@ namespace JiraProject.Infrastructure.Infrastructures
 {
     public class DatabaseFactory : Disposable, IDatabaseFactory
     {
-        private DbContextOptions<TestProjectContext> options;
+        private DbContextOptions<JiraProjectContext> options;
 
-        public DatabaseFactory(DbContextOptions<TestProjectContext> options)
+        public DatabaseFactory(DbContextOptions<JiraProjectContext> options)
         {
             this.options = options;
         }
 
-        private TestProjectContext dataContext;
+        private JiraProjectContext dataContext;
 
-        public TestProjectContext Get()
+        public JiraProjectContext Get()
         {
-            return dataContext ?? (dataContext = new TestProjectContext(options));
+            return dataContext ?? (dataContext = new JiraProjectContext(options));
         }
 
         protected override void DisposeCore()

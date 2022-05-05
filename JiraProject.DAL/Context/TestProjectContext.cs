@@ -7,31 +7,24 @@ using JiraProject.DAL.Entities.Base;
 
 namespace JiraProject.DAL.Context
 {
-    public class TestProjectContext : DbContext
+    public class JiraProjectContext : DbContext
     {
-        public TestProjectContext(DbContextOptions<TestProjectContext> options) : base(options)
+        public JiraProjectContext(DbContextOptions<JiraProjectContext> options) : base(options)
         {
         }
-
         /*TABLES*/
-
         public DbSet<User> User { get; set; }
-
         public DbSet<UserRole> UserRole { get; set; }
-
         public DbSet<Roles> Roles { get; set; }
-
         public DbSet<Company> Company { get; set; }
-
         public DbSet<Menu> Menu { get; set; }
-
         public DbSet<MenuRole> MenuRole { get; set; }
-
         public DbSet<UserToken> UserToken { get; set; }
         public DbSet<ParameterMaster> ParameterMaster { get; set; }
         public DbSet<ParameterDetail> ParameterDetail { get; set; }
-
-
+        public DbSet<Projects> Project { get; set; }
+        public DbSet<ProjectIssues> ProjectIssues { get; set; }
+        public DbSet<ProjectUser> ProjectUser { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             System.Collections.Generic.IEnumerable<Microsoft.EntityFrameworkCore.Metadata.IMutableForeignKey> cascadeFKs = modelBuilder.Model.GetEntityTypes()
@@ -43,12 +36,12 @@ namespace JiraProject.DAL.Context
                 fk.DeleteBehavior = DeleteBehavior.Restrict;
             }
 
-            modelBuilder.Entity<Company>().HasData(Seeding.AllCompanyCreate());
-            modelBuilder.Entity<Roles>().HasData(Seeding.AllRolesCreate());
-            modelBuilder.Entity<User>().HasData(Seeding.AllUserCreate());
-            modelBuilder.Entity<Menu>().HasData(Seeding.AllMenuCreate());
-            modelBuilder.Entity<UserRole>().HasData(Seeding.AllUserRoleCreate());
-            modelBuilder.Entity<MenuRole>().HasData(Seeding.AllMenuRoleCreate());
+            //modelBuilder.Entity<Company>().HasData(Seeding.AllCompanyCreate());
+            //modelBuilder.Entity<Roles>().HasData(Seeding.AllRolesCreate());
+            //modelBuilder.Entity<User>().HasData(Seeding.AllUserCreate());
+            //modelBuilder.Entity<Menu>().HasData(Seeding.AllMenuCreate());
+            //modelBuilder.Entity<UserRole>().HasData(Seeding.AllUserRoleCreate());
+            //modelBuilder.Entity<MenuRole>().HasData(Seeding.AllMenuRoleCreate());
 
             base.OnModelCreating(modelBuilder);
         }

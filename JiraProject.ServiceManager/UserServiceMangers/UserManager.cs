@@ -4,9 +4,9 @@ namespace JiraProject.ServiceManager.UserServiceMangers
 {
     public class UserManager
     {
-        private readonly TestProjectContext context;
+        private readonly JiraProjectContext context;
 
-        public UserManager(TestProjectContext context)
+        public UserManager(JiraProjectContext context)
         {
             this.context = context;
         }

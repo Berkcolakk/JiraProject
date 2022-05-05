@@ -11,7 +11,7 @@ namespace JiraProject.Repository.GenericRepo
 {
     public class GenericRepository<T> : IGenericRepository<T> where T : class
     {
-        private TestProjectContext _context;
+        private JiraProjectContext _context;
 
         private readonly DbSet<T> _entities;
 
@@ -22,7 +22,7 @@ namespace JiraProject.Repository.GenericRepo
             DatabaseFactory = databaseFactory;
         }
 
-        protected TestProjectContext DataContext => _context ?? (_context = DatabaseFactory.Get());
+        protected JiraProjectContext DataContext => _context ?? (_context = DatabaseFactory.Get());
 
         public virtual IQueryable<T> Table => Entities;
 

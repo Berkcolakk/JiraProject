@@ -53,7 +53,7 @@ namespace JiraProject.API
                 options.JsonSerializerOptions.Converters.Add(new DateConverter());
             });
 
-            services.AddDbContext<TestProjectContext>(x => x.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")), ServiceLifetime.Transient);
+            services.AddDbContext<JiraProjectContext>(x => x.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")), ServiceLifetime.Transient);
 
             services.AddHangfire(configuration => configuration
             .SetDataCompatibilityLevel(CompatibilityLevel.Version_170)

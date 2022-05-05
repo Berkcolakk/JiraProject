@@ -9,9 +9,9 @@ namespace JiraProject.ServiceManager.CompanyServiceMangers
 {
     public class CompanyManager
     {
-        private readonly TestProjectContext context;
+        private readonly JiraProjectContext context;
 
-        public CompanyManager(TestProjectContext context)
+        public CompanyManager(JiraProjectContext context)
         {
             this.context = context;
         }
@@ -19,7 +19,7 @@ namespace JiraProject.ServiceManager.CompanyServiceMangers
         public async Task<List<Company>> GetAllCompanyWithUserInfo(int companyId)
         {
             return await context.Company.Where(x => x.ID == companyId)
-                .Include(x => x.User).ThenInclude(x => x.UserRole).ToListAsync();
+                .Include(x => x.Users).ThenInclude(x => x.UserRole).ToListAsync();
         }
     }
 }

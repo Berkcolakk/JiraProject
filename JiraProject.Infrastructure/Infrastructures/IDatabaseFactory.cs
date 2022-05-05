@@ -5,6 +5,6 @@ namespace JiraProject.Infrastructure.Infrastructures
 {
     public interface IDatabaseFactory : IDisposable
     {
-        TestProjectContext Get();
+        JiraProjectContext Get();
     }
 }

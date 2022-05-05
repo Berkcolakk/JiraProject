@@ -131,7 +131,7 @@ namespace JiraProject.DAL.DataSeeding
                     Desc = "Seeding-Data",
                     RegistrationNumber = "0",
                     Type = "1",
-                    ID = 1
+                    ID = 2
                 }
             };
             return allUsers;

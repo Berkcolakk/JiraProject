@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using JiraProject.DAL.Entities.Base;
 
 namespace JiraProject.DAL.Entities
@@ -8,7 +9,7 @@ namespace JiraProject.DAL.Entities
         public Company()
         {
             Roles = new List<Roles>();
-            User = new List<User>();
+            Users = new List<User>();
             UserRole = new List<UserRole>();
             Menu = new List<Menu>();
         }
@@ -22,8 +23,7 @@ namespace JiraProject.DAL.Entities
         public string RegistrationNumber { get; set; }
 
         public virtual ICollection<Roles> Roles { get; set; }
-
-        public virtual ICollection<User> User { get; set; }
+        public virtual ICollection<User> Users { get; set; }
 
         public virtual ICollection<UserRole> UserRole { get; set; }
 

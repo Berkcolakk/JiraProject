@@ -4,9 +4,9 @@ namespace JiraProject.ServiceManager.UserTokenServiceMangers
 {
     public class UserTokenManager
     {
-        private readonly TestProjectContext context;
+        private readonly JiraProjectContext context;
 
-        public UserTokenManager(TestProjectContext context)
+        public UserTokenManager(JiraProjectContext context)
         {
             this.context = context;
         }

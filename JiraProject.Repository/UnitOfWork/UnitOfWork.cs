@@ -10,14 +10,14 @@ namespace JiraProject.Repository.UnitOfWork
     {
         private readonly IDatabaseFactory databaseFactory;
 
-        private TestProjectContext dataContext;
+        private JiraProjectContext dataContext;
 
         public UnitOfWork(IDatabaseFactory databaseFactory)
         {
             this.databaseFactory = databaseFactory;
         }
 
-        protected TestProjectContext DataContext => dataContext ?? (dataContext = databaseFactory.Get());
+        protected JiraProjectContext DataContext => dataContext ?? (dataContext = databaseFactory.Get());
 
         public async Task Save()
         {
