@@ -1,3 +1,0 @@
-# JiraProject.DesktopApp
-
-

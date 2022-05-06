@@ -17,8 +17,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JiraProject.Utilities", "Ji
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JiraProject.ServiceManager", "JiraProject.ServiceManager\JiraProject.ServiceManager.csproj", "{9EE512DA-2634-49EF-B36C-32F9C9AD1934}"
 EndProject
-Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "JiraProject.DesktopApp", "JiraProject.DesktopApp\JiraProject.DesktopApp.njsproj", "{385D5055-9C65-43A7-BF1A-6347C2462DC0}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JiraProject.Dto", "JiraProject.Dto\JiraProject.Dto.csproj", "{643DE641-96B3-4935-8EF6-419959AAF04B}"
 EndProject
 Global
@@ -55,10 +53,6 @@ Global
 		{9EE512DA-2634-49EF-B36C-32F9C9AD1934}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9EE512DA-2634-49EF-B36C-32F9C9AD1934}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9EE512DA-2634-49EF-B36C-32F9C9AD1934}.Release|Any CPU.Build.0 = Release|Any CPU
-		{385D5055-9C65-43A7-BF1A-6347C2462DC0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{385D5055-9C65-43A7-BF1A-6347C2462DC0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{385D5055-9C65-43A7-BF1A-6347C2462DC0}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{385D5055-9C65-43A7-BF1A-6347C2462DC0}.Release|Any CPU.Build.0 = Release|Any CPU
 		{643DE641-96B3-4935-8EF6-419959AAF04B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{643DE641-96B3-4935-8EF6-419959AAF04B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{643DE641-96B3-4935-8EF6-419959AAF04B}.Release|Any CPU.ActiveCfg = Release|Any CPU
