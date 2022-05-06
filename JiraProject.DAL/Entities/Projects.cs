@@ -12,14 +12,17 @@ namespace JiraProject.DAL.Entities
     {
         public Projects()
         {
-            ProjectUsersID = new List<ProjectUser>();
-            ProjectIssuespProjectID = new List<ProjectIssues>();
+            //ProjectUsersID = new List<ProjectUser>();
+            //ProjectIssuespProjectID = new List<ProjectIssues>();
         }
         public string ProjectName { get; set; }
         public string ProjectVersion { get; set; }
-        public ICollection<ProjectUser> ProjectUsersID { get; set; }
-        //[InverseProperty(nameof(ProjectIssuespProjectID))]
-        public ICollection<ProjectIssues> ProjectIssuespProjectID { get; set; }
-
+        [InverseProperty("IPProjectsProjectUser")]
+        public ICollection<ProjectUser> ProjectsProjectUsers { get; set; }
+        [InverseProperty("IPProjectProjectIssues")]
+        public ICollection<ProjectIssues> IPProjectProjectIssues { get; set; }
+        [ForeignKey("IPCompanyProjects")]
+        public int CompanyID { get; set; }
+        public virtual Company IPCompanyProjects { get; set; }
     }
 }

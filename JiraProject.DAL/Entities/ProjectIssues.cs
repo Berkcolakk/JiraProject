@@ -10,12 +10,16 @@ namespace JiraProject.DAL.Entities
 {
     public class ProjectIssues : EntityBase
     {
-        [ForeignKey(nameof(ProjectIssuespProjectID))]
+        [ForeignKey("IPProjectProjectIssues")]
         public int ProjectIssuespProjectID { get; set; }
-        [ForeignKey(nameof(ProjectUsersID))]
+        public virtual Projects IPProjectProjectIssues { get; set; }
+        [ForeignKey("IPUserProjectIssuesUser")]
         public int ProjectUsersID { get; set; }
-        [ForeignKey(nameof(ProjectReporterID))]
+        public virtual User IPUserProjectIssuesUser { get; set; }
+
+        [ForeignKey("IPUserProjectIssuesReporter")]
         public int ProjectReporterID { get; set; }
+        public virtual User IPUserProjectIssuesReporter { get; set; }
         public string Summary { get; set; }
         public string Description { get; set; }
         public int PriorityID { get; set; }

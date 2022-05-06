@@ -22,9 +22,9 @@ namespace JiraProject.DAL.Context
         public DbSet<UserToken> UserToken { get; set; }
         public DbSet<ParameterMaster> ParameterMaster { get; set; }
         public DbSet<ParameterDetail> ParameterDetail { get; set; }
-        public DbSet<Projects> Project { get; set; }
-        public DbSet<ProjectIssues> ProjectIssues { get; set; }
-        public DbSet<ProjectUser> ProjectUser { get; set; }
+        //public DbSet<Projects> Project { get; set; }
+        //public DbSet<ProjectIssues> ProjectIssues { get; set; }
+        //public DbSet<ProjectUser> ProjectUser { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             System.Collections.Generic.IEnumerable<Microsoft.EntityFrameworkCore.Metadata.IMutableForeignKey> cascadeFKs = modelBuilder.Model.GetEntityTypes()

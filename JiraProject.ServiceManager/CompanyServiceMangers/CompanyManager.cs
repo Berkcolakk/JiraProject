@@ -19,7 +19,7 @@ namespace JiraProject.ServiceManager.CompanyServiceMangers
         public async Task<List<Company>> GetAllCompanyWithUserInfo(int companyId)
         {
             return await context.Company.Where(x => x.ID == companyId)
-                .Include(x => x.Users).ThenInclude(x => x.UserRole).ToListAsync();
+                .Include(x => x.CompanyUsers).ThenInclude(x => x.UserRole).ToListAsync();
         }
     }
 }

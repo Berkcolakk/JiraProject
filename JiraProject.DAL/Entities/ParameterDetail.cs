@@ -10,8 +10,9 @@ namespace JiraProject.DAL.Entities
 {
     public class ParameterDetail : EntityBase
     {
-        [ForeignKey("ParameterMasterID")]
+        [ForeignKey("ParameterMasterMasterID")]
         public int ParameterMasterID { get; set; }
+        public ParameterMaster ParameterMasterMasterID { get; set; }
 
         public string Name { get; set; }
         public string Desc { get; set; }

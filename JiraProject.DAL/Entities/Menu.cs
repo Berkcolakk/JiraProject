@@ -8,7 +8,7 @@ namespace JiraProject.DAL.Entities
     {
         public Menu()
         {
-            Roles = new List<Roles>();
+            IPMenuMenuRole = new List<MenuRole>();
         }
 
         public string Name { get; set; }
@@ -19,9 +19,10 @@ namespace JiraProject.DAL.Entities
 
         public string Desc { get; set; }
 
-        [ForeignKey("CompanyID")]
-        public int CompanyID { get; set; }
-
-        public virtual ICollection<Roles> Roles { get; set; }
+        [ForeignKey("IPCompanyMenu")]
+        public virtual int CompanyID { get; set; }
+        public virtual Company IPCompanyMenu { get; set; }
+        [InverseProperty("IPMenuMenuRole")]
+        public virtual ICollection<MenuRole> IPMenuMenuRole { get; set; }
     }
 }

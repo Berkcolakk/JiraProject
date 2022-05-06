@@ -9,10 +9,8 @@ namespace JiraProject.DAL.Entities
         public User()
         {
             UserRole = new List<UserRole>();
-            UserToken = new List<UserToken>();
-            ProjectUsers = new List<ProjectUser>();
-            ProjectUsersID = new List<ProjectIssues>();
-            ProjectReporterID = new List<ProjectIssues>();
+            UserTokenUser = new List<UserToken>();
+            UserProjectUser = new List<ProjectUser>();
         }
 
         public string Email { get; set; }
@@ -25,15 +23,20 @@ namespace JiraProject.DAL.Entities
         public string JobName { get; set; }
         public string DepartmentName { get; set; }
         public string OrganizationName { get; set; }
-        [ForeignKey("CompanyID")]
+        [ForeignKey("IPCompanyUsers")]
         public int CompanyID { get; set; }
+        public virtual Company IPCompanyUsers { get; set; }
+        [InverseProperty("IPUserRoleUser")]
         public virtual ICollection<UserRole> UserRole { get; set; }
+        [InverseProperty("IPUserTokenUser")]
+        public virtual ICollection<UserToken> UserTokenUser { get; set; }
+        [InverseProperty("IPUserProjectUser")]
+        public virtual ICollection<ProjectUser> UserProjectUser { get; set; }
+        [InverseProperty("IPUserProjectIssuesUser")]
+        public virtual ICollection<ProjectIssues> IPUserProjectIssuesUser { get; set; }
+        [InverseProperty("IPUserProjectIssuesReporter")]
+        public virtual ICollection<ProjectIssues> IPUserProjectIssuesReporter { get; set; }
 
-        public virtual ICollection<UserToken> UserToken { get; set; }
-        public ICollection<ProjectUser> ProjectUsers { get; set; }
-        [ForeignKey(nameof(ProjectUsersID))]
-        public ICollection<ProjectIssues> ProjectUsersID { get; set; }
-        [ForeignKey(nameof(ProjectReporterID))]
-        public ICollection<ProjectIssues> ProjectReporterID { get; set; }
+
     }
 }

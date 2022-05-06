@@ -10,17 +10,20 @@ namespace JiraProject.DAL.Entities
         {
         }
 
-        [ForeignKey("UserID")]
+        [ForeignKey("IPUserRoleUser")]
         public int UserID { get; set; }
+        public virtual User IPUserRoleUser { get; set; }
 
         public string Desc { get; set; }
 
         public DateTime StartDate { get; set; }
 
-        [ForeignKey("RoleID")]
+        [ForeignKey("IPUserRoleRoles")]
         public int RoleID { get; set; }
+        public virtual Roles IPUserRoleRoles { get; set; }
 
-        [ForeignKey("CompanyID")]
+        [ForeignKey("IPCompanyUserRole")]
         public int CompanyID { get; set; }
+        public virtual Company IPCompanyUserRole { get; set; }
     }
 }

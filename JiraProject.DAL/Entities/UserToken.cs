@@ -9,7 +9,8 @@ namespace JiraProject.DAL.Entities
     {
         public string Token { get; set; }
         public DateTime ExpireDate { get; set; }
-        [ForeignKey("UserID")]
+        [ForeignKey("IPUserTokenUser")]
         public int UserID { get; set; }
+        public virtual User IPUserTokenUser { get; set; }
     }
 }

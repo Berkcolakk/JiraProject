@@ -8,10 +8,11 @@ namespace JiraProject.DAL.Entities
     {
         public Company()
         {
-            Roles = new List<Roles>();
-            Users = new List<User>();
-            UserRole = new List<UserRole>();
-            Menu = new List<Menu>();
+            CompanyRoles = new List<Roles>();
+            CompanyUsers = new List<User>();
+            CompanyUserRole = new List<UserRole>();
+            CompanyMenu = new List<Menu>();
+            CompanyProjects = new List<Projects>();
         }
 
         public string Name { get; set; }
@@ -21,12 +22,15 @@ namespace JiraProject.DAL.Entities
         public string Type { get; set; }
 
         public string RegistrationNumber { get; set; }
-
-        public virtual ICollection<Roles> Roles { get; set; }
-        public virtual ICollection<User> Users { get; set; }
-
-        public virtual ICollection<UserRole> UserRole { get; set; }
-
-        public virtual ICollection<Menu> Menu { get; set; }
+        [InverseProperty("IPCompanyRoles")]
+        public virtual ICollection<Roles> CompanyRoles { get; set; }
+        [InverseProperty("IPCompanyUsers")]
+        public virtual ICollection<User> CompanyUsers { get; set; }
+        [InverseProperty("IPCompanyUserRole")]
+        public virtual ICollection<UserRole> CompanyUserRole { get; set; }
+        [InverseProperty("IPCompanyMenu")]
+        public virtual ICollection<Menu> CompanyMenu { get; set; }
+        [InverseProperty("IPCompanyProjects")]
+        public virtual ICollection<Projects> CompanyProjects { get; set; }
     }
 }
