@@ -8,11 +8,6 @@
 * [JWT Token](https://jwt.io/)
 * [Swagger](https://swagger.io/)
 * [Hangfire](https://www.hangfire.io/)
------
-* [Vue.js](https://vuejs.org/)
-* [Elecron.js](https://www.electronjs.org/)
-* [Bootstrap](https://getbootstrap.com/)
-
 
 ## Infrastructure
 * Database Factory
