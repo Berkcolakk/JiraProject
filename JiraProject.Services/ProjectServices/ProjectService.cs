@@ -21,9 +21,22 @@ namespace JiraProject.Services.ProjectServices
             this.project = project;
             this.unitOfWork = unitOfWork;
         }
-        public Task<bool> AddProject(Projects projects)
+        public async Task<bool> AddProject(Projects projects)
         {
-            throw new NotImplementedException();
+            if (projects == null)
+            {
+                throw new ArgumentNullException("Projects object not found.");
+            }
+            try
+            {
+                await project.Insert(projects);
+                await Save();
+                return true;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
         public Task<bool> DeleteProject(int projectID)

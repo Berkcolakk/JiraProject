@@ -12,11 +12,11 @@ namespace JiraProject.Services.RoleServices
     {
         private readonly IGenericRepository<Roles> rolesRepo;
 
-        private readonly RoleManager rolesManager;
+        private readonly ProjectIssuesManager rolesManager;
 
         private readonly IUnitOfWork unitOfWork;
 
-        public RoleService(IGenericRepository<Roles> rolesRepo, RoleManager rolesManager, UnitOfWork unitOfWork)
+        public RoleService(IGenericRepository<Roles> rolesRepo, ProjectIssuesManager rolesManager, UnitOfWork unitOfWork)
         {
             this.rolesRepo = rolesRepo;
             this.rolesManager = rolesManager;

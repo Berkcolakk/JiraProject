@@ -35,9 +35,9 @@ namespace JiraProject.Services.MenuServices
                 await Save();
                 return true;
             }
-            catch (Exception e)
+            catch (Exception)
             {
-                throw e;
+                throw;
             }
         }
 

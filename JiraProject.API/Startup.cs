@@ -31,6 +31,11 @@ using JiraProject.Services.RoleServices;
 using JiraProject.Services.UserRoleServices;
 using JiraProject.Services.UserServices;
 using JiraProject.Services.UserTokenServices;
+using JiraProject.Services.ProjectServices;
+using JiraProject.Services.ProjectUserServices;
+using JiraProject.Services.ProjectIssuesServices;
+using JiraProject.ServiceManager.ProjectServiceMangers;
+using JiraProject.ServiceManager.ProjectUserServiceMangers;
 
 namespace JiraProject.API
 {
@@ -81,7 +86,7 @@ namespace JiraProject.API
             services.AddScoped<UserManager>();
 
             services.AddScoped<IRoleService, RoleService>();
-            services.AddScoped<RoleManager>();
+            services.AddScoped<ProjectIssuesManager>();
 
             services.AddScoped<IUserRoleService, UserRoleService>();
             services.AddScoped<UserRoleManager>();
@@ -97,6 +102,15 @@ namespace JiraProject.API
 
             services.AddScoped<IUserTokenService, UserTokenService>();
             services.AddScoped<UserTokenManager>();
+
+            services.AddScoped<IProjectService, ProjectService>();
+            services.AddScoped<ProjectManager>();
+
+            services.AddScoped<IProjectUserService, ProjectUserService>();
+            services.AddScoped<ProjectUserManager>();
+
+            services.AddScoped<IProjectIssuesService, ProjectIssuesService>();
+            services.AddScoped<ProjectIssuesManager>();
 
             services.AddSwaggerGen(c =>
             {
