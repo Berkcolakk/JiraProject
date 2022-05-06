@@ -5,22 +5,25 @@ using JiraProject.DAL.Entities;
 using JiraProject.Repository.GenericRepo;
 using JiraProject.Repository.UnitOfWork;
 using JiraProject.ServiceManager.CompanyServiceMangers;
+using JiraProject.Services.UserTokenServices;
 
 namespace JiraProject.Services.CompanyServices
 {
     public class CompanyService : ICompanyService
     {
         private readonly IGenericRepository<Company> companyRepo;
+        private readonly IUserTokenService userTokenService;
 
         private readonly CompanyManager companyManager;
 
         private readonly IUnitOfWork unitOfWork;
 
-        public CompanyService(IGenericRepository<Company> companyRepo, CompanyManager companyManager, UnitOfWork unitOfWork)
+        public CompanyService(IGenericRepository<Company> companyRepo, CompanyManager companyManager, UnitOfWork unitOfWork, IUserTokenService userTokenService)
         {
             this.companyRepo = companyRepo;
             this.companyManager = companyManager;
             this.unitOfWork = unitOfWork;
+            this.userTokenService = userTokenService;
         }
 
         public async Task<bool> AddCompany(Company Company)

@@ -4,14 +4,16 @@ using JiraProject.DAL.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace JiraProject.DAL.Migrations
 {
     [DbContext(typeof(JiraProjectContext))]
-    partial class JiraProjectContextModelSnapshot : ModelSnapshot
+    [Migration("20220506032334_V1.92")]
+    partial class V192
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -26,10 +28,10 @@ namespace JiraProject.DAL.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<DateTime?>("CrtDate")
+                    b.Property<DateTime>("CrtDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("CrtUserID")
+                    b.Property<int>("CrtUserID")
                         .HasColumnType("int");
 
                     b.Property<string>("CrtUserIP")
@@ -53,10 +55,10 @@ namespace JiraProject.DAL.Migrations
                     b.Property<string>("Type")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime?>("UpdDate")
+                    b.Property<DateTime>("UpdDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("UpdUserID")
+                    b.Property<int>("UpdUserID")
                         .HasColumnType("int");
 
                     b.Property<string>("UpdUserIP")
@@ -80,10 +82,10 @@ namespace JiraProject.DAL.Migrations
                     b.Property<int>("CompanyID")
                         .HasColumnType("int");
 
-                    b.Property<DateTime?>("CrtDate")
+                    b.Property<DateTime>("CrtDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("CrtUserID")
+                    b.Property<int>("CrtUserID")
                         .HasColumnType("int");
 
                     b.Property<string>("CrtUserIP")
@@ -104,10 +106,10 @@ namespace JiraProject.DAL.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime?>("UpdDate")
+                    b.Property<DateTime>("UpdDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("UpdUserID")
+                    b.Property<int>("UpdUserID")
                         .HasColumnType("int");
 
                     b.Property<string>("UpdUserIP")
@@ -127,10 +129,10 @@ namespace JiraProject.DAL.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<DateTime?>("CrtDate")
+                    b.Property<DateTime>("CrtDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("CrtUserID")
+                    b.Property<int>("CrtUserID")
                         .HasColumnType("int");
 
                     b.Property<string>("CrtUserIP")
@@ -148,10 +150,10 @@ namespace JiraProject.DAL.Migrations
                     b.Property<int>("MenuID")
                         .HasColumnType("int");
 
-                    b.Property<DateTime?>("UpdDate")
+                    b.Property<DateTime>("UpdDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("UpdUserID")
+                    b.Property<int>("UpdUserID")
                         .HasColumnType("int");
 
                     b.Property<string>("UpdUserIP")
@@ -176,10 +178,10 @@ namespace JiraProject.DAL.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<DateTime?>("CrtDate")
+                    b.Property<DateTime>("CrtDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("CrtUserID")
+                    b.Property<int>("CrtUserID")
                         .HasColumnType("int");
 
                     b.Property<string>("CrtUserIP")
@@ -200,10 +202,10 @@ namespace JiraProject.DAL.Migrations
                     b.Property<int>("ParameterMasterID")
                         .HasColumnType("int");
 
-                    b.Property<DateTime?>("UpdDate")
+                    b.Property<DateTime>("UpdDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("UpdUserID")
+                    b.Property<int>("UpdUserID")
                         .HasColumnType("int");
 
                     b.Property<string>("UpdUserIP")
@@ -232,10 +234,10 @@ namespace JiraProject.DAL.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<DateTime?>("CrtDate")
+                    b.Property<DateTime>("CrtDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("CrtUserID")
+                    b.Property<int>("CrtUserID")
                         .HasColumnType("int");
 
                     b.Property<string>("CrtUserIP")
@@ -250,10 +252,10 @@ namespace JiraProject.DAL.Migrations
                     b.Property<string>("MasterName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime?>("UpdDate")
+                    b.Property<DateTime>("UpdDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("UpdUserID")
+                    b.Property<int>("UpdUserID")
                         .HasColumnType("int");
 
                     b.Property<string>("UpdUserIP")
@@ -274,10 +276,10 @@ namespace JiraProject.DAL.Migrations
                     b.Property<string>("Attachment")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime?>("CrtDate")
+                    b.Property<DateTime>("CrtDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("CrtUserID")
+                    b.Property<int>("CrtUserID")
                         .HasColumnType("int");
 
                     b.Property<string>("CrtUserIP")
@@ -328,10 +330,10 @@ namespace JiraProject.DAL.Migrations
                     b.Property<string>("Summary")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime?>("UpdDate")
+                    b.Property<DateTime>("UpdDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("UpdUserID")
+                    b.Property<int>("UpdUserID")
                         .HasColumnType("int");
 
                     b.Property<string>("UpdUserIP")
@@ -355,10 +357,10 @@ namespace JiraProject.DAL.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<DateTime?>("CrtDate")
+                    b.Property<DateTime>("CrtDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("CrtUserID")
+                    b.Property<int>("CrtUserID")
                         .HasColumnType("int");
 
                     b.Property<string>("CrtUserIP")
@@ -373,10 +375,10 @@ namespace JiraProject.DAL.Migrations
                     b.Property<int>("ProjectID")
                         .HasColumnType("int");
 
-                    b.Property<DateTime?>("UpdDate")
+                    b.Property<DateTime>("UpdDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("UpdUserID")
+                    b.Property<int>("UpdUserID")
                         .HasColumnType("int");
 
                     b.Property<string>("UpdUserIP")
@@ -404,10 +406,10 @@ namespace JiraProject.DAL.Migrations
                     b.Property<int>("CompanyID")
                         .HasColumnType("int");
 
-                    b.Property<DateTime?>("CrtDate")
+                    b.Property<DateTime>("CrtDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("CrtUserID")
+                    b.Property<int>("CrtUserID")
                         .HasColumnType("int");
 
                     b.Property<string>("CrtUserIP")
@@ -425,10 +427,10 @@ namespace JiraProject.DAL.Migrations
                     b.Property<string>("ProjectVersion")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime?>("UpdDate")
+                    b.Property<DateTime>("UpdDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("UpdUserID")
+                    b.Property<int>("UpdUserID")
                         .HasColumnType("int");
 
                     b.Property<string>("UpdUserIP")
@@ -451,10 +453,10 @@ namespace JiraProject.DAL.Migrations
                     b.Property<int>("CompanyID")
                         .HasColumnType("int");
 
-                    b.Property<DateTime?>("CrtDate")
+                    b.Property<DateTime>("CrtDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("CrtUserID")
+                    b.Property<int>("CrtUserID")
                         .HasColumnType("int");
 
                     b.Property<string>("CrtUserIP")
@@ -472,10 +474,10 @@ namespace JiraProject.DAL.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime?>("UpdDate")
+                    b.Property<DateTime>("UpdDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("UpdUserID")
+                    b.Property<int>("UpdUserID")
                         .HasColumnType("int");
 
                     b.Property<string>("UpdUserIP")
@@ -498,10 +500,10 @@ namespace JiraProject.DAL.Migrations
                     b.Property<int>("CompanyID")
                         .HasColumnType("int");
 
-                    b.Property<DateTime?>("CrtDate")
+                    b.Property<DateTime>("CrtDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("CrtUserID")
+                    b.Property<int>("CrtUserID")
                         .HasColumnType("int");
 
                     b.Property<string>("CrtUserIP")
@@ -531,10 +533,10 @@ namespace JiraProject.DAL.Migrations
                     b.Property<string>("Phone")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime?>("UpdDate")
+                    b.Property<DateTime>("UpdDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("UpdUserID")
+                    b.Property<int>("UpdUserID")
                         .HasColumnType("int");
 
                     b.Property<string>("UpdUserIP")
@@ -560,10 +562,10 @@ namespace JiraProject.DAL.Migrations
                     b.Property<int>("CompanyID")
                         .HasColumnType("int");
 
-                    b.Property<DateTime?>("CrtDate")
+                    b.Property<DateTime>("CrtDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("CrtUserID")
+                    b.Property<int>("CrtUserID")
                         .HasColumnType("int");
 
                     b.Property<string>("CrtUserIP")
@@ -584,10 +586,10 @@ namespace JiraProject.DAL.Migrations
                     b.Property<DateTime>("StartDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime?>("UpdDate")
+                    b.Property<DateTime>("UpdDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("UpdUserID")
+                    b.Property<int>("UpdUserID")
                         .HasColumnType("int");
 
                     b.Property<string>("UpdUserIP")
@@ -614,10 +616,10 @@ namespace JiraProject.DAL.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<DateTime?>("CrtDate")
+                    b.Property<DateTime>("CrtDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("CrtUserID")
+                    b.Property<int>("CrtUserID")
                         .HasColumnType("int");
 
                     b.Property<string>("CrtUserIP")
@@ -635,10 +637,10 @@ namespace JiraProject.DAL.Migrations
                     b.Property<string>("Token")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime?>("UpdDate")
+                    b.Property<DateTime>("UpdDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("UpdUserID")
+                    b.Property<int>("UpdUserID")
                         .HasColumnType("int");
 
                     b.Property<string>("UpdUserIP")

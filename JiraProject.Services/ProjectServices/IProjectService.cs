@@ -9,13 +9,14 @@ namespace JiraProject.Services.ProjectServices
 {
     public interface IProjectService
     {
+        public Task<List<Projects>> GetAllProjectsWithRelations(UserToken token);
         public Task<bool> AddProject(Projects projects);
 
         public Task<bool> UpdateProject(Projects projects);
 
-        public Task<List<Menu>> GetAllProject();
+        public Task<List<Projects>> GetAllProject();
 
-        public Task<Menu> GetProjectById(int id);
+        public Task<Projects> GetProjectById(int id);
 
         public Task<bool> DeleteProject(int projectID);
 

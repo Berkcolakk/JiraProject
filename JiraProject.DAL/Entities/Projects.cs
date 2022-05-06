@@ -16,6 +16,9 @@ namespace JiraProject.DAL.Entities
             //ProjectIssuespProjectID = new List<ProjectIssues>();
         }
         public string ProjectName { get; set; }
+        public string ProjectDescription { get; set; }
+        public string ProjectLabel { get; set; }
+        public DateTime ProjectDueDate { get; set; }
         public string ProjectVersion { get; set; }
         [InverseProperty("IPProjectsProjectUser")]
         public ICollection<ProjectUser> ProjectsProjectUsers { get; set; }

@@ -4,14 +4,16 @@ using JiraProject.DAL.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace JiraProject.DAL.Migrations
 {
     [DbContext(typeof(JiraProjectContext))]
-    partial class JiraProjectContextModelSnapshot : ModelSnapshot
+    [Migration("20220506032415_V1.93")]
+    partial class V193
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

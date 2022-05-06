@@ -15,9 +15,9 @@ namespace JiraProject.ServiceManager.ProjectServiceMangers
         {
             this.context = context;
         }
-        //public async Task<List<Projects>> GetAllProjectsWithRelations()
-        //{
-        //    return await context.Project.Include(x => x.ProjectUsersID).ThenInclude(x => x.UserID).Include(x => x.ProjectIssuespProjectID).ThenInclude(x => x.)
-        //}
+        public async Task<List<Projects>> GetallProjectsWithRelations(int companyID)
+        {
+            return await context.Project.Where(x => x.CompanyID == companyID && x.IsActive == true).Include(x => x.ProjectsProjectUsers).ThenInclude(x => x.IPUserProjectUser).Include(x => x.IPCompanyProjects).Include(x => x.IPProjectProjectIssues).ThenInclude(x => x.IPUserProjectIssuesUser).ToListAsync();
+        }
     }
 }

@@ -1,6 +1,8 @@
 ﻿using JiraProject.DAL.Entities;
 using JiraProject.Repository.GenericRepo;
 using JiraProject.Repository.UnitOfWork;
+using JiraProject.ServiceManager.ProjectServiceMangers;
+using JiraProject.Services.UserTokenServices;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,14 +14,23 @@ namespace JiraProject.Services.ProjectServices
     public class ProjectService : IProjectService
     {
         private readonly IGenericRepository<Projects> project;
+        private readonly ProjectManager projectsManager;
+        private readonly IUserTokenService userTokenService;
 
 
         private readonly IUnitOfWork unitOfWork;
 
-        public ProjectService(IGenericRepository<Projects> project, UnitOfWork unitOfWork)
+        public ProjectService(IGenericRepository<Projects> project, UnitOfWork unitOfWork, ProjectManager projectsManager, IUserTokenService userTokenService)
         {
             this.project = project;
             this.unitOfWork = unitOfWork;
+            this.projectsManager = projectsManager;
+            this.userTokenService = userTokenService;
+        }
+
+        public async Task<List<Projects>> GetAllProjectsWithRelations(UserToken token)
+        {
+            return await projectsManager.GetallProjectsWithRelations(token.IPUserTokenUser.CompanyID);
         }
         public async Task<bool> AddProject(Projects projects)
         {
@@ -39,27 +50,27 @@ namespace JiraProject.Services.ProjectServices
             }
         }
 
-        public Task<bool> DeleteProject(int projectID)
+        public async Task<bool> DeleteProject(int projectID)
         {
             throw new NotImplementedException();
         }
 
-        public Task<List<Menu>> GetAllProject()
+        public async Task<List<Projects>> GetAllProject()
         {
             throw new NotImplementedException();
         }
 
-        public Task<Menu> GetProjectById(int id)
+        public Task<Projects> GetProjectById(int id)
         {
             throw new NotImplementedException();
         }
 
-        public Task Save()
+        public async Task Save()
         {
-            throw new NotImplementedException();
+            await unitOfWork.Save();
         }
 
-        public Task<bool> UpdateProject(Projects projects)
+        public async Task<bool> UpdateProject(Projects projects)
         {
             throw new NotImplementedException();
         }

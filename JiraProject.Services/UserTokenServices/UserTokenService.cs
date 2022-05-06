@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using JiraProject.DAL.Entities;
 using JiraProject.Repository.GenericRepo;
 using JiraProject.Repository.UnitOfWork;
+using JiraProject.ServiceManager.UserTokenServiceMangers;
 
 namespace JiraProject.Services.UserTokenServices
 {
@@ -17,13 +18,15 @@ namespace JiraProject.Services.UserTokenServices
         private readonly IUnitOfWork unitOfWork;
         private readonly IConfiguration config;
         private readonly IBackgroundJobClient backgroundJobs;
+        private readonly UserTokenManager userTokenManager;
 
-        public UserTokenService(IGenericRepository<UserToken> userTokenRepo, UnitOfWork unitOfWork, IConfiguration config, IBackgroundJobClient backgroundJobs)
+        public UserTokenService(IGenericRepository<UserToken> userTokenRepo, UnitOfWork unitOfWork, IConfiguration config, IBackgroundJobClient backgroundJobs, UserTokenManager userTokenManager)
         {
             this.userTokenRepo = userTokenRepo;
             this.unitOfWork = unitOfWork;
             this.config = config;
             this.backgroundJobs = backgroundJobs;
+            this.userTokenManager = userTokenManager;
         }
         public async Task<UserToken> CheckTokenByUserID(int id)
         {
@@ -114,7 +117,7 @@ namespace JiraProject.Services.UserTokenServices
         {
             try
             {
-                return await userTokenRepo.Get(a => a.Token == token && a.ExpireDate >= DateTime.Now);
+                return await userTokenManager.CheckTokenByUserToken(token);
             }
             catch (Exception)
             {

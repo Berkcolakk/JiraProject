@@ -24,7 +24,6 @@ namespace JiraProject.DAL.DataSeeding
                     Email = "berkcolak4@gmail.com",
                     Password = "123456",
                     Phone = "5434203403",
-                    ID = 1,
                     UserName = "Berk Çolak",
                 },
                 new User()
@@ -41,7 +40,6 @@ namespace JiraProject.DAL.DataSeeding
                     Email = "test@test.com.tr",
                     Password = "123456",
                     Phone = "123456",
-                    ID = 2,
                     UserName = "Test Test",
                 },
                 new User()
@@ -58,7 +56,6 @@ namespace JiraProject.DAL.DataSeeding
                     Email = "test2@test.com.tr",
                     Password = "123456",
                     Phone = "123456",
-                    ID = 3,
                     UserName = "Test Test",
                 }
             };
@@ -82,7 +79,6 @@ namespace JiraProject.DAL.DataSeeding
                     CompanyID = 1,
                     RoleID = 1,
                     UserID = 1,
-                    ID = 1,
                     Desc = "TEST",
                     StartDate = DateTime.Now
                 }
@@ -104,7 +100,6 @@ namespace JiraProject.DAL.DataSeeding
                     UpdDate=DateTime.Now,
                     CrtUserIP = "0",
                     MachineName = "DESKTOP-0000",
-                    ID  = 1,
                     CompanyID = 1,
                     Desc = "TEST",
                     Name = "Yazılım Geliştirici",
@@ -131,7 +126,6 @@ namespace JiraProject.DAL.DataSeeding
                     Desc = "Seeding-Data",
                     RegistrationNumber = "0",
                     Type = "1",
-                    ID = 2
                 }
             };
             return allUsers;
