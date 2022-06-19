@@ -1,4 +1,4 @@
- # NETCORE 5.0 - COREAPP
+ # NETCORE 5.0 - JiraApp
 
 .Net Core api service and desktop app with Elecron.js
 
