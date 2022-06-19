@@ -30,30 +30,15 @@ namespace JiraProject.Repository.GenericRepo
 
         protected virtual DbSet<T> Entities => _entities ?? DataContext.Set<T>();
 
-        public virtual async Task<T> Get(Expression<Func<T, bool>> predicate)
-        {
-            return await Entities.Where(predicate).SingleOrDefaultAsync();
-        }
+        public virtual async Task<T> Get(Expression<Func<T, bool>> predicate) => await Entities.Where(predicate).SingleOrDefaultAsync();
 
-        public virtual async ValueTask<T> GetById(object id)
-        {
-            return await Entities.FindAsync(id);
-        }
+        public virtual async ValueTask<T> GetById(object id) => await Entities.FindAsync(id);
 
-        public virtual async Task<List<T>> GetMany(Expression<Func<T, bool>> predicate)
-        {
-            return await Entities.Where(predicate).ToListAsync();
-        }
+        public virtual async Task<List<T>> GetMany(Expression<Func<T, bool>> predicate) => await Entities.Where(predicate).ToListAsync();
 
-        public virtual Task<List<T>> GetManyNoTracking(Expression<Func<T, bool>> predicate)
-        {
-            return TableNoTracking.Where(predicate).ToListAsync();
-        }
+        public virtual Task<List<T>> GetManyNoTracking(Expression<Func<T, bool>> predicate) => TableNoTracking.Where(predicate).ToListAsync();
 
-        public Task<List<T>> GetAll()
-        {
-            return Entities.ToListAsync();
-        }
+        public Task<List<T>> GetAll() => Entities.ToListAsync();
 
         public virtual async Task Insert(T entity)
         {
