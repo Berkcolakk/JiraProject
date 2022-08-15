@@ -15,7 +15,7 @@ namespace JiraProject.DAL.Entities
             ParameterDetail = new List<ParameterDetail>();
         }
         public string MasterName { get; set; }
-        [InverseProperty("ParameterMasterMasterID")]
+        [InverseProperty("ParameterMaster_Details")]
         public virtual ICollection<ParameterDetail> ParameterDetail { get; set; }
     }
 }

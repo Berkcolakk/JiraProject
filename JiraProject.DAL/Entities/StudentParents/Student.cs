@@ -17,7 +17,7 @@ namespace JiraProject.DAL.Entities.StudentParents
         public string UserName { get; set; }
         public DateTime DateOfBirth { get; set; }
         public int BirthPlace { get; set; }
-        [InverseProperty("ParameterMasterMasterID")]
-        public int SchoolID { get; set; }
+        [InverseProperty("StudentParents_Student")]
+        public virtual ICollection<StudentParents> StudentParents { get; set; }
     }
 }

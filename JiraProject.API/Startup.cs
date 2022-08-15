@@ -36,6 +36,8 @@ using JiraProject.Services.ProjectUserServices;
 using JiraProject.Services.ProjectIssuesServices;
 using JiraProject.ServiceManager.ProjectServiceMangers;
 using JiraProject.ServiceManager.ProjectUserServiceMangers;
+using JiraProject.ServiceManager.StudentServiceMangers;
+using JiraProject.ServiceManager.ParentServiceMangers;
 
 namespace JiraProject.API
 {
@@ -111,6 +113,12 @@ namespace JiraProject.API
 
             services.AddScoped<IProjectIssuesService, ProjectIssuesService>();
             services.AddScoped<ProjectIssuesManager>();
+
+            services.AddScoped<IStudentService, StudentService>();
+            services.AddScoped<StudentManager>();
+
+            services.AddScoped<IParentService, ParentService>();
+            services.AddScoped<ParentManager>();
 
             services.AddSwaggerGen(c =>
             {
